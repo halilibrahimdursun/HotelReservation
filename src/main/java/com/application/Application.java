@@ -8,6 +8,7 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         int test;
+        Boolean b;
 //        ArticleController articleController = new ArticleController();
 //        Article article1 = new Article("bike2000", "Electrical bike for sporty people", 3823.54D, "this is a picture".getBytes(), 12);
 //        Article article2 = new Article("bike4650", "Economy bike", 2234.99D, "this is a picture os a cheap bike".getBytes(), 3);
