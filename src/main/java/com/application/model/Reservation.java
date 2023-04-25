@@ -13,6 +13,8 @@ public class Reservation {
     int stock;
     String java;
 
+    String mm;
+
     //////////////
 
 
