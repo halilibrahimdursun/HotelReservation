@@ -2,9 +2,9 @@ package com.application;
 
 public class Application {
     public static void main(String[] args) {
-        int test;
 
-        Boolean b;
+
+
 
 //        ReservationController articleController = new ReservationController();
 //        Reservation article1 = new Reservation("bike2000", "Electrical bike for sporty people", 3823.54D, "this is a picture".getBytes(), 12);
