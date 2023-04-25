@@ -20,7 +20,7 @@ public class ReservationController {
         List<Reservation> reservations = reservationService.findAll();
         return reservations;
     }
-
+    
     // Endpoint
     // http://localhost:8080/api/reservation/stock/5
     //    GET
