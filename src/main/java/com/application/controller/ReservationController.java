@@ -1,23 +1,23 @@
 package com.application.controller;
 
-import com.application.model.Article;
-import com.application.service.ArticleService;
-import com.application.service.ArticleServiceImpl;
+import com.application.model.Reservation;
+import com.application.service.ReservationService;
+import com.application.service.ReservationServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class ArticleController {
-    ArticleService articleService = new ArticleServiceImpl();
+public class ReservationController {
+    ReservationService articleService = new ReservationServiceImpl();
 
     // Endpoint
     // http://localhost:8080/api/article
     //    GET
     @GetMapping(value = "article", produces = "application/json")
-    public List<Article> getAllArticles() {
-        List<Article> articles = articleService.findAll();
+    public List<Reservation> getAllArticles() {
+        List<Reservation> articles = articleService.findAll();
         return articles;
     }
 
@@ -25,7 +25,7 @@ public class ArticleController {
     // http://localhost:8080/api/article/stock/5
     //    GET
     @GetMapping(value = "article/stock/{stock}", produces = "application/json")
-    public List<Article> getAllArticlesWithLowStock(@PathVariable int stock) {
+    public List<Reservation> getAllArticlesWithLowStock(@PathVariable int stock) {
         return articleService.checkStock(stock);
     }
 
@@ -33,8 +33,8 @@ public class ArticleController {
     // http://localhost:8080/api/article/2
     //    GET
     @GetMapping(value = "article/{id}", produces = "application/json")
-    public Article getArticlesById(@PathVariable long id) {
-        Article article = articleService.findById(id);
+    public Reservation getArticlesById(@PathVariable long id) {
+        Reservation article = articleService.findById(id);
         return article;
     }
 
@@ -42,7 +42,7 @@ public class ArticleController {
     // http://localhost:8080/api/article
     //    PUT
     @PostMapping(value = "article", consumes = "application/json" , produces = "application/json")
-    public Article createArticle(@RequestBody Article article) {
+    public Reservation createArticle(@RequestBody Reservation article) {
         return articleService.save(article);
     }
 
