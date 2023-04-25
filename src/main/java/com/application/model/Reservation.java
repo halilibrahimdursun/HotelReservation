@@ -11,7 +11,7 @@ public class Reservation {
     double price;
     byte[] image;
     int stock;
-    LocalDateTime;
+
 
 
     public Reservation() {

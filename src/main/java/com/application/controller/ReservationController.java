@@ -10,47 +10,47 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class ReservationController {
-    ReservationService articleService = new ReservationServiceImpl();
+    ReservationService reservationService = new ReservationServiceImpl();
 
     // Endpoint
-    // http://localhost:8080/api/article
+    // http://localhost:8080/api/reservation
     //    GET
-    @GetMapping(value = "article", produces = "application/json")
-    public List<Reservation> getAllArticles() {
-        List<Reservation> articles = articleService.findAll();
-        return articles;
+    @GetMapping(value = "reservation", produces = "application/json")
+    public List<Reservation> getReservation() {
+        List<Reservation> reservations = reservationService.findAll();
+        return reservations;
     }
 
     // Endpoint
-    // http://localhost:8080/api/article/stock/5
+    // http://localhost:8080/api/reservation/stock/5
     //    GET
-    @GetMapping(value = "article/stock/{stock}", produces = "application/json")
-    public List<Reservation> getAllArticlesWithLowStock(@PathVariable int stock) {
-        return articleService.checkStock(stock);
+    @GetMapping(value = "reservation/stock/{stock}", produces = "application/json")
+    public List<Reservation> getAllReservationsWithLowStock(@PathVariable int stock) {
+        return reservationService.checkStock(stock);
     }
 
     // Endpoint
-    // http://localhost:8080/api/article/2
+    // http://localhost:8080/api/reservation/2
     //    GET
-    @GetMapping(value = "article/{id}", produces = "application/json")
-    public Reservation getArticlesById(@PathVariable long id) {
-        Reservation article = articleService.findById(id);
-        return article;
+    @GetMapping(value = "reservation/{id}", produces = "application/json")
+    public Reservation getReservationsById(@PathVariable long id) {
+        Reservation reservation = reservationService.findById(id);
+        return reservation;
     }
 
     // Endpoint
-    // http://localhost:8080/api/article
+    // http://localhost:8080/api/reservation
     //    PUT
-    @PostMapping(value = "article", consumes = "application/json" , produces = "application/json")
-    public Reservation createArticle(@RequestBody Reservation article) {
-        return articleService.save(article);
+    @PostMapping(value = "reservation", consumes = "application/json" , produces = "application/json")
+    public Reservation creatReservation(@RequestBody Reservation reservation) {
+        return reservationService.save(reservation);
     }
 
     // Endpoint
     // http://localhost:8080/api/article/2
     //    DEL
-    @DeleteMapping("article/{id}")
-    public void deleteArticleById(@PathVariable long id) {
-        articleService.remove(id);
+    @DeleteMapping("reservation/{id}")
+    public void deletReservationId(@PathVariable long id) {
+        reservationService.remove(id);
     }
 }

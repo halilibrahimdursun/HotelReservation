@@ -9,34 +9,34 @@ import java.util.List;
 
 public class ReservationServiceImpl implements ReservationService {
 
-    ReservationRepository articleRepository = new ReservationRepositoryImpl();
+    ReservationRepository reservationRepository = new ReservationRepositoryImpl();
     @Override
     public List<Reservation> findAll() {
-        return articleRepository.findAll();
+        return reservationRepository.findAll();
     }
 
     @Override
     public Reservation findById(long id) {
-        return articleRepository.findById(id);
+        return reservationRepository.findById(id);
     }
 
     @Override
-    public Reservation save(Reservation article) {
-        return articleRepository.save(article);
+    public Reservation save(Reservation reservation) {
+        return reservationRepository.save(reservation);
     }
 
     @Override
     public void remove(long id) {
-        articleRepository.remove(id);
+        reservationRepository.remove(id);
 
     }
     @Override
     public List<Reservation> checkStock(int stock){
-        List<Reservation> filteredArticles = new ArrayList<>();
-        for (Reservation article: articleRepository.findAll()) {
-            if (article.getStock() <= stock) filteredArticles.add(article);
+        List<Reservation> filteredreservations = new ArrayList<>();
+        for (Reservation reservation: reservationRepository.findAll()) {
+            if (reservation.getStock() <= stock) filteredreservations.add(reservation);
 
         }
-        return filteredArticles;
+        return filteredreservations;
     }
 }
