@@ -9,10 +9,11 @@ import java.util.List;
 
 public class ReservationServiceImpl implements ReservationService {
 
-    ReservationRepository ReservationRepositoryImpl = new ReservationRepositoryImpl();
+    ReservationRepository reservationRepositoryImpl = new ReservationRepositoryImpl();
     @Override
     public List<Reservation> findAll() {
-        return ReservationRepositoryImpl.findAll();
+        return reservationRepositoryImpl.findAll();
+
     }
 
     @Override
@@ -32,11 +33,13 @@ public class ReservationServiceImpl implements ReservationService {
     }
     @Override
     public List<Reservation> checkStock(int stock){
-        List<Reservation> filteredArticles = new ArrayList<>();
-        for (Reservation article: ReservationRepositoryImpl.findAll()) {
-            if (article.getStock() <= stock) filteredArticles.add(article);
+
+        List<Reservation> filteredreservations = new ArrayList<>();
+        for (Reservation reservation: reservationRepositoryImpl.findAll()) {
+            if (reservation.getStock() <= stock) filteredreservations.add(reservation);
+
 
         }
-        return filteredArticles;
+        return filteredreservations;
     }
 }

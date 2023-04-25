@@ -12,10 +12,6 @@ public class Reservation {
     byte[] image;
     int stock;
 
-
-
-
-
     public Reservation() {
     }
 
