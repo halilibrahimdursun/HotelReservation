@@ -11,11 +11,7 @@ public class Reservation {
     double price;
     byte[] image;
     int stock;
-    String java;
 
-    String mm;
-
-    //////////////
 
 
 
