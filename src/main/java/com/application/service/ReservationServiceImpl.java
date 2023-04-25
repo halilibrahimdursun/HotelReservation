@@ -33,7 +33,7 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<Reservation> checkStock(int stock){
         List<Reservation> filteredArticles = new ArrayList<>();
-        for (Reservation article: articleRepository.findAll()) {
+        for (Reservation article: ReservationRepositoryImpl.findAll()) {
             if (article.getStock() <= stock) filteredArticles.add(article);
 
         }
