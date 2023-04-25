@@ -18,17 +18,17 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Reservation findById(long id) {
-        return ReservationRepositoryImpl.findById(id);
+        return reservationRepositoryImpl.findById(id);
     }
 
     @Override
     public Reservation save(Reservation article) {
-        return ReservationRepositoryImpl.save(article);
+        return reservationRepositoryImpl.save(article);
     }
 
     @Override
     public void remove(long id) {
-        ReservationRepositoryImpl.remove(id);
+        reservationRepositoryImpl.remove(id);
 
     }
     @Override
