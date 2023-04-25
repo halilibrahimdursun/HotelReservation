@@ -1,8 +1,9 @@
 package com.application.model;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public class Article {
+public class Reservation {
 
     long id;
     String name;
@@ -10,11 +11,13 @@ public class Article {
     double price;
     byte[] image;
     int stock;
+    LocalDateTime;
 
-    public Article() {
+
+    public Reservation() {
     }
 
-    public Article(String name, String description, double price, byte[] image, int stock) {
+    public Reservation(String name, String description, double price, byte[] image, int stock) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -72,7 +75,7 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article{" +
+        return "Reservation{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
