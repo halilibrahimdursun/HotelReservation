@@ -26,7 +26,7 @@ public class ReservationController {
         return ResponseEntity.ok().body(reservationService.save(reservation));
 
     }
-
+    
     // Endpoint
     // http://localhost:8080/api/reservation
     // GET
