@@ -3,54 +3,66 @@ package com.application.controller;
 import com.application.model.Reservation;
 import com.application.service.ReservationService;
 import com.application.service.ReservationServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
 public class ReservationController {
-    ReservationService reservationService = new ReservationServiceImpl();
+
+    @Autowired
+    ReservationService reservationService;
 
     // Endpoint
     // http://localhost:8080/api/reservation
-    //    GET
-    @GetMapping(value = "reservation", produces = "application/json")
-    public List<Reservation> getReservation() {
-        List<Reservation> reservations = reservationService.findAll();
-        return reservations;
+    // POST
+    @PostMapping(value = "reservation", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation){
+
+        return ResponseEntity.ok().body(reservationService.save(reservation));
+
     }
 
     // Endpoint
-    // http://localhost:8080/api/reservation/stock/5
-    //    GET
-    @GetMapping(value = "reservation/stock/{stock}", produces = "application/json")
-    public List<Reservation> getAllReservationsWithLowStock(@PathVariable int stock) {
-        return reservationService.checkStock(stock);
+    // http://localhost:8080/api/reservation
+    // GET
+    @GetMapping(value = "reservation", produces = "application/json")
+    public Iterable<Reservation> getAllReservations(){
+        return reservationService.findAll();
+
+    }
+
+    // Endpoint
+    // http://localhost:8080/api/reservation/filter/true
+    // GET
+    @PostMapping(value = "reservation/filter", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Iterable<Reservation>> getAllReservationsOnDate(@RequestBody Reservation reservation){
+        return ResponseEntity.ok().body(
+                reservationService.filterReservationForVegan( reservation));
     }
 
     // Endpoint
     // http://localhost:8080/api/reservation/2
-    //    GET
+    // GET
     @GetMapping(value = "reservation/{id}", produces = "application/json")
-    public Reservation getReservationsById(@PathVariable long id) {
-        Reservation reservation = reservationService.findById(id);
-        return reservation;
+    public ResponseEntity<Reservation> getReservationById(@PathVariable long id){
+        Optional<Reservation> reservation = reservationService.findById(id);
+        return reservation.isPresent()?ResponseEntity.ok().body(reservation.get()):ResponseEntity.notFound().build();
+
     }
 
     // Endpoint
-    // http://localhost:8080/api/reservation
-    //    PUT
-    @PostMapping(value = "reservation", consumes = "application/json" , produces = "application/json")
-    public Reservation creatReservation(@RequestBody Reservation reservation) {
-        return reservationService.save(reservation);
-    }
-
-    // Endpoint
-    // http://localhost:8080/api/article/2
-    //    DEL
+    // http://localhost:8080/api/reservation/2
+    // DEL
     @DeleteMapping("reservation/{id}")
-    public void deletReservationId(@PathVariable long id) {
+    public ResponseEntity<Void> deleteReservationById( @PathVariable long id){
+
         reservationService.remove(id);
+        return ResponseEntity.ok().build();
     }
+
 }

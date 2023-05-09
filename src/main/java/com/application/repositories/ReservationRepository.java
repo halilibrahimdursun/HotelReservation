@@ -1,12 +1,13 @@
 package com.application.repositories;
 
 import com.application.model.Reservation;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface ReservationRepository {
-    List<Reservation> findAll();
-    Reservation findById(long id);
-    Reservation save(Reservation article);
-    void remove(long id);
+@Repository
+public interface ReservationRepository extends CrudRepository<Reservation, Long> {
+
 }

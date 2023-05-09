@@ -1,26 +1,35 @@
 package com.application.model;
 
-import java.time.LocalDateTime;
-import java.util.Arrays;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+
+@Entity
 public class Reservation {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
-    String name;
-    String description;
-    double price;
-    byte[] image;
-    int stock;
+    int tableNumber;
+    String telephoneNumber;
+    String email;
+    int guests;
+    boolean vegan;
+    LocalDate date;
 
     public Reservation() {
     }
 
-    public Reservation(String name, String description, double price, byte[] image, int stock) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.image = image;
-        this.stock = stock;
+    public Reservation(int tableNumber, String telephoneNumber, String email, int guests, boolean vegan, LocalDate date) {
+        this.tableNumber = tableNumber;
+        this.telephoneNumber = telephoneNumber;
+        this.email = email;
+        this.guests = guests;
+        this.vegan = vegan;
+        this.date = date;
     }
 
     public long getId() {
@@ -31,55 +40,51 @@ public class Reservation {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public int getTableNumber() {
+        return tableNumber;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTelephoneNumber() {
+        return telephoneNumber;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
-    public double getPrice() {
-        return price;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public byte[] getImage() {
-        return image;
+    public int getGuests() {
+        return guests;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setGuests(int guests) {
+        this.guests = guests;
     }
 
-    public int getStock() {
-        return stock;
+    public boolean isVegan() {
+        return vegan;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setVegan(boolean vegan) {
+        this.vegan = vegan;
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", image=" + Arrays.toString(image) +
-                ", stock=" + stock +
-                '}';
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
