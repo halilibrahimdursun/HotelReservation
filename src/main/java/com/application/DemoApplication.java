@@ -13,7 +13,6 @@ import java.util.List;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
-
 	@Autowired
 	ReservationRepository reservationRepository;
 	@Autowired
