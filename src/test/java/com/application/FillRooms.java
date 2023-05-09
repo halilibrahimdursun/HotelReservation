@@ -24,16 +24,17 @@ public class FillRooms {
         public static String processArray(String[] line){
             Room room = new Room();
 //		INSERT INTO Room VALUES(NEXTVAL('ROOM_SEQ'), 2, 'First floor',1, 'Single', 'Non Smoking', 'mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler', 220,101, 'i');
-            String sql = "\nINSERT INTO room " + "VALUES (NEXTVAL('ROOM_SEQ')," +
-                    line[3] + ", '" +
-                    line[2] + "'," +
+            String sql = "\nINSERT INTO room VALUES (NEXTVAL('ROOM_SEQ')," +
+                    line[3] + "," +
                     line[4] + ", '" +
-                    line[6] + "', '" +
-                    line[7] + "', '" +
-                    line[1] + "'," +
-                    line[8] + "," +
+                    line[9] + "'," +
+                    line[11] + "," +
+                    line[7] + "," +
+                    line[6] + "," +
+                    line[10] + "," +
                     line[0] + ", '" +
-                    line[5] + "')";
+                    line[5] + "', '" +
+                    line[2] + "')";
             return sql;
 
         }

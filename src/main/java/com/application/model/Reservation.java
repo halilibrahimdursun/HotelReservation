@@ -17,7 +17,6 @@ public class Reservation {
     String telephoneNumber;
     String email;
     int guests;
-    boolean vegan;
     LocalDate date;
 
     public Reservation() {
@@ -28,7 +27,6 @@ public class Reservation {
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.guests = guests;
-        this.vegan = vegan;
         this.date = date;
     }
 
@@ -72,13 +70,6 @@ public class Reservation {
         this.guests = guests;
     }
 
-    public boolean isVegan() {
-        return vegan;
-    }
-
-    public void setVegan(boolean vegan) {
-        this.vegan = vegan;
-    }
 
     public LocalDate getDate() {
         return date;

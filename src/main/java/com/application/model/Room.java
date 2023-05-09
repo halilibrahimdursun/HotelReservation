@@ -1,117 +1,120 @@
 package com.application.model;
 
-import jakarta.persistence.*;
-
-import java.time.LocalDate;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 @Entity
 public class Room {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    SEQUENCE, generator ="room_generator"
-//            @SequenceGenerator(name="room_generator", sequenceName = "room_seq")
-    long id;
-    long roomNumber;
-    String floor;
-    String roomType;
-    int adults;
-    int childrenBaby;
-    String comments;
+
+
+    long Id;
+    int roomNumber;
+    boolean isSmoking;
+    double price;
+    String typeOfRoom;
+    int capacityOfAdults;
+    int capacityOfChildren;
+    String typeOfBed;
+    boolean isDisabled;
     String facilities;
-    String bedType;
-    int price;
+    boolean isCleaned;
 
-    public Room() {
-    }
-    public Room(long roomNumber, String floor, String roomType, int adults, int childrenBaby, String bedType, String comments, String facilities, int price) {
-        this.roomNumber = roomNumber;
-        this.floor = floor;
-        this.roomType = roomType;
-        this.adults = adults;
-        this.childrenBaby = childrenBaby;
-        this.bedType = bedType;
-        this.comments = comments;
-        this.facilities = facilities;
+    public Room(boolean isSmoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, String typeOfBed, boolean isDisabled, String facilities, boolean isCleaned) {
+        this.isSmoking = isSmoking;
         this.price = price;
+        this.typeOfRoom = typeOfRoom;
+        this.capacityOfAdults = capacityOfAdults;
+        this.capacityOfChildren = capacityOfChildren;
+        this.typeOfBed = typeOfBed;
+        this.isDisabled = isDisabled;
+        this.facilities = facilities;
+        this.isCleaned = isCleaned;
     }
+    public Room(){
 
-    public String getBedType() {
-        return bedType;
-    }
-
-    public void setBedType(String bedType) {
-        this.bedType = bedType;
     }
 
     public long getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public boolean isSmoking() {
+        return isSmoking;
     }
 
-    public long getRoomNumber() {
-        return roomNumber;
+    public double getPrice() {
+        return price;
     }
 
-    public void setRoomNumber(long roomNumber) {
-        this.roomNumber = roomNumber;
+    public String getTypeOfRoom() {
+        return typeOfRoom;
     }
 
-    public String getFloor() {
-        return floor;
+    public int getCapacityOfAdults() {
+        return capacityOfAdults;
     }
 
-    public void setFloor(String floor) {
-        this.floor = floor;
+    public int getCapacityOfChildren() {
+        return capacityOfChildren;
     }
 
-    public String getRoomType() {
-        return roomType;
+    public String getTypeOfBed() {
+        return typeOfBed;
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
-    }
-
-    public int getAdults() {
-        return adults;
-    }
-
-    public void setAdults(int adults) {
-        this.adults = adults;
-    }
-
-    public int getChildrenBaby() {
-        return childrenBaby;
-    }
-
-    public void setChildrenBaby(int childrenBaby) {
-        this.childrenBaby = childrenBaby;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
+    public boolean isDisabled() {
+        return isDisabled;
     }
 
     public String getFacilities() {
         return facilities;
     }
 
+    public boolean isCleaned() {
+        return isCleaned;
+    }
+
+    public void setId(long id) {
+        Id = id;
+    }
+
+    public void setSmoking(boolean smoking) {
+        this.isSmoking = smoking;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setTypeOfRoom(String typeOfRoom) {
+        this.typeOfRoom = typeOfRoom;
+    }
+
+    public void setCapacityOfAdults(int capacityOfAdults) {
+        this.capacityOfAdults = capacityOfAdults;
+    }
+
+    public void setCapacityOfChildren(int capacityOfChildren) {
+        this.capacityOfChildren = capacityOfChildren;
+    }
+
+    public void setTypeOfBed(String typeOfBed) {
+        this.typeOfBed = typeOfBed;
+    }
+
+    public void setDisabled(boolean disabled) {
+        this.isDisabled = disabled;
+    }
+
     public void setFacilities(String facilities) {
         this.facilities = facilities;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    public void setCleaned(boolean cleaned) {
+        this.isCleaned = cleaned;
     }
 }
