@@ -38,19 +38,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Iterable<Reservation> filterReservationForVegan(Reservation reservation) {
-
-        List<Reservation> reservations = (List<Reservation>) reservationRepository.findAll();
-
-//        String s1 = "Hello";
-//        String s2 = null;
-//        boolean check = s2 == null? true: s1.equals(s2);
-
-        Iterable<Reservation> filtered = reservations.stream()
-                .filter( x -> x.isVegan() == reservation.isVegan())
-                .filter( x -> x.getGuests() == reservation.getGuests())
-//                .filter( x -> x.isVegan())
-                .toList();
-
-        return filtered;
+        return null;
     }
+
 }

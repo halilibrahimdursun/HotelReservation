@@ -3,6 +3,7 @@ package com.application.controller;
 import com.application.model.Reservation;
 import com.application.service.ReservationService;
 import com.application.service.ReservationServiceImpl;
+import com.application.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,8 @@ public class ReservationController {
 
     @Autowired
     ReservationService reservationService;
+    @Autowired
+    RoomService roomService;
 
     // Endpoint
     // http://localhost:8080/api/reservation
