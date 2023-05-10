@@ -70,6 +70,14 @@ p {
 	line-height: 26px;
 	margin: 0 0 15px 0;
 }
+o {
+	font-size: 5px;
+	font-family: "Cabin", sans-serif;
+	color: #6b6b6b;
+	font-weight: 400;
+	line-height: 26px;
+	margin: 0 0 1px 0;
+}
 img {
 	max-width: 100%;
 }
@@ -696,6 +704,9 @@ ul, ol {
 .service-item:hover p {
 	color: #ffffff;
 }
+.service-item:hover o {
+	color: #ffffff;
+}
 .service-item i {
 	display: inline-block;
 	color: #dfa974;
@@ -713,6 +724,12 @@ ul, ol {
 	transition: all 0.3s;
 }
 .service-item p {
+	color: #707079;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.service-item o {
 	color: #707079;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
