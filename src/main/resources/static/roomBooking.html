@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Room Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      display: flex;
+    }
+
+    .form-container {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .room-image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .room-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="form-container">
+    <h2>Hotel Room Booking</h2>
+    <form action="book_room.php" method="post">
+      <div class="form-group">
+        <label for="room_type">Room Type:</label>
+        <select name="room_type" id="room_type" required>
+          <option value="------">------</option>
+          <option value="Single room">Single room</option>
+          <option value="Double room">Double room</option>
+          <option value="2 Double room">2 Double room</option>
+          <option value="Penthouse">Penthouse</option>
+        </select>
+      </div>
+
+        <div class="form-group">
+          <label for="room_number">Room Number:</label>
+          <input type="text" name="room_number" placeholder="Room Number" required>
+        </div>
+        <div class="form-group">
+          <label for="guest_name">Your Name:</label>
+          <input type="text" name="guest_name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="guest_surname">Your Surname:</label>
+          <input type="text" name="guest_surname" placeholder="Your Surname" required>
+        </div>
+        <div class="form-group">
+          <label for="phone_number">Phone Number:</label>
+          <input type="tel" name="phone_number" placeholder="Phone Number" required>
+        </div>
+        <div class="form-group">
+          <label for="smoking">Smoking Room:</label>
+          <select name="smoking" id="smoking" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="disabled">Disabled Room:</label>
+          <select name="accessible" id="accessible" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="adults">Adults:</label>
+          <select name="adults" id="adults" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <!-- ... Добавьте остальные варианты ... -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="children">Children:</label>
+          <select name="children" id="children" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <!-- ... Добавьте остальные варианты ... -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="check_in_date">Check-in Date:</label>
+          <input type="date" name="check_in_date" required>
+        </div>
+        <div class="form-group">
+          <label for="check_out_date">Check-out Date:</label>
+          <input type="date" name="check_out_date" required>
+        </div>
+
+    <!-- Остальные поля формы... -->
+      <div class="form-group">
+        <input type="submit" value="Book Room">
+      </div>
+    </form>
+  </div>
+  <div class="room-image-container">
+   <img id="selected-room-image" src="" alt="" class="room-image">   <!--  alt="Selected Room Photo" -->
+  </div>
+</div>
+
+<script>
+  // Обработчик события изменения значения поля выбора комнаты
+  document.getElementById('room_type').addEventListener('change', function() {
+    var selectedRoom = this.value;
+    var roomImage = '';
+
+    // Установка пути к изображению в зависимости от выбранной комнаты
+    switch (selectedRoom) {
+      case 'Single room':
+        roomImage = 'img/room/room-1.jpg';
+        break;
+      case 'Double room':
+        roomImage = 'img/room/room-2.jpg';
+        break;
+      case '2 Double room':
+        roomImage = 'img/room/room-3.jpg';
+        break;
+      case 'Penthouse':
+        roomImage = 'img/room/room-4.jpg';
+        break;
+      default:
+        roomImage = '';
+        break;
+    }
+
+    // Обновление изображения комнаты
+    var roomImageView = document.getElementById('selected-room-image');
+    if (roomImage !== '') {
+      roomImageView.src = roomImage;
+      roomImageView.style.display = 'block'; // Показать изображение, если было скрыто
+    } else {
+      roomImageView.src = '';
+      roomImageView.style.display = 'none'; // Скрыть изображение, если путь не указан
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <title>Hotel Room Booking</title>-->
+<!--  <style>-->
+<!--    body {-->
+<!--      font-family: Arial, sans-serif;-->
+<!--      background-color: #f5f5f5;-->
+<!--      margin: 0;-->
+<!--      padding: 0;-->
+<!--    }-->
+
+<!--    .container {-->
+<!--      max-width: 400px;-->
+<!--      margin: 20px auto;-->
+<!--      background-color: #fff;-->
+<!--      padding: 20px;-->
+<!--      border-radius: 5px;-->
+<!--      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);-->
+<!--    }-->
+
+<!--    h2 {-->
+<!--      text-align: center;-->
+<!--      margin-bottom: 20px;-->
+<!--    }-->
+
+<!--    .form-group {-->
+<!--      margin-bottom: 15px;-->
+<!--    }-->
+
+<!--    label {-->
+<!--      display: block;-->
+<!--      font-weight: bold;-->
+<!--      margin-bottom: 5px;-->
+<!--    }-->
+
+<!--    input,-->
+<!--    select {-->
+<!--      width: 100%;-->
+<!--      padding: 10px;-->
+<!--      border: 1px solid #ccc;-->
+<!--      border-radius: 4px;-->
+<!--      font-size: 16px;-->
+<!--      box-sizing: border-box;-->
+<!--    }-->
+
+<!--    input[type="submit"] {-->
+<!--      background-color: #4caf50;-->
+<!--      color: #fff;-->
+<!--      cursor: pointer;-->
+<!--    }-->
+
+<!--    input[type="submit"]:hover {-->
+<!--      background-color: #45a049;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--  <h2>Hotel Room Booking</h2>-->
+<!--  <form action="book_room.php" method="post">-->
+<!--    <div class="form-group">-->
+<!--      <label for="room_type">Room Type:</label>-->
+<!--      <select name="room_type" id="room_type" required>-->
+<!--        <option value="Single room">Single room</option>-->
+<!--        <option value="Double room">Double room</option>-->
+<!--        <option value="2 Double room">2 Double room</option>-->
+<!--        <option value="Penthouse">Penthouse</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="room_number">Room Number:</label>-->
+<!--      <input type="text" name="room_number" placeholder="Room Number" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="guest_name">Your Name:</label>-->
+<!--      <input type="text" name="guest_name" placeholder="Your Name" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="guest_surname">Your Surname:</label>-->
+<!--      <input type="text" name="guest_surname" placeholder="Your Surname" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="phone_number">Phone Number:</label>-->
+<!--      <input type="tel" name="phone_number" placeholder="Phone Number" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="smoking">Smoking Room:</label>-->
+<!--      <select name="smoking" id="smoking" required>-->
+<!--        <option value="yes">Yes</option>-->
+<!--        <option value="no">No</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="accessible">Accessible Room:</label>-->
+<!--      <select name="accessible" id="accessible" required>-->
+<!--        <option value="yes">-->
+<!--        <option value="no">No</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="adults">Adults:</label>-->
+<!--      <select name="adults" id="adults" required>-->
+<!--        <option value="1">1</option>-->
+<!--        <option value="2">2</option>-->
+<!--        <option value="3">3</option>-->
+<!--        &lt;!&ndash; ... Добавьте остальные варианты ... &ndash;&gt;-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="children">Children:</label>-->
+<!--      <select name="children" id="children" required>-->
+<!--        <option value="0">0</option>-->
+<!--        <option value="1">1</option>-->
+<!--        <option value="2">2</option>-->
+<!--        &lt;!&ndash; ... Добавьте остальные варианты ... &ndash;&gt;-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="check_in_date">Check-in Date:</label>-->
+<!--      <input type="date" name="check_in_date" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="check_out_date">Check-out Date:</label>-->
+<!--      <input type="date" name="check_out_date" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <input type="submit" value="Book Room">-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
