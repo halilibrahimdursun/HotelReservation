@@ -78,7 +78,7 @@ public class Reservation {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", image=" + Arrays.toString(image) +
+                ", images=" + Arrays.toString(image) +
                 ", stock=" + stock +
                 '}';
     }
