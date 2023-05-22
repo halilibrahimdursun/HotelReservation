@@ -75,16 +75,7 @@ public class Reservation {
         return date;
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", images=" + Arrays.toString(image) +
-                ", stock=" + stock +
-                '}';
-
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
