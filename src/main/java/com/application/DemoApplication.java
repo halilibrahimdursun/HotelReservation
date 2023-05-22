@@ -22,7 +22,7 @@ public class DemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 	}
 
-//		Reservation reservation;
+//		Reservation;
 //		reservation = new Reservation( 3, "06-49274625", FakerUtil.getFakeEmailAddress(), 4, false, LocalDate.now());
 //		reservationRepository.save(reservation);
 //		reservation = new Reservation( 6, "06-83645095", FakerUtil.getFakeEmailAddress(), 2, true, LocalDate.now());
