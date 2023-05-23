@@ -75,16 +75,16 @@ public class Reservation {
         return date;
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", images=" + Arrays.toString(image) +
-                ", stock=" + stock +
-                '}';
-
-    }
+//    @Override
+//    public String toString() {
+//        return "Reservation{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", description='" + description + '\'' +
+//                ", price=" + price +
+//                ", images=" + Arrays.toString(image) +
+//                ", stock=" + stock +
+//                '}';
+//
+//    }
 }
