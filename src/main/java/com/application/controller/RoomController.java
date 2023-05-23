@@ -25,7 +25,7 @@ public class RoomController {
     RoomRepository roomRepository;
 
     // Endpoint
-    // http://localhost:8080/api/room/2
+    // http://localhost:8080/api/room
     // GET
     @GetMapping (value = "room/{roomId}/", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Room> findRoomById(@PathVariable long roomId) {
