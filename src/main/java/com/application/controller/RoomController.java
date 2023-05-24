@@ -36,6 +36,7 @@ public class RoomController {
     // Endpoint
     // http://localhost:8080/api/room
     // GET
+
     @GetMapping (value = "room", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Room> findAll(@PathVariable long roomId){
         Iterable<Room> room = roomService.findAll();
@@ -46,6 +47,7 @@ public class RoomController {
         }
 
     }
+
         // Endpoint
         // http://localhost:8080/api/room
         // GET
