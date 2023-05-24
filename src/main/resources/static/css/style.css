@@ -1,6 +1,6 @@
 /******************************************************************
-  Template Name: Sona
-  Description: Sona Hotel Html Template
+  Template Name: Molveno
+  Description: Molveno Hotel Html Template
   Author: Colorlib
   Author URI: https://colorlib.com
   Version: 1.0
@@ -31,6 +31,7 @@
 
 /* Template default CSS
 /*----------------------------------------*/
+
 
 html, body {
 	height: 100%;
@@ -273,10 +274,13 @@ ul, ol {
   Header
 -----------------------*/
 
+
+
 .header-section.header-normal .menu-item {
 	-webkit-box-shadow: 0px 12px 15px rgba(36, 11, 12, 0.05);
 	box-shadow: 0px 12px 15px rgba(36, 11, 12, 0.05);
 }
+
 .top-nav {
 	border-bottom: 1px solid #e5e5e5;
 }
@@ -2351,4 +2355,12 @@ ul, ol {
 	.blog-details-text .comment-option .single-comment-item .sc-text a {
 		margin-bottom: 10px;
 	}
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
 }

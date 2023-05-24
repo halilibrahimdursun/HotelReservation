@@ -21,7 +21,7 @@ public class RoomController {
 
 
     // Endpoint
-    // http://localhost:8080/api/room/2
+    // http://localhost:8080/api/room
     // GET
     @GetMapping (value = "room/{roomId}/", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Room> findRoomById(@PathVariable long roomId) {
@@ -32,15 +32,27 @@ public class RoomController {
             return ResponseEntity.ok().body(room.get());
         }
     }
+    // Endpoint
+    // http://localhost:8080/api/room
+    // GET
+    @GetMapping (value = "roomqqqq", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Room> findAllqqqqq(@PathVariable long roomId){
+        Iterable<Room> room = roomRepository.findAllById(Collections.singleton(roomId));
+        if (room.iterator().hasNext()) {
+            return ResponseEntity.ok().body((Room) room);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
 
+    }
         // Endpoint
         // http://localhost:8080/api/room
         // GET
         @GetMapping (value = "room", produces = "application/json")
         public ResponseEntity<Iterable<Room>> findAll(){
-            Iterable<Room> rooms = roomService.findAll();
 
-                return ResponseEntity.ok().body(rooms);
+           return ResponseEntity.ok().body(roomService.findAll());
+
 
 
         }

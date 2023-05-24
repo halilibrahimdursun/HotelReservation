@@ -15,7 +15,7 @@ public class FillRooms {
         CSVParser parser = new CSVParserBuilder()
                 .withSeparator(',')
                 .build();
-        try (CSVReader reader = new CSVReaderBuilder(new FileReader("src/test/resources/Rooms.csv"))
+        try (CSVReader reader = new CSVReaderBuilder(new FileReader("src/test/resources/RoomsTest.csv"))
                 .withCSVParser(parser)
                 .build();) {
             reader.readAll().forEach(x -> write(processArray(x)));
@@ -26,8 +26,10 @@ public class FillRooms {
 //		INSERT INTO Room VALUES(NEXTVAL('ROOM_SEQ'), 2, 'First floor',1, 'Single', 'Non Smoking', 'mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler', 220,101, 'i');
             String sql = "\nINSERT INTO room VALUES (NEXTVAL('ROOM_SEQ')," +
                     line[3] + "," +
-                    line[4] + ", '" +
-                    line[9] + "'," +
+                    line[4] + "," +
+                    line[12] + ", '" +
+                    line[9] + "', '" +
+                    line[13] + "', " +
                     line[11] + "," +
                     line[7] + "," +
                     line[6] + "," +

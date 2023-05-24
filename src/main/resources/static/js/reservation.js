@@ -1,137 +1,94 @@
-var api = "http://localhost:9092/api/rooms" ;
-var roomsTable;
+var api = "http://localhost:8080/api/reservation" ;
+var reservationTable;
+
 
 function init(){
 
     console.log('inside init' );
 
-    $("bbjs").attr('checked', true);
-
-    //$(function () {
-       // $("#gfg").datepicker(
-            //{ firstDay: 1 }
-       // );
-   // });
-
-
-    //$("#newCustomerButton").click( function () {
-      //  console.log("Inside click of newCustomerButton");
-        //$('#customerModal').modal('show');
-    //});
-
-    //$("#editCustomerButton").click( function () {
-        //console.log("Inside click of editCustomerButton");
-        // Get the data from selected row and fill fields in modal
-
-//        $("#name").val('XXXXX');
-//        $("#address").val('ZZZZZZZZ');
-//        $("#age").val(23);
-
-   //     if (customerTable.row($('.selected')).data() == undefined) {
-   //         alert("Select customer first");
-   //     }else{
-   //         var customer = customerTable.row($('.selected')).data();
-   //         alert(customer.id);
-   //         $("#id").val(customer.id);
-   //         $("#name").val(customer.name);
-   //         $("#address").val(customer.address);
-   //         $("#age").val(customer.age);
-//
-   //         $('#customerModal').modal('show');
-   //     }
-//
-   // });
-//
-    $("#deleteCustomerButton").click( function () {
-        console.log("Inside click of deleteCustomerButton");
-
-        if (customerTable.row($('.selected')).data() == undefined) {
-            alert("Select customer first");
-        }else{
-            $('#customerDeleteModal').modal('show');
-        }
-
+    // Add click event to button
+    $("#create-reservation").click(function (){
+        createReservation();
     });
 
-    // Button in modal
-    $("#deleteCustomerConfirmButton").click( function () {
-        console.log("Inside click of deleteCustomerButton");
-        deleteCustomer();
-        $('#customerDeleteModal').modal('hide');
-    });
-
-    // Add submit event to form for new and edit
-    $("#customerForm").on('submit', function() {
-        console.log("Submitting");
-        createCustomer();
-        $('#customerModal').modal('hide');
-    });
-
-    initCustomerTable();
-    // Get customers from backend and and update table
-    getCustomerData();
-
-
+    initReservationTable();
+    // Get reservations from backend and and update table
+    getReservationData();
 
 }
 
-function initCustomerTable() {
+function initReservationTable() {
 
-    console.log('inside initCustomerTable' );
+    console.log('inside initReservationTable' );
 
     // Create columns (with titles) for datatable: id, name, address, age
     columns = [
-        { "title":  "Customer ID",
-            "data": "id" ,
+        { "title":  "Reservation ID",
+            "data": "id",
             "visible": false },
-        { "title":  "Name",
-            "data": "name" },
-        { "title":  "Address",
-            "data": "address" },
-        { "title": "Age",
-            "data": "age"},
+        { "title":  "Date",
+            "data": "date" },  // 2022-06-08T08:09:18.922
+        { "title":  "Room ID",
+            "data": "roomId" },
+        { "title":  "Table ID",
+            "data": "tableId" },
+        { "title": "Seaview",
+            "data": "seaView",
+            "render": function(seaView) {
+                if (seaView == true) {
+                    return "with sea view"
+                } else {
+                    return "without sea view"
+                }
+                return seaViewRenderer(seaView);
+            }},
+//        { "title": "Seaview",
+//            "data": "seaView",
+//            "render": function(seaView) {
+//                return seaViewRenderer(seaView);
+//            }}
     ];
 
+    function seaViewRenderer( seaView){
+        if (seaView == true) {
+            return "with sea view"
+        } else {
+            return "without sea view"
+        }
+    }
+
+
     // Define new table with above columns
-    customerTable = $("#customerTable").DataTable( {
+    reservationTable = $("#reservationTable").DataTable( {
         "order": [[ 0, "asc" ]],
+
         "columns": columns
     });
 
-
-    $("#customerTable tbody").on( 'click', 'tr', function () {
-        console.log("Clicking on row");
-        if ( $(this).hasClass('selected') ) {
-          $(this).removeClass('selected');
-          // emptyRoomModals();
-        }
-        else {
-            customerTable.$('tr.selected').removeClass('selected');
-          // emptyRoomModals();
-            $(this).addClass('selected');
-        }
-    });
+    getReservationData();
 
 }
 
-function getCustomerData(){
+function getReservationData(){
 
-    console.log('inside getCustomerData' );
-    // http:/localhost:9090/api/customer
-    // json list of customers
+    console.log('inside getReservationData' );
+    // http:/localhost:8080/api/reservation
+    // json list of reservations
+  
     $.ajax({
         url: api,
         type: "get",
         dataType: "json",
-        // success: function(customers, textStatus, jqXHR){
-        success: function(customers){
+        // success: function(reservations, textStatus, jqXHR){
+        success: function(reservations){
 
- //           console.log('Data: ' + customers );
+            console.log('Data: ' + reservations );
 
-            if (customers) {
-                customerTable.clear();
-                customerTable.rows.add(customers);
-                customerTable.columns.adjust().draw();
+            if (reservations) {
+                reservationTable.clear();
+                reservationTable.rows.add(reservations);
+                reservationTable.columns.adjust().draw();
+
             }
         },
 
@@ -143,85 +100,41 @@ function getCustomerData(){
 
 }
 
-function createCustomer(){
+function createReservation(){
 
-    console.log('inside createCustomer' );
+    console.log('inside createReservation' );
 
-    // Put customer data from page in Javascript object --- SIMILAR TO JSON
-    var customerData = {
+    // Put reservation data from page in Javascript object --- SIMILAR TO JSON
+    var reservationData = {
             id: $("#id").val(),
-            name: $("#name").val(),
-            address: $("#address").val(),
-            age: $("#age").val()
+            date: $("#date").val(),
+            tableId: $("#tableid").val(),
+            roomId: $("#roomid").val(),
+            seaView: $("#seaview").val()
     }
 
     // Transform Javascript object to json
-    var customerJson = JSON.stringify(customerData);
+    var reservationJson = JSON.stringify(reservationData);
 
-    console.log(customerJson);
+    console.log(reservationJson);
 
     $.ajax({
         url: api,
         type: "post",
-        data: customerJson,    // json for request body
+        data: reservationJson,    // json for request body
         contentType:"application/json; charset=utf-8",   // What we send to frontend
         dataType: "json",  // get back from frontend
-        // success: function(customer, textStatus, jqXHR){
-        success: function(customer){
+        // success: function(reservation, textStatus, jqXHR){
+        success: function(reservation){
 
-          console.log(customer);
+          console.log(reservation);
 
           // Clear fields in page
           $("#id").val('');
-          $("#name").val('');
-          $("#address").val('');
-          $("#age").val('');
+          $("#date").val('');
+          $("#tableid").val('');
+          $("#roomid").val('');
+          $("#seaview").val('');
 
           // Refresh table data
-          getCustomerData();
-
-        },
-
-        fail: function (error) {
-          console.log('Error: ' + error);
-        }
-
-    });
-
-}
-
-function deleteCustomer(){
-
-    if (customerTable.row($('.selected')).data() == undefined) {
-        alert("Select customer first");
-    }else{
-        var customer = customerTable.row($('.selected')).data();
-
-        console.log(api + '/' + customer.id);
-
-            $.ajax({
-                url: api + '/' + customer.id,
-                contentType: "application/json",
-                dataType: "text",  // get back from frontend
-                // success: function(customer, textStatus, jqXHR){
-                success: function(message){
-
-                  console.log(message);
-
-                  // Refresh table data
-                  getCustomerData();
-
-                },
-
-                fail: function (error) {
-                  console.log('Error: ' + error);
-                }
-
-            });
-
-
-
-    }
-
-
-}
+          getReservationData();
