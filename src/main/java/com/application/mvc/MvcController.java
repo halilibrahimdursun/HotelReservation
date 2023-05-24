@@ -5,13 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MvcController {
-
     // http://localhost:8080/
     @GetMapping("/")
     public String homePage() {
 
         System.out.println("Inside homePage");
-
         return "index";
     }
 
@@ -52,6 +50,12 @@ public class MvcController {
 
         return "blog";
     }
+    // http://localhost:8080/login
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
 
 }
 
