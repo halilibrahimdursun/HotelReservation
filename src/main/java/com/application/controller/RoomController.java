@@ -5,6 +5,7 @@ import com.application.model.Room;
 import com.application.repositories.RoomRepository;
 import com.application.service.ReservationService;
 import com.application.service.RoomService;
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +36,9 @@ public class RoomController {
     // Endpoint
     // http://localhost:8080/api/room
     // GET
-    @GetMapping (value = "roomqqqq", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Room> findAllqqqqq(@PathVariable long roomId){
-        Iterable<Room> room = roomRepository.findAllById(Collections.singleton(roomId));
+    @GetMapping (value = "room", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Room> findAll(@PathVariable long roomId){
+        Iterable<Room> room = roomService.findAll();
         if (room.iterator().hasNext()) {
             return ResponseEntity.ok().body((Room) room);
         } else {
@@ -62,7 +63,7 @@ public class RoomController {
     // GET
     @GetMapping (value = "room/filtered", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Iterable<Room>> findAllFiltered(@RequestBody Room room){
-        Iterable<Room> rooms = roomService.findAllFiltered( room);
+        Iterable<Room> rooms = roomService.findAllFiltered(room);
 
         return ResponseEntity.ok().body(rooms);
 
