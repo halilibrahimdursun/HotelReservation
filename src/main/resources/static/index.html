@@ -34,6 +34,8 @@
     <script src="js/index.js"></script>
 
 
+
+
 </head>
 
 <body>
@@ -87,17 +89,8 @@
                                 <li class="active"><a href="./index.html">Home</a></li>
                                 <li><a href="./rooms.html">Rooms</a></li>  <!-- <li><a href="./rooms.html">Rooms</a></li> -->
                                 <li><a href="./about-us.html">About Us</a></li>
-                                <!--                                    <li><a href="./pages.html">Pages</a>-->
-                                <!--                                        <ul class="dropdown">-->
-                                <!--                                            <li><a href="./room-details.html">Room Details</a></li>-->
-                                <!--                                            <li><a href="./blog-details.html">Blog Details</a></li>-->
-                                <!--                                            <li><a href="#">Family Room</a></li>-->
-                                <!--                                            <li><a href="#">Premium Room</a></li>-->
-                                <!--                                        </ul>-->
-                                <!--                                    </li>-->
-                                <!--                                    <li><a href="./blog.html">News</a></li>-->
-                                <li><a href="contact.html">Contact</a></li>   <!-- <li><a href="./contact.html">Contact</a></li>   -->
-                                <!--                                    <li><a href="./login.html">Login</a></li>-->
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="login">Login</a></li>
                             </ul>
                         </nav>
                         <!--                            <div class="nav-right search-switch">-->
@@ -129,12 +122,12 @@
                     <form action="#" id="booking-form">
                         <div class="check-date">
                             <label for="date-in">Check In:</label>
-                            <input type="text" class="date-input" id="date-in">
+                            <input type="text" class="date-input" id="date-in" autocomplete="off">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="check-date">
                             <label for="date-out">Check Out:</label>
-                            <input type="text" class="date-input" id="date-out">
+                            <input type="text" class="date-output" id="date-out" autocomplete="off">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="select-option">
@@ -593,6 +586,28 @@
       });
     });
   });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var checkInDate = null;
+
+        $("#date-in").datepicker({
+            minDate: 0,
+            dateFormat: 'dd.mm.yy',
+            onSelect: function(selectedDate) {
+                checkInDate = $(this).datepicker('getDate');
+                checkInDate.setDate(checkInDate.getDate() + 1);
+                $("#date-out").datepicker("option", "minDate", checkInDate);
+            }
+        });
+
+        $("#date-out").datepicker({
+            minDate: 1,
+            dateFormat: 'dd.mm.yy'
+        });
+    });
 </script>
 
 </body>

@@ -94,12 +94,25 @@
     });
 
     /*------------------
-		Date Picker
+		Date Picker Check-in
 	--------------------*/
     $(".date-input").datepicker({
         minDate: 0,
-        dateFormat: 'dd MM, yy'
+        dateFormat: 'dd MM, yy',
+        changeMonth: true,
+        changeYear: true
     });
+
+/*------------------
+		Date Picker Check-out
+	--------------------*/
+    $(".date-output").datepicker({
+        minDate: 1,
+        dateFormat: 'dd MM, yy',
+         changeMonth: true,
+            changeYear: true
+    });
+
 
     /*------------------
 		Nice Select
