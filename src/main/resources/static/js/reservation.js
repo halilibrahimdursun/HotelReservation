@@ -1,6 +1,7 @@
 var api = "http://localhost:8080/api/reservation" ;
 var reservationTable;
 
+
 function init(){
 
     console.log('inside init' );
@@ -73,6 +74,7 @@ function getReservationData(){
     console.log('inside getReservationData' );
     // http:/localhost:8080/api/reservation
     // json list of reservations
+  
     $.ajax({
         url: api,
         type: "get",
@@ -86,6 +88,7 @@ function getReservationData(){
                 reservationTable.clear();
                 reservationTable.rows.add(reservations);
                 reservationTable.columns.adjust().draw();
+
             }
         },
 
@@ -135,13 +138,3 @@ function createReservation(){
 
           // Refresh table data
           getReservationData();
-
-        },
-
-        fail: function (error) {
-          console.log('Error: ' + error);
-        }
-
-    });
-
-}

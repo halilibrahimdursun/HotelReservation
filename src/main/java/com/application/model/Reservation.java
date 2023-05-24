@@ -12,22 +12,26 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
-    int tableNumber;
-    String telephoneNumber;
-    String email;
-    int guests;
-    LocalDate date;
+    private long id;
+    private int roomNumber;
+    private String telephoneNumber;
+    private String email;
+    private int guests;
+    private LocalDate date;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
 
     public Reservation() {
     }
 
-    public Reservation(int tableNumber, String telephoneNumber, String email, int guests, boolean vegan, LocalDate date) {
-        this.tableNumber = tableNumber;
+    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, LocalDate date, LocalDate checkInDate, LocalDate checkOutDate) {
+        this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.guests = guests;
         this.date = date;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
     }
 
     public long getId() {
@@ -38,12 +42,12 @@ public class Reservation {
         this.id = id;
     }
 
-    public int getTableNumber() {
-        return tableNumber;
+    public int getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setTableNumber(int tableNumber) {
-        this.tableNumber = tableNumber;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
     public String getTelephoneNumber() {
@@ -70,10 +74,10 @@ public class Reservation {
         this.guests = guests;
     }
 
-
     public LocalDate getDate() {
         return date;
     }
+
 
 //    @Override
 //    public String toString() {
@@ -87,4 +91,25 @@ public class Reservation {
 //                '}';
 //
 //    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalDate getCheckInDate() {
+        return checkInDate;
+    }
+
+    public void setCheckInDate(LocalDate checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+
+    public LocalDate getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public void setCheckOutDate(LocalDate checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
 }

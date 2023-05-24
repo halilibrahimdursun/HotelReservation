@@ -11,4 +11,6 @@ public interface RoomService {
     Optional<Room> findById(long id);
     Room save(Room room);
     void remove( long id);
+
+    Iterable<Room> findAllFiltered(Room room);
 }
