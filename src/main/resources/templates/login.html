@@ -109,8 +109,12 @@
                 <div class="breadcrumb-text">
                     <h2>Login</h2>
                     <form action="/login" method="post">
-                        <input type="text" name="username" placeholder="Username" required>
-                        <input type="password" name="password" placeholder="Password" required>
+<!--                        <input type="text" name="username" placeholder="Username" required>-->
+                        <label for="username">Login:</label>
+                        <input type="text" id="username" required><br>
+<!--                        <input type="password" name="password" placeholder="Password" required>-->
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" required><br>
                         <input type="submit" value="Login">
                     </form>
                 </div>
@@ -167,6 +171,48 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+
+
+<script>
+        function login() {
+            // Получение введенных логина и пароля
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Проверка логина и пароля
+            if (username === "admin" && password === "password") {
+                alert("Успешная аутентификация!");
+                // Действия при успешной аутентификации (например, перенаправление на другую страницу)
+            } else {
+                alert("Неверный логин ил
+
+        function login() {
+            // Получение введенных логина и пароля
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Проверка логина и пароля
+            if (username === "admin" && password === "password") {
+                alert("/index.html");
+                // Действия при успешной аутентификации (например, перенаправление на другую страницу)
+            } else {
+                alert("Н
+
+        function login() {
+            // Получение введенных логина и пароля
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Проверка логина и пароля
+            if (username === "admin" && password === "password") {
+                alert("Успешная аутентификация!");
+                // Действия при успешной аутентификации (например, перенаправление на другую страницу)
+            } else {
+                alert("Неверный логин или пароль!");
+            }
+        }
+    </script>
+
 
 </body>
 
