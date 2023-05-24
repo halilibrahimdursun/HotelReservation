@@ -122,12 +122,12 @@
                     <form action="#" id="booking-form">
                         <div class="check-date">
                             <label for="date-in">Check In:</label>
-                            <input type="text" class="date-input" id="date-in" autocomplete="off">
+                            <input type="text" class="date-in" id="date-in" autocomplete="off">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="check-date">
                             <label for="date-out">Check Out:</label>
-                            <input type="text" class="date-output" id="date-out" autocomplete="off">
+                            <input type="text" class="date-out" id="date-out" autocomplete="off">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="select-option">
@@ -589,26 +589,7 @@
 </script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var checkInDate = null;
 
-        $("#date-in").datepicker({
-            minDate: 0,
-            dateFormat: 'dd.mm.yy',
-            onSelect: function(selectedDate) {
-                checkInDate = $(this).datepicker('getDate');
-                checkInDate.setDate(checkInDate.getDate() + 1);
-                $("#date-out").datepicker("option", "minDate", checkInDate);
-            }
-        });
-
-        $("#date-out").datepicker({
-            minDate: 1,
-            dateFormat: 'dd.mm.yy'
-        });
-    });
-</script>
 
 </body>
 </html>
