@@ -1,6 +1,8 @@
 package com.application.service;
 
+import com.application.model.Reservation;
 import com.application.model.Room;
+import com.application.repositories.ReservationRepository;
 import com.application.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,10 @@ import java.util.Optional;
 public class RoomServiceImpl implements RoomService {
     @Autowired
     RoomRepository roomRepository;
+
+    @Autowired
+    ReservationRepository reservationRepository;
+
     @Override
     public Iterable<Room> findAll() {
         return roomRepository.findAll();
@@ -37,17 +43,19 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public Iterable<Room> findAllFiltered(Room room) {
         List<Room> rooms = (List<Room>) roomRepository.findAll();
+        //List<Reservation> reservations = (List<Reservation>) reservationRepository.findAll();
 
         Iterable<Room> filtered = rooms
                 .stream()
+               // .filter(checkRoom -> checkRoom.getCheckInDate() == reservations.getCheckInDate())
+               // .filter(checkRoom ->checkRoom.getCheckOutDate() == reservations.getCheckOutDate())
                 .filter(checkRoom -> checkRoom.isCleaned() == room.isCleaned())
-                .filter(checkRoom -> checkRoom.isDisabled() == room.isDisabled())
-//                .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
-//                .filter(checkRoom -> checkRoom.getTypeOfRoom() == checkRoom(checkRoom))
+                //.filter(checkRoom -> checkRoom.isDisabled() == room.isDisabled())
+               // .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
+                //.filter(checkRoom -> checkRoom.getTypeOfRoom() == checkRoom(checkRoom))
                 .toList();
         return filtered;
     }
-
     private String checkRoom(Room checkRoom) {
 
         if (checkRoom.getCapacityOfAdults() == 1 && checkRoom.getCapacityOfChildren() == 0) {
