@@ -34,16 +34,18 @@ public class RoomServiceImpl implements RoomService {
 
     }
 
-    public void filterRoom(Room room){
+    @Override
+    public Iterable<Room> findAllFiltered(Room room) {
         List<Room> rooms = (List<Room>) roomRepository.findAll();
 
         Iterable<Room> filtered = rooms
                 .stream()
                 .filter(checkRoom -> checkRoom.isCleaned() == room.isCleaned())
                 .filter(checkRoom -> checkRoom.isDisabled() == room.isDisabled())
-                .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
-                .filter(checkRoom -> checkRoom.getTypeOfRoom() == checkRoom(checkRoom))
+//                .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
+//                .filter(checkRoom -> checkRoom.getTypeOfRoom() == checkRoom(checkRoom))
                 .toList();
+        return filtered;
     }
 
     private String checkRoom(Room checkRoom) {
