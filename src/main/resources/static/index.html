@@ -31,7 +31,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="/js/index.js"></script>
     <script src="js/index.js"></script>
 
 
@@ -503,8 +502,7 @@
             </div>
         </div>
     </div>
-    </div>
-</footer>
+   </footer>
 <!-- Footer Section End -->
 
 <!-- Search model Begin -->
@@ -529,33 +527,33 @@
 <script src="js/main.js"></script>
 
 
-<style>
-* {
-  box-sizing: border-box;
-}
+<!--<style>-->
+<!--* {-->
+<!--  box-sizing: border-box;-->
+<!--}-->
 
-.zoom {
-  padding: 50px;
-  //background-color: green;
-  transition: transform .2s;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
-}
+<!--.zoom {-->
+<!--  padding: 50px;-->
+<!--  //background-color: green;-->
+<!--  transition: transform .2s;-->
+<!--  width: 300px;-->
+<!--  height: 100px;-->
+<!--  margin: 0 auto;-->
+<!--}-->
 
-.zoom:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5);
-}
-</style>
+<!--.zoom:hover {-->
+<!--  -ms-transform: scale(1.5); /* IE 9 */-->
+<!--  -webkit-transform: scale(1.5); /* Safari 3-8 */-->
+<!--  transform: scale(1.5);-->
+<!--}-->
+<!--</style>-->
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
     $("#booking-form").on('submit', function(event) {
-      event.preventDefault(); // Preventing page reloads / Предотвращаем перезагрузку страницы
+      event.preventDefault(); // Page Reload Prevention / Предотвращение перезагрузки страницы
 
       // Getting form field values / Получение значений полей формы
       var dateIn = $("#date-in").val();
@@ -564,21 +562,25 @@
       var childrenCount = $("#children").val();
       var roomOptions = $("#options").val();
 
-
-
       // Performing More Actions on Form Data / Выполнение дополнительных действий с данными формы
       console.log("Form submitted");
       console.log("Check-in date: " + dateIn);
       console.log("Check-out date: " + dateOut);
       console.log("Selected Adult:", adultValue);
       console.log("Children count: " + childrenCount);
-      console.log("Selected Room options:",roomOptions);
+      console.log("Selected Room options:", roomOptions);
 
-      // An example of sending an AJAX request / Пример отправки AJAX-запроса
+      // Sending an AJAX request to the server / Отправка AJAX-запроса на сервер
       $.ajax({
-        url: 'обработчик.php',
+        url: '/booking', // Path to your handler on the server / Путь к вашему обработчику на сервере
         type: 'POST',
-        data: $(this).serialize(),
+        data: {
+          dateIn: dateIn,
+          dateOut: dateOut,
+          adultValue: adultValue,
+          childrenCount: childrenCount,
+          roomOptions: roomOptions
+        },
         success: function(response) {
           // Handling a successful response from the server / Обработка успешного ответа от сервера
           console.log(response);
@@ -591,9 +593,6 @@
     });
   });
 </script>
-
-
-
 
 </body>
 </html>
