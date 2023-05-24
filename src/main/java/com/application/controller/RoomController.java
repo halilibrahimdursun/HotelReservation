@@ -7,10 +7,7 @@ import com.application.service.ReservationService;
 import com.application.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -21,15 +18,14 @@ public class RoomController {
 
     @Autowired
     RoomService roomService;
-    @Autowired
-    RoomRepository roomRepository;
+
 
     // Endpoint
     // http://localhost:8080/api/room/2
     // GET
     @GetMapping (value = "room/{roomId}/", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Room> findRoomById(@PathVariable long roomId) {
-        Optional<Room> room = roomRepository.findById(roomId);
+        Optional<Room> room = roomService.findById(roomId);
         if (room.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
@@ -38,17 +34,27 @@ public class RoomController {
     }
 
         // Endpoint
-        // http://localhost:8080/api/room/2
+        // http://localhost:8080/api/room
         // GET
-        @GetMapping (value = "room", consumes = "application/json", produces = "application/json")
-        public ResponseEntity<Room> findAll(@PathVariable long roomId){
-            Iterable<Room> room = roomRepository.findAllById(Collections.singleton(roomId));
-            if (room.iterator().hasNext()) {
-                return ResponseEntity.ok().body((Room) room);
-            } else {
-                return ResponseEntity.notFound().build();
-            }
+        @GetMapping (value = "room", produces = "application/json")
+        public ResponseEntity<Iterable<Room>> findAll(){
+            Iterable<Room> rooms = roomService.findAll();
+
+                return ResponseEntity.ok().body(rooms);
+
 
         }
+
+    // Endpoint
+    // http://localhost:8080/api/room
+    // GET
+    @GetMapping (value = "room/filtered", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Iterable<Room>> findAllFiltered(@RequestBody Room room){
+        Iterable<Room> rooms = roomService.findAllFiltered( room);
+
+        return ResponseEntity.ok().body(rooms);
+
+
+    }
 
     }
