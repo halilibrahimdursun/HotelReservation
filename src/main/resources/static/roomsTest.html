@@ -185,16 +185,17 @@
 
                 if (rooms.length > 0) {
                     rooms.forEach(function(room) {
-                        var imagePath = room.image;
+                        var imagePath = room.imageLink;
                         var roomName = room.typeOfRoom;
                         var roomPrice = room.price;
-                        var maxCapacity = room.capacityOfAdults;
+                        var maxCapacity = room.capacityOfGuests;
                         var bedType = room.typeOfBed;
+                        var special = room.isDisabled ? "Smoking" : "Non smoking";;
                         var amenities = room.facilities;
 
                         var roomItem = $('<div class="col-lg-4 col-md-6">\
                             <div class="room-item">\
-                                <img src="' + imagePath + '" alt="">\
+                               <img src="' + imagePath + '" alt="">\
                                 <div class="ri-text">\
                                     <h4>' + roomName + '</h4>\
                                     <h3>' + roomPrice + '<span>/Pernight</span></h3>\
@@ -207,6 +208,10 @@
                                             <tr>\
                                                 <td class="r-o">Bed:</td>\
                                                 <td>' + bedType + '</td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td class="r-o">Special:</td>\
+                                                <td>' + special + '</td>\
                                             </tr>\
                                             <tr>\
                                                 <td class="r-o">Services:</td>\

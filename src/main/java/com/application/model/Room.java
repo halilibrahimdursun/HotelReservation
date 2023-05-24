@@ -18,21 +18,28 @@ public class Room {
     String typeOfRoom;
     int capacityOfAdults;
     int capacityOfChildren;
+    int capacityOfGuests;
     String typeOfBed;
     boolean isDisabled;
     String facilities;
+    String imageLink;
     boolean isCleaned;
+//
 
-    public Room(boolean isSmoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, String typeOfBed, boolean isDisabled, String facilities, boolean isCleaned) {
+
+    public Room(boolean isSmoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, int capacityOfGuests, String typeOfBed, boolean isDisabled, String facilities, String imageLink, boolean isCleaned) {
         this.isSmoking = isSmoking;
         this.price = price;
         this.typeOfRoom = typeOfRoom;
         this.capacityOfAdults = capacityOfAdults;
         this.capacityOfChildren = capacityOfChildren;
+        this.capacityOfGuests = capacityOfGuests;
         this.typeOfBed = typeOfBed;
         this.isDisabled = isDisabled;
         this.facilities = facilities;
+        this.imageLink = imageLink;
         this.isCleaned = isCleaned;
+//
     }
     public Room(){
 
@@ -61,6 +68,7 @@ public class Room {
     public int getCapacityOfChildren() {
         return capacityOfChildren;
     }
+    public int getCapacityOfGuests() { return capacityOfGuests; }
 
     public String getTypeOfBed() {
         return typeOfBed;
@@ -73,10 +81,12 @@ public class Room {
     public String getFacilities() {
         return facilities;
     }
-
+    public String getImageLink() { return imageLink; }
     public boolean isCleaned() {
         return isCleaned;
     }
+
+//
 
     public void setId(long id) {
         Id = id;
@@ -102,6 +112,8 @@ public class Room {
         this.capacityOfChildren = capacityOfChildren;
     }
 
+    public void setCapacityOfGuests(int capacityOfGuests) { this.capacityOfGuests = capacityOfGuests; }
+
     public void setTypeOfBed(String typeOfBed) {
         this.typeOfBed = typeOfBed;
     }
@@ -113,8 +125,10 @@ public class Room {
     public void setFacilities(String facilities) {
         this.facilities = facilities;
     }
-
+    public void setImageLink(String imageLink) { this.imageLink = imageLink; }
     public void setCleaned(boolean cleaned) {
         this.isCleaned = cleaned;
     }
+
+//
 }
