@@ -212,7 +212,7 @@
         <div class="hp-room-items">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="hp-room-item set-bg" data-setbg="img/room/room-b1.jpg">
+                    <div class="hp-room-item set-bg" data-setbg="img/room/room-b6.jpg">
                         <div class="hr-text">
                             <h3>Single Room</h3>
                             <h2><span>from </span>220$<span>/Per night</span></h2>
@@ -299,7 +299,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="hp-room-item set-bg" data-setbg="img/room/room-b4.jpg">
+                    <div class="hp-room-item set-bg" data-setbg="img/room/room-b7.jpg">
                         <div class="hr-text">
                             <h3>Penthouse</h3>
                             <h2><span>from </span>800$<span>/Per night</span></h2>
@@ -536,49 +536,7 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $("#booking-form").on('submit', function(event) {
-      event.preventDefault(); // Page Reload Prevention / Предотвращение перезагрузки страницы
 
-      // Getting form field values / Получение значений полей формы
-      var dateIn = $("#date-in").val();
-      var dateOut = $("#date-out").val();
-      var adultValue = $("#adult").val();
-      var childrenCount = $("#children").val();
-      var roomOptions = $("#options").val();
-
-      // Performing More Actions on Form Data / Выполнение дополнительных действий с данными формы
-      console.log("Form submitted");
-      console.log("Check-in date: " + dateIn);
-      console.log("Check-out date: " + dateOut);
-      console.log("Selected Adult:", adultValue);
-      console.log("Children count: " + childrenCount);
-      console.log("Selected Room options:", roomOptions);
-
-      // Sending an AJAX request to the server / Отправка AJAX-запроса на сервер
-      $.ajax({
-        url: '/booking', // Path to your handler on the server / Путь к вашему обработчику на сервере
-        type: 'POST',
-        data: {
-          dateIn: dateIn,
-          dateOut: dateOut,
-          adultValue: adultValue,
-          childrenCount: childrenCount,
-          roomOptions: roomOptions
-        },
-        success: function(response) {
-          // Handling a successful response from the server / Обработка успешного ответа от сервера
-          console.log(response);
-        },
-        error: function(xhr, status, error) {
-          // Error Handling / Обработка ошибки
-          console.log(error);
-        }
-      });
-    });
-  });
-</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
