@@ -148,7 +148,7 @@
 <!--                                        <i class="icon_star"></i>-->
 <!--                                        <i class="icon_star-half_alt"></i>-->
 <!--                                    </div>-->
-                                    <a href="./index.html">Booking Now</a>
+<!--                                    <a href="./index.html">Booking Now</a>-->
                                    </div>
                             </div>
                             <h2><span>from </span>800$<span>/Per night</span></h2>
@@ -256,53 +256,54 @@
 <!--                    </div>-->
                 </div>
                 <div class="col-lg-4">
-                    <div class="room-booking">
-                        <h3>Your Reservation</h3>
-                        <form action="#">
+                    <div class="booking-form">
+                        <h3>Booking Room</h3>
+                        <form action="#" id="booking-form">
                             <div class="check-date">
                                 <label for="date-in">Check In:</label>
-                                <input type="text" class="date-input" id="date-in">
+                                <input type="text" class="date-in" id="date-in" autocomplete="off">
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="check-date">
                                 <label for="date-out">Check Out:</label>
-                                <input type="text" class="date-input" id="date-out">
+                                <input type="text" class="date-out" id="date-out" autocomplete="off">
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="select-option">
-                                <label for="guest">Guests:</label>
-                                <select id="guest">
-                                    <option value="">1 Adults</option>
-                                    <option value="">2 Adults</option>
-                                    <option value="">3 Adults</option>
-                                    <option value="">4 Adults</option>
-                                    <option value="">10 Adults</option>
-                                </select>
-                                <label for="Children">Guests:</label>
-                                <select id="Children">
-                                    <option value="">1 Children</option>
-                                    <option value="">2 Children</option>
+                                <label for="adult">Adult:</label>
+                                <select id="adult">
+                                    <option value="1">1 </option>
+                                    <option value="2">2 </option>
+                                    <!--                                    <option value="">3 </option>-->
+                                    <option value="4">4 </option>
+                                    <!--                                    <option value="">5 </option>-->
+                                    <!--                                    <option value="">6 </option>-->
+                                    <!--                                    <option value="">7 </option>-->
+                                    <option value="8">8 </option>
+                                    <!--                                    <option value="">9 </option>-->
+                                    <option value="10">10 </option>
                                 </select>
                             </div>
                             <div class="select-option">
-                                <label for="room">Type of room:</label>
-                                <select id="room">
-                                    <option value="">Single room</option>
-                                    <option value="">Double room</option>
-                                    <option value="">2 Double room</option>
-                                    <option value="">Penthouse</option>
+                                <label for="children">Children: (aged 0-12)</label>
+                                <select id="children">
+                                    <option value="0">0 </option>
+                                    <option value="1">1 </option>
+                                    <option value="2">2</option>
                                 </select>
                             </div>
                             <div class="select-option">
                                 <label for="options">Room's options:</label>
                                 <select id="options">
-                                    <option value="">Smoking</option>
-                                    <option value="">Non Smoking</option>
-                                    <option value="">Disabled</option>
-
+                                    <option value="">------</option>
+                                    <option value="Smoking">Smoking</option>
+                                    <option value="Non Smoking">Non Smoking</option>
+                                    <option value="123424324">Disabled</option>
                                 </select>
                             </div>
-                            <button type="submit">Check Availability</button>
+                            <!--                        <button type="submit">Check Availability</button>-->
+
+                            <button type="submit" onclick="redirectToRooms()">Check Availability</button>
                         </form>
                     </div>
                 </div>

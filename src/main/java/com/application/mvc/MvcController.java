@@ -10,7 +10,7 @@ public class MvcController {
     public String homePage() {
 
         System.out.println("Inside homePage");
-        return "index";
+        return "index.html";
     }
 
     // http://localhost:8080/customer

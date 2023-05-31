@@ -22,10 +22,11 @@
 
                         var roomItem = $('<div class="col-lg-4 col-md-6">\
                             <div class="room-item">\
+                            <form class="my-form">\
                                <img src="' + imagePath + '" alt="">\
                                 <div class="ri-text">\
                                     <h4>' + roomName + '</h4>\
-                                    <h3>' + roomPrice + '<span>/Pernight</span></h3>\
+                                    <h3>' + roomPrice + '$<span>/Pernight</span></h3>\
                                     <table>\
                                         <tbody>\
                                             <tr>\
@@ -49,6 +50,7 @@
                                     <a href="./room-single.html" class="primary-btn">More Details</a>\
                                 </div>\
                             </div>\
+                            </form>\
                         </div>');
 
                         roomItems.append(roomItem);
