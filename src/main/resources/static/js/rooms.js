@@ -67,7 +67,7 @@
 //    });
 
 $(document).ready(function() {
-    // Получение значений полей фильтрации
+    // Getting filter field values // Получение значений полей фильтрации
     var cleaned = $("#cleaned").is(":checked");
     var disabled = $("#disabled").is(":checked");
     var dateIn = $("#date-in").val();
@@ -76,7 +76,7 @@ $(document).ready(function() {
     var childrenCount = $("#children").val();
     var roomOptions = $("#options").val();
 
-    // Создание объекта с данными фильтрации
+    // Creating an object with filtering data // Создание объекта с данными фильтрации
     var filterData = {
         cleaned: cleaned,
         disabled: disabled,
@@ -87,7 +87,7 @@ $(document).ready(function() {
         roomOptions: roomOptions
     };
 
-    // Отправка AJAX-запроса на сервер для получения отфильтрованных комнат
+    // Sending an AJAX request to the server to get the filtered rooms // Отправка AJAX-запроса на сервер для получения отфильтрованных комнат
     $.ajax({
         url: '/api/room/filtered',
         method: 'POST',
@@ -154,20 +154,20 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    // Отправка AJAX-запроса на сервер для получения данных комнат
+    // Sending an AJAX request to the server to get room data // Отправка AJAX-запроса на сервер для получения данных комнат
     $.ajax({
         url: '/api/room',
         method: 'GET',
         success: function(response) {
             var rooms = response;
-            console.log(rooms); // Отладочный вывод
+            console.log(rooms); // Debug output // Отладочный вывод
 
             var roomItems = $('#roomItems');
-            roomItems.empty(); // Очистка контейнера комнат перед добавлением новых комнат
+            roomItems.empty(); // Clearing the room container before adding new rooms // Очистка контейнера комнат перед добавлением новых комнат
 
             if (rooms.length > 0) {
                 rooms.forEach(function(room) {
-                    // Создание элементов комнаты и добавление их в контейнер
+                    // Creating room elements and adding them to a container // Создание элементов комнаты и добавление их в контейнер
                     // ...
 
                     roomItems.append(roomItem);
