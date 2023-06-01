@@ -69,4 +69,13 @@ public class RoomController {
 
     }
 
+    // Endpoint
+    // http://localhost:8080/api/room/filtered
+    // POST
+    @PostMapping(value = "room/filtered", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Iterable<Room>> filterRooms(@RequestBody Room room) {
+        Iterable<Room> filteredRooms = roomService.findAllFiltered(room);
+        return ResponseEntity.ok().body(filteredRooms);
+    }
+
     }

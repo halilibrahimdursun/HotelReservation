@@ -37,6 +37,7 @@ package com.application;
 //
 //
 
+import com.application.model.Room;
 import com.application.repositories.ReservationRepository;
 import com.application.repositories.RoomRepository;
 import com.application.service.RoomService;
@@ -60,9 +61,22 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Here you can perform room filtering based on the form data
-		// Retrieve the form data from the request and create a Room object
-		// Pass the Room object to the roomService.findAllFiltered() method
-		// Update the UI with the filtered rooms as per your requirements
+
+		Room room = new Room();
+		// Установите необходимые свойства объекта Room на основе данных из формы
+
+
+		room.setCleaned(true); // Пример: установите свойство cleaned на основе данных из формы
+		room.setDisabled(false); // Пример: установите свойство disabled на основе данных из формы
+
+
+		// Установите остальные свойства объекта Room на основе данных из формы
+
+		// Вызовите метод roomService.findAllFiltered() для получения отфильтрованных комнат
+
+		Iterable<Room> filteredRooms = roomService.findAllFiltered(room);
+
+		// Обновите пользовательский интерфейс с отфильтрованными комнатами
+		// Выведите отфильтрованные комнаты на веб-страницу или выполните другие необходимые действия
 	}
 }
