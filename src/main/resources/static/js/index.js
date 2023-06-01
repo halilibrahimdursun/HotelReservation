@@ -123,42 +123,48 @@ $(document).ready(function() {
     event.preventDefault(); // Page Reload Prevention // Предотвращение перезагрузки страницы
 
     // Getting form field values // Получение значений полей формы
-    var cleaned = $("#cleaned").is(":checked");
+    var smoking = $("#smoking").is(":checked");
     var disabled = $("#disabled").is(":checked");
     var dateIn = $("#date-in").val();
     var dateOut = $("#date-out").val();
-    var adultValue = $("#adult").val();
-    var childrenCount = $("#children").val();
-    var roomOptions = $("#options").val();
+    var capacityOfAdults = $("select[name='capacityOfAdults']").val();
+    var capacityOfChildren = $("select[name='capacityOfChildren']").val();
+    var isSmoking = $("select[name='isSmoking']").val();
+    var isDisabled = $("select[name='isDisabled']").val();
     // Get the rest of the form field values// Получите остальные значения полей формы
 
     // Create an object with form data / Создание объекта с данными формы
+
+//
     var formData = {
-      cleaned: cleaned,
-      disabled: disabled,
       dateIn: dateIn,
       dateOut: dateOut,
-      adultValue: adultValue,
-      childrenCount: childrenCount,
-      roomOptions: roomOptions
-      // Add the rest of the formData object properties based on the form fields
-      //Добавьте остальные свойства объекта formData на основе полей формы
+      capacityOfAdults: capacityOfAdults,
+      capacityOfChildren: capacityOfChildren,
+      isSmoking: isSmoking,
+      isDisabled: isDisabled
+//      // Add the rest of the formData object properties based on the form fields
+//      //Добавьте остальные свойства объекта formData на основе полей формы
     };
 
 // Performing More Actions on Form Data
     console.log("Form submitted");
     console.log("Check-in date: " + dateIn);
     console.log("Check-out date: " + dateOut);
-    console.log("Selected Adult: " + adultValue);
-    console.log("Children count: " + childrenCount);
-    console.log("Selected Room options: " + roomOptions);
+    console.log("Selected Adult: " + capacityOfAdults);
+    console.log("Children count: " + capacityOfChildren);
+    console.log("Smocking: " + isSmoking);
+    console.log("Disabled: " + isDisabled);
+
+
+
 
     // Sending an AJAX request to the server // Отправка AJAX-запроса на сервер
  $.ajax({
    url: '/api/room/filtered',
    type: 'POST',
    contentType: 'application/json', // Add this line // Добавьте эту строку
-   data: JSON.stringify(formData), // Convert formData object to JSON format // Преобразуйте объект formData в формат JSON
+    data: JSON.stringify(formData), // Convert formData object to JSON format // Преобразуйте объект formData в формат JSON
    success: function(response) {
      // Handling a successful response from the server // Обработка успешного ответа от сервера
      // Update the user interface with filtered rooms // Обновите пользовательский интерфейс с отфильтрованными комнатами

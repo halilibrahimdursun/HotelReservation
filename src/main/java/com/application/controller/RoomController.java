@@ -5,6 +5,8 @@ import com.application.model.Room;
 import com.application.repositories.RoomRepository;
 import com.application.service.ReservationService;
 import com.application.service.RoomService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,8 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class RoomController {
 
+
+    private static final Logger logger = LoggerFactory.getLogger(RoomController.class);
     @Autowired
     RoomService roomService;
 
@@ -72,10 +76,21 @@ public class RoomController {
     // Endpoint
     // http://localhost:8080/api/room/filtered
     // POST
+
     @PostMapping(value = "room/filtered", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Iterable<Room>> filterRooms(@RequestBody Room room) {
+
+
+        System.out.println("Received data from form:");
+        System.out.println("Adult Value: " + room.getCapacityOfAdults());
+        System.out.println("Children Count: " + room.getCapacityOfChildren());
+        System.out.println("Disabled: " + room.isDisabled());
+        System.out.println("Smocking: " + room.isSmoking());
+//         Other output to the console for data validation // Другие выводы в консоль для проверки данных
+
         Iterable<Room> filteredRooms = roomService.findAllFiltered(room);
         return ResponseEntity.ok().body(filteredRooms);
     }
 
-    }
+
+}

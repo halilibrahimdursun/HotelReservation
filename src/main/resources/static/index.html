@@ -111,47 +111,47 @@
             <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                 <div class="booking-form">
                     <h3>Booking Your Hotel</h3>
-                    <form action="#" id="booking-form">
+                    <form action="/api/room/filtered" id="booking-form" method="post">
                         <div class="check-date">
                             <label for="date-in">Check In:</label>
-                            <input type="text" class="date-in" id="date-in" autocomplete="off">
+                            <input type="text" class="date-in" id="date-in" name="dateIn" autocomplete="off">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="check-date">
                             <label for="date-out">Check Out:</label>
-                            <input type="text" class="date-out" id="date-out" autocomplete="off">
+                            <input type="text" class="date-out" id="date-out" name="date-out" autocomplete="off">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="select-option">
                             <label for="adult">Adult:</label>
-                            <select id="adult">
+                            <select id="adult" name="capacityOfAdults">
                                 <option value="1">1 </option>
                                 <option value="2">2 </option>
-                                <!--                                    <option value="">3 </option>-->
                                 <option value="4">4 </option>
-                                <!--                                    <option value="">5 </option>-->
-                                <!--                                    <option value="">6 </option>-->
-                                <!--                                    <option value="">7 </option>-->
                                 <option value="8">8 </option>
-                                <!--                                    <option value="">9 </option>-->
                                 <option value="10">10 </option>
                             </select>
                         </div>
                         <div class="select-option">
                             <label for="children">Children: (aged 0-12)</label>
-                            <select id="children">
+                            <select id="children" name="capacityOfChildren">
                                 <option value="0">0 </option>
                                 <option value="1">1 </option>
                                 <option value="2">2</option>
                             </select>
                         </div>
                         <div class="select-option">
-                            <label for="options">Room's options:</label>
-                            <select id="options">
-                                <option value="">------</option>
-                                <option value="Smoking">Smoking</option>
-                                <option value="Non Smoking">Non Smoking</option>
-                                <option value="123424324">Disabled</option>
+                            <label for="isSmoking">Smocking:</label>
+                            <select id="isSmoking" name="isSmoking">
+                                <option value="false">Non Smoking</option>
+                                <option value="true">Smoking</option>
+                            </select>
+                        </div>
+                        <div class="select-option">
+                            <label for="isDisabled">Disabled:</label>
+                            <select id="isDisabled" name="isDisabled">
+                                <option value="false">Non Disabled</option>
+                                <option value="true">Disabled</option>
                             </select>
                         </div>
                         <button type="submit">Check Availability</button>

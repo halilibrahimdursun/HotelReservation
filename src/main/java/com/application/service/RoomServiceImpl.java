@@ -110,6 +110,11 @@ public class RoomServiceImpl implements RoomService {
                 .stream()
                 .filter(checkRoom -> checkRoom.isCleaned() == room.isCleaned())
                 .filter(checkRoom -> checkRoom.isDisabled() == room.isDisabled())
+                .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
+                .filter(checkRoom -> checkRoom.getCapacityOfAdults() == room.getCapacityOfAdults()) // Фильтрация по adultValue
+                .filter(checkRoom -> checkRoom.getCapacityOfChildren() >= room.getCapacityOfChildren()) // Фильтрация по childrenCount
+//                .filter(checkRoom -> checkRoom.getRoomOptions().equals(room.getRoomOptions())) // Фильтрация по roomOptions
+
                 // Add more filtering conditions based on your requirements
                 .toList();
         return filtered;
