@@ -1,13 +1,11 @@
 package com.application.service;
 
 import com.application.model.Reservation;
-import com.application.model.Room;
 import com.application.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -16,8 +14,6 @@ public class ReservationServiceImpl implements ReservationService {
     @Autowired
     ReservationRepository reservationRepository;
 
-    @Autowired
-    RoomServiceImpl roomServiceImpl;
 
     @Override
     public Iterable<Reservation> findAll() {
@@ -45,6 +41,18 @@ public class ReservationServiceImpl implements ReservationService {
     public Iterable<Reservation> filterReservationForVegan(Reservation reservation) {
         return null;
     }
+
+    @Override
+    public Iterable<Reservation> findAllFiltered(Reservation reservation) {
+        return null;
+    }
+
+    @Override
+    public Iterable<Reservation> findReservationByEndDateBeforeAndStartDateAfter(LocalDate startDate, LocalDate endDate) {
+        return reservationRepository.findReservationByEndDateAfterAndStartDateBefore(startDate, endDate);
+    }
+
+
 
    /* public static Room roomCheck(long id){
         List<Room> rooms = new ArrayList<>();

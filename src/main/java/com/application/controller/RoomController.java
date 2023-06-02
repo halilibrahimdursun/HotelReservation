@@ -6,11 +6,16 @@ import com.application.repositories.RoomRepository;
 import com.application.service.ReservationService;
 import com.application.service.RoomService;
 import jakarta.persistence.Id;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +24,7 @@ public class RoomController {
 
     @Autowired
     RoomService roomService;
+    protected static final Logger logger = LogManager.getLogger(RoomController.class);
 
 
     // Endpoint
@@ -61,12 +67,19 @@ public class RoomController {
     // Endpoint
     // http://localhost:8080/api/room
     // GET
-    @GetMapping (value = "room/filtered", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Iterable<Room>> findAllFiltered(@RequestBody Room room){
-        Iterable<Room> rooms = roomService.findAllFiltered(room);
 
-        return ResponseEntity.ok().body(rooms);
+    @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<Room>> getAvailableRooms(
+            @RequestBody final Room room,
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
+    ) {
 
+        logger.info("Inside 'saveReservation'");
+
+        List<Room> rooms = roomService.findAllFiltered(room, startDate, endDate);
+
+        return ResponseEntity.ok(rooms) ;
 
     }
 

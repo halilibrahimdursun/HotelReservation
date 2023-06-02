@@ -7,6 +7,8 @@ import com.application.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +20,7 @@ public class RoomServiceImpl implements RoomService {
     RoomRepository roomRepository;
 
     @Autowired
-    ReservationRepository reservationRepository;
+    ReservationService reservationService;
 
     @Override
     public Iterable<Room> findAll() {
@@ -40,22 +42,67 @@ public class RoomServiceImpl implements RoomService {
 
     }
 
-    @Override
-    public Iterable<Room> findAllFiltered(Room room) {
-        List<Room> rooms = (List<Room>) roomRepository.findAll();
-        //List<Reservation> reservations = (List<Reservation>) reservationRepository.findAll();
+//    @Override
+//    public Iterable<Room> findAllFiltered(Room room) {
+//        List<Room> rooms = (List<Room>) roomRepository.findAll();
+//
+//
+//        Iterable<Room> filtered = rooms
+//                .stream()
+//               // .filter(checkRoom -> checkRoom.getCheckInDate() == reservations.getCheckInDate())
+//               // .filter(checkRoom ->checkRoom.getCheckOutDate() == reservations.getCheckOutDate())
+//
+//
+//                .filter(checkRoom -> checkRoom.isCleaned() == room.isCleaned())
+//                .filter(checkRoom -> checkRoom.isDisabled() == room.isDisabled())
+//                .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
+//                .filter(checkRoom -> checkRoom.getTypeOfRoom() == checkRoom(checkRoom))
+//                .toList();
+//        return filtered;
+//    }
 
-        Iterable<Room> filtered = rooms
-                .stream()
-               // .filter(checkRoom -> checkRoom.getCheckInDate() == reservations.getCheckInDate())
-               // .filter(checkRoom ->checkRoom.getCheckOutDate() == reservations.getCheckOutDate())
-                .filter(checkRoom -> checkRoom.isCleaned() == room.isCleaned())
-                //.filter(checkRoom -> checkRoom.isDisabled() == room.isDisabled())
-               // .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
-                //.filter(checkRoom -> checkRoom.getTypeOfRoom() == checkRoom(checkRoom))
-                .toList();
-        return filtered;
+
+
+    @Override
+    public List<Room> findAllFiltered(Room criteria, LocalDate startDate, LocalDate endDate) {
+
+        Iterable<Reservation> reservations = reservationService.findReservationByEndDateBeforeAndStartDateAfter(startDate, endDate);
+
+        List<Long> roomIds = new ArrayList<>();
+
+        for(Reservation reservation: reservations){
+            roomIds.add(reservation.getRoom().getId());
+        }
+
+        Iterable<Room> allRooms = roomRepository.findAll();
+
+        List<Room> availableRooms = new ArrayList<>();
+
+        for( Room room: allRooms){
+
+            if(roomIds.contains(room.getId() )){
+                continue;
+            }
+            if( criteria.isDisabled() != room.isDisabled()){
+                continue;
+            }
+            if( criteria.isSmoking() != room.isSmoking()){
+                continue;
+            }
+            if( criteria.isCleaned() != room.isCleaned()){
+                continue;
+            }
+            if( criteria.getCapacityOfAdults() > 0 && criteria.getCapacityOfAdults() > room.getCapacityOfAdults()){
+                continue;
+            }
+            availableRooms.add( room);
+        }
+
+        return availableRooms;
+
     }
+
+
     private String checkRoom(Room checkRoom) {
 
         if (checkRoom.getCapacityOfAdults() == 1 && checkRoom.getCapacityOfChildren() == 0) {
