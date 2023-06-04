@@ -110,26 +110,29 @@
 /*------------------
 		Date Picker Check-in - Check-out
 	--------------------*/
+$(document).ready(function() {
+    var checkInDate = null;
 
+    $("#date-in").datepicker({
+        minDate: 0,
+        dateFormat: 'dd.mm.yy',
+        onSelect: function(selectedDate) {
+            checkInDate = $(this).datepicker('getDate');
+            checkInDate.setDate(checkInDate.getDate() + 1);
 
+            var maxDate = new Date(checkInDate);
+            maxDate.setMonth(maxDate.getMonth() + 6);
 
- $(document).ready(function() {
-            var checkInDate = null;
+            $("#date-out").datepicker("option", "minDate", checkInDate);
+            $("#date-out").datepicker("option", "maxDate", maxDate);
+        }
+    });
 
-            $("#date-in").datepicker({
-                minDate: 0,
-                dateFormat: 'dd.mm.yy',
-                onSelect: function(selectedDate) {
-                    checkInDate = $(this).datepicker('getDate');
-                    checkInDate.setDate(checkInDate.getDate() + 1);
-                    $("#date-out").datepicker("option", "minDate", checkInDate);
-                }
-            });
+    $("#date-out").datepicker({
+        dateFormat: 'dd.mm.yy'
+    });
+});
 
-            $("#date-out").datepicker({
-                dateFormat: 'dd.mm.yy'
-            });
-        });
 
 /*------------------
  		END of Date Picker Check-in - Check-out

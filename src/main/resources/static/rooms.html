@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Заголовок страницы</title>
+    <title>Title</title>
     <meta name="description" content="Molveno Template">
     <meta name="keywords" content="Molveno, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +24,15 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+<!--    <style>-->
+<!--    .my-form {-->
+<!--        background-color: #F0F0F0;-->
+<!--    }-->
+<!--    </style>-->
+
+
 </head>
 
 <body>
@@ -101,6 +110,63 @@
 </header>
 <!-- Header End -->
 
+
+
+<div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+    <div class="booking-form">
+        <h3>Booking Your Hotel</h3>
+        <form action="/api/room/filtered" id="booking-form" method="post">
+            <div class="check-date">
+                <label for="date-in">Check In:</label>
+                <input type="text" class="date-in" id="date-in" name="dateIn" autocomplete="off">
+                <i class="icon_calendar"></i>
+            </div>
+            <div class="check-date">
+                <label for="date-out">Check Out:</label>
+                <input type="text" class="date-out" id="date-out" name="date-out" autocomplete="off">
+                <i class="icon_calendar"></i>
+            </div>
+            <div class="select-option">
+                <label for="adult">Adult:</label>
+                <select id="adult" name="capacityOfAdults">
+                    <option value="1">1 </option>
+                    <option value="2">2 </option>
+                    <option value="4">4 </option>
+                    <option value="8">8 </option>
+                    <option value="10">10 </option>
+                </select>
+            </div>
+            <div class="select-option">
+                <label for="children">Children: (aged 0-12)</label>
+                <select id="children" name="capacityOfChildren">
+                    <option value="0">0 </option>
+                    <option value="1">1 </option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="select-option">
+                <label for="isSmoking">Smocking:</label>
+                <select id="isSmoking" name="isSmoking">
+                    <option value="false">Non Smoking</option>
+                    <option value="true">Smoking</option>
+                </select>
+            </div>
+            <div class="select-option">
+                <label for="isDisabled">Disabled:</label>
+                <select id="isDisabled" name="isDisabled">
+                    <option value="false">Non Disabled</option>
+                    <option value="true">Disabled</option>
+                </select>
+            </div>
+            <button type="submit">Check Availability</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+
 <!-- Breadcrumb Section Begin -->
 <div class="breadcrumb-section">
     <div class="container">
@@ -123,9 +189,13 @@
 <!-- Rooms Section Begin -->
 <section class="rooms-section spad">
     <div class="container">
-        <div class="row" id="roomItems">
+<!--        <form class="my-form">-->
+            <div class="row" id="roomItems">
             <!-- Динамические элементы комнат будут добавлены сюда -->
-        </div>
+
+                <!-- Элементы вашей формы -->
+            </div>
+<!--        </form>-->
     </div>
 </section>
 <!-- Rooms Section End -->
@@ -172,72 +242,7 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-
-<!-- AJAX-запрос для получения данных комнат -->
-<script>
-    $(document).ready(function() {
-        // Отправка AJAX-запроса на сервер для получения данных комнат
-        $.ajax({
-            url: '/api/room',
-            method: 'GET',
-            success: function(response) {
-                var rooms = response;
-                var roomItems = $('#roomItems');
-
-                if (rooms.length > 0) {
-                    rooms.forEach(function(room) {
-                        var imagePath = room.imageLink;
-                        var roomName = room.typeOfRoom;
-                        var roomPrice = room.price;
-                        var maxCapacity = room.capacityOfGuests;
-                        var bedType = room.typeOfBed;
-                        var special = room.isDisabled ? "Smoking" : "Non smoking";;
-                        var amenities = room.facilities;
-
-                        var roomItem = $('<div class="col-lg-4 col-md-6">\
-                            <div class="room-item">\
-                               <img src="' + imagePath + '" alt="">\
-                                <div class="ri-text">\
-                                    <h4>' + roomName + '</h4>\
-                                    <h3>' + roomPrice + '<span>/Pernight</span></h3>\
-                                    <table>\
-                                        <tbody>\
-                                            <tr>\
-                                                <td class="r-o">Capacity:</td>\
-                                                <td>Max person ' + maxCapacity + '</td>\
-                                            </tr>\
-                                            <tr>\
-                                                <td class="r-o">Bed:</td>\
-                                                <td>' + bedType + '</td>\
-                                            </tr>\
-                                            <tr>\
-                                                <td class="r-o">Special:</td>\
-                                                <td>' + special + '</td>\
-                                            </tr>\
-                                            <tr>\
-                                                <td class="r-o">Services:</td>\
-                                                <td>' + amenities + '</td>\
-                                            </tr>\
-                                        </tbody>\
-                                    </table>\
-                                    <a href="./room-single.html" class="primary-btn">More Details</a>\
-                                </div>\
-                            </div>\
-                        </div>');
-
-                        roomItems.append(roomItem);
-                    });
-                } else {
-                    roomItems.html('<p>No rooms found.</p>');
-                }
-            },
-            error: function() {
-                var roomItems = $('#roomItems');
-                roomItems.html('<p>Error retrieving room data.</p>');
-            }
-        });
-    });
-</script>
+<script src="js/rooms.js"></script>
 
 
 
