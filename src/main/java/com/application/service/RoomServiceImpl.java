@@ -1,6 +1,8 @@
 package com.application.service;
 
+import com.application.model.Reservation;
 import com.application.model.Room;
+import com.application.repositories.ReservationRepository;
 import com.application.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,6 +83,9 @@ import java.util.Optional;
 public class RoomServiceImpl implements RoomService {
     @Autowired
     RoomRepository roomRepository;
+  
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @Override
     public Iterable<Room> findAll() {
@@ -105,9 +110,12 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public Iterable<Room> findAllFiltered(Room room) {
         List<Room> rooms = (List<Room>) roomRepository.findAll();
+        //List<Reservation> reservations = (List<Reservation>) reservationRepository.findAll();
 
         Iterable<Room> filtered = rooms
                 .stream()
+               // .filter(checkRoom -> checkRoom.getCheckInDate() == reservations.getCheckInDate())
+               // .filter(checkRoom ->checkRoom.getCheckOutDate() == reservations.getCheckOutDate())
                 .filter(checkRoom -> checkRoom.isCleaned() == room.isCleaned())
                 .filter(checkRoom -> checkRoom.isDisabled() == room.isDisabled())
                 .filter(checkRoom -> checkRoom.isSmoking() == room.isSmoking())
@@ -120,3 +128,24 @@ public class RoomServiceImpl implements RoomService {
         return filtered;
     }
 }
+               
+//     private String checkRoom(Room checkRoom) {
+
+//         if (checkRoom.getCapacityOfAdults() == 1 && checkRoom.getCapacityOfChildren() == 0) {
+//             return "single bed";
+//         } else if (checkRoom.getCapacityOfAdults() == 1 && checkRoom.getCapacityOfChildren() <= 1) {
+//             return "single bed + children";
+//         } else if (checkRoom.getCapacityOfAdults() <= 2 && checkRoom.getCapacityOfChildren() == 0) {
+//             return "double bed";
+//         } else if (checkRoom.getCapacityOfAdults() <= 2 && checkRoom.getCapacityOfChildren() <= 2) {
+//             return "double bed or 2 x single bed + children";
+//         } else if (checkRoom.getCapacityOfAdults() <= 4 && checkRoom.getCapacityOfChildren() <= 2) {
+//             return "2 x Double bed + children";
+//         } else if (checkRoom.getCapacityOfAdults() <= 8 && checkRoom.getCapacityOfChildren() <= 2) {
+//             return "base penthouse";
+//         } else if (checkRoom.getCapacityOfAdults() <= 10 && checkRoom.getCapacityOfChildren() <= 2) {
+//             return "luxury penthouse";
+//         }
+//         return null;
+//     }
+// }

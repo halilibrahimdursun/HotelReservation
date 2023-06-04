@@ -26,3 +26,4 @@ public interface RoomService {
     void remove(long id);
     Iterable<Room> findAllFiltered(Room room);
 }
+
