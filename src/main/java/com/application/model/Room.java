@@ -1,9 +1,7 @@
 package com.application.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity
 public class Room {
 
@@ -13,32 +11,35 @@ public class Room {
 
     long Id;
     int roomNumber;
-    boolean isSmoking;
+
+    boolean smoking;
     double price;
     String typeOfRoom;
     int capacityOfAdults;
     int capacityOfChildren;
     int capacityOfGuests;
     String typeOfBed;
-    boolean isDisabled;
+
+    boolean disabled;
     String facilities;
     String imageLink;
-    boolean isCleaned;
+
+    boolean cleaned;
 //
 
 
-    public Room(boolean isSmoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, int capacityOfGuests, String typeOfBed, boolean isDisabled, String facilities, String imageLink, boolean isCleaned) {
-        this.isSmoking = isSmoking;
+    public Room(boolean smoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, int capacityOfGuests, String typeOfBed, boolean disabled, String facilities, String imageLink, boolean cleaned) {
+        this.smoking = smoking;
         this.price = price;
         this.typeOfRoom = typeOfRoom;
         this.capacityOfAdults = capacityOfAdults;
         this.capacityOfChildren = capacityOfChildren;
         this.capacityOfGuests = capacityOfGuests;
         this.typeOfBed = typeOfBed;
-        this.isDisabled = isDisabled;
+        this.disabled = disabled;
         this.facilities = facilities;
         this.imageLink = imageLink;
-        this.isCleaned = isCleaned;
+        this.cleaned = cleaned;
 //
     }
     public Room(){
@@ -50,7 +51,7 @@ public class Room {
     }
 
     public boolean isSmoking() {
-        return isSmoking;
+        return smoking;
     }
 
     public double getPrice() {
@@ -75,7 +76,7 @@ public class Room {
     }
 
     public boolean isDisabled() {
-        return isDisabled;
+        return disabled;
     }
 
     public String getFacilities() {
@@ -83,7 +84,7 @@ public class Room {
     }
     public String getImageLink() { return imageLink; }
     public boolean isCleaned() {
-        return isCleaned;
+        return cleaned;
     }
 
 //
@@ -93,7 +94,7 @@ public class Room {
     }
 
     public void setSmoking(boolean smoking) {
-        this.isSmoking = smoking;
+        this.smoking = smoking;
     }
 
     public void setPrice(double price) {
@@ -119,7 +120,7 @@ public class Room {
     }
 
     public void setDisabled(boolean disabled) {
-        this.isDisabled = disabled;
+        this.disabled = disabled;
     }
 
     public void setFacilities(String facilities) {
@@ -127,7 +128,7 @@ public class Room {
     }
     public void setImageLink(String imageLink) { this.imageLink = imageLink; }
     public void setCleaned(boolean cleaned) {
-        this.isCleaned = cleaned;
+        this.cleaned = cleaned;
     }
 
 //

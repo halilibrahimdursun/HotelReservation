@@ -1,11 +1,9 @@
 package com.application.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Reservation {
@@ -17,21 +15,32 @@ public class Reservation {
     private String telephoneNumber;
     private String email;
     private int guests;
-    private LocalDate date;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
+    private Date date;
+    private Date startDate;
+    private Date endDate;
+@ManyToOne
+@JoinColumn(name = "room_id")
+private Room room;
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
 
     public Reservation() {
     }
 
-    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, LocalDate date, LocalDate checkInDate, LocalDate checkOutDate) {
+    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date startDate, Date endDate) {
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.guests = guests;
         this.date = date;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public long getId() {
@@ -74,9 +83,6 @@ public class Reservation {
         this.guests = guests;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
 
 
 //    @Override
@@ -92,24 +98,28 @@ public class Reservation {
 //
 //    }
 
-    public void setDate(LocalDate date) {
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public LocalDate getCheckInDate() {
-        return checkInDate;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setCheckInDate(LocalDate checkInDate) {
-        this.checkInDate = checkInDate;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public LocalDate getCheckOutDate() {
-        return checkOutDate;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setCheckOutDate(LocalDate checkOutDate) {
-        this.checkOutDate = checkOutDate;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
-
 }
