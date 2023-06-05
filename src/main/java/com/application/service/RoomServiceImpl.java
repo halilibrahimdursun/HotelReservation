@@ -2,13 +2,13 @@ package com.application.service;
 
 import com.application.model.Reservation;
 import com.application.model.Room;
-import com.application.repositories.ReservationRepository;
 import com.application.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,8 +63,48 @@ public class RoomServiceImpl implements RoomService {
 
 
 
+//    @Override
+//    public List<Room> findAllFiltered(Room criteria, Date startDate, Date endDate) {
+//
+//        Iterable<Reservation> reservations = reservationService.findAll();
+//
+//        List<Long> roomIds = new ArrayList<>();
+//
+//        for(Reservation reservation: reservations){
+//            roomIds.add(reservation.getRoom().getId());
+//        }
+//
+//        Iterable<Room> allRooms = roomRepository.findAll();
+//
+//        List<Room> availableRooms = new ArrayList<>();
+//
+//        for( Room room: allRooms){
+//
+//          if(roomIds.contains(room.getId() )){
+//              continue;
+//          }
+//            if( room.isDisabled() == criteria.isDisabled()){
+//                availableRooms.add(room);
+//            }
+//           if( criteria.isSmoking() == room.isSmoking()){
+//               continue;
+//            }
+//            if( criteria.isCleaned() != room.isCleaned()){
+//              continue;
+//            }
+//            if( criteria.getCapacityOfAdults() > 0 && criteria.getCapacityOfAdults() > room.getCapacityOfAdults()){
+//                continue;
+//           }
+//
+//        }
+
+//        return availableRooms;
+//
+//    }
+
+
     @Override
-    public List<Room> findAllFiltered(Room criteria, LocalDate startDate, LocalDate endDate) {
+    public List<Room> findAllFiltered(Room criteria, Date startDate, Date endDate) {
 
         Iterable<Reservation> reservations = reservationService.findReservationByEndDateBeforeAndStartDateAfter(startDate, endDate);
 
@@ -101,7 +141,6 @@ public class RoomServiceImpl implements RoomService {
         return availableRooms;
 
     }
-
 
     private String checkRoom(Room checkRoom) {
 

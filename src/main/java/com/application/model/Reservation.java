@@ -3,6 +3,7 @@ package com.application.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Reservation {
@@ -14,9 +15,9 @@ public class Reservation {
     private String telephoneNumber;
     private String email;
     private int guests;
-    private LocalDate date;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private Date date;
+    private Date startDate;
+    private Date endDate;
 @ManyToOne
 @JoinColumn(name = "room_id")
 private Room room;
@@ -32,7 +33,7 @@ private Room room;
     public Reservation() {
     }
 
-    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, LocalDate date, LocalDate startDate, LocalDate endDate) {
+    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date startDate, Date endDate) {
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
@@ -82,9 +83,6 @@ private Room room;
         this.guests = guests;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
 
 
 //    @Override
@@ -100,24 +98,28 @@ private Room room;
 //
 //    }
 
-    public void setDate(LocalDate date) {
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-
 }

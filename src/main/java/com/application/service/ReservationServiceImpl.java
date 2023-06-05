@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -48,7 +49,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Iterable<Reservation> findReservationByEndDateBeforeAndStartDateAfter(LocalDate startDate, LocalDate endDate) {
+    public Iterable<Reservation> findReservationByEndDateBeforeAndStartDateAfter(Date startDate, Date endDate) {
         return reservationRepository.findReservationByEndDateAfterAndStartDateBefore(startDate, endDate);
     }
 

@@ -5,9 +5,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Repository
 public interface ReservationRepository extends CrudRepository<Reservation, Long> {
-    Iterable<Reservation> findReservationByEndDateAfterAndStartDateBefore(LocalDate startDate1, LocalDate endDate1);
+    Iterable<Reservation> findReservationByEndDateAfterAndStartDateBefore(Date startDate1, Date endDate1);
 
 }

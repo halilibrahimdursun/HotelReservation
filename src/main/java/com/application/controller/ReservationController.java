@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -67,8 +68,8 @@ public class ReservationController {
 
     @GetMapping(value = "/reservationincluded", produces = "application/json")
     public ResponseEntity<Iterable<Reservation>> getReservationsIncluded(
-            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
-            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
 
         logger.info("Inside 'getReservationsIncluded'");
 

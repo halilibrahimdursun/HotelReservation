@@ -4,6 +4,7 @@ import com.application.model.Reservation;
 import com.application.model.Room;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,5 +16,8 @@ public interface RoomService {
     void remove( long id);
     //public Iterable<Room> findAllFiltered(Room room);
 
-    public List<Room> findAllFiltered(Room criteria, LocalDate startDate, LocalDate endDate);
+    public List<Room> findAllFiltered(Room criteria, Date startDate, Date endDate);
+
+
+
 }
