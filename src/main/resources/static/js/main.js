@@ -115,7 +115,7 @@ $(document).ready(function() {
 
     $("#date-in").datepicker({
         minDate: 0,
-        dateFormat: 'dd.mm.yy',
+        dateFormat: 'yy-mm-dd',
         onSelect: function(selectedDate) {
             checkInDate = $(this).datepicker('getDate');
             checkInDate.setDate(checkInDate.getDate() + 1);
@@ -129,7 +129,7 @@ $(document).ready(function() {
     });
 
     $("#date-out").datepicker({
-        dateFormat: 'dd.mm.yy'
+        dateFormat: 'yy-mm-dd'
     });
 });
 

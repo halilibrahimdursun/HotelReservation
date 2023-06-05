@@ -13,7 +13,7 @@ public class Room {
 
     long Id;
     int roomNumber;
-    boolean smoking;
+    boolean smocking;
     double price;
     String typeOfRoom;
 
@@ -28,8 +28,8 @@ public class Room {
 //
 
 
-    public Room(boolean isSmoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, int capacityOfGuests, String typeOfBed, boolean disabled, String facilities, String imageLink, boolean cleaned) {
-        this.smoking = isSmoking;
+    public Room(boolean smocking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, int capacityOfGuests, String typeOfBed, boolean disabled, String facilities, String imageLink, boolean cleaned) {
+        this.smocking = smocking;
         this.price = price;
         this.typeOfRoom = typeOfRoom;
         this.capacityOfAdults = capacityOfAdults;
@@ -50,8 +50,8 @@ public class Room {
         return Id;
     }
 
-    public boolean isSmoking() {
-        return smoking;
+    public boolean isSmocking() {
+        return smocking;
     }
 
     public double getPrice() {
@@ -93,8 +93,8 @@ public class Room {
         Id = id;
     }
 
-    public void setSmoking(boolean smoking) {
-        this.smoking = smoking;
+    public void setSmocking(boolean smocking) {
+        this.smocking = smocking;
     }
 
     public void setPrice(double price) {

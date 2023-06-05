@@ -1,11 +1,8 @@
 package com.application.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Reservation {
@@ -17,14 +14,28 @@ public class Reservation {
     private String telephoneNumber;
     private String email;
     private int guests;
-    private LocalDate date;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
+    private Date date;
+    private Date checkInDate;
+    private Date checkOutDate;
+
+
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
 
     public Reservation() {
     }
 
-    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, LocalDate date, LocalDate checkInDate, LocalDate checkOutDate) {
+    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date checkInDate, Date checkOutDate) {
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
@@ -74,41 +85,27 @@ public class Reservation {
         this.guests = guests;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-
-//    @Override
-//    public String toString() {
-//        return "Reservation{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", description='" + description + '\'' +
-//                ", price=" + price +
-//                ", images=" + Arrays.toString(image) +
-//                ", stock=" + stock +
-//                '}';
-//
-//    }
-
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public LocalDate getCheckInDate() {
+    public Date getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(LocalDate checkInDate) {
+    public void setCheckInDate(Date checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public LocalDate getCheckOutDate() {
+    public Date getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(LocalDate checkOutDate) {
+    public void setCheckOutDate(Date checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 

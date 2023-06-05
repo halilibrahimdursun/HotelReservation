@@ -74,7 +74,7 @@ public class DemoApplication implements CommandLineRunner {
 
 		// Вызовите метод roomService.findAllFiltered() для получения отфильтрованных комнат
 
-		Iterable<Room> filteredRooms = roomService.findAllFiltered(room);
+//		Iterable<Room> filteredRooms = roomService.findAllFiltered(room);
 
 		// Обновите пользовательский интерфейс с отфильтрованными комнатами
 		// Выведите отфильтрованные комнаты на веб-страницу или выполните другие необходимые действия
