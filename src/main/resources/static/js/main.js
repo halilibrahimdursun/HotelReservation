@@ -111,27 +111,53 @@
 		Date Picker Check-in - Check-out
 	--------------------*/
 $(document).ready(function() {
-    var checkInDate = null;
+    var currentDate = new Date();
+    var maxDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 6, currentDate.getDate());
+    var nextDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
 
     $("#date-in").datepicker({
         minDate: 0,
+        maxDate: maxDate,
         dateFormat: 'yy-mm-dd',
         onSelect: function(selectedDate) {
-            checkInDate = $(this).datepicker('getDate');
-            checkInDate.setDate(checkInDate.getDate() + 1);
-
-            var maxDate = new Date(checkInDate);
-            maxDate.setMonth(maxDate.getMonth() + 6);
-
-            $("#date-out").datepicker("option", "minDate", checkInDate);
-            $("#date-out").datepicker("option", "maxDate", maxDate);
+            var checkInDate = $(this).datepicker('getDate');
+            nextDay = new Date(checkInDate.getFullYear(), checkInDate.getMonth(), checkInDate.getDate() + 1);
+            $("#date-out").datepicker("option", "minDate", nextDay);
         }
     });
 
     $("#date-out").datepicker({
+        minDate: nextDay,
+        maxDate: maxDate,
         dateFormat: 'yy-mm-dd'
     });
 });
+
+
+
+
+//$(document).ready(function() {
+//    var checkInDate = null;
+//
+//    $("#date-in").datepicker({
+//        minDate: 0,
+//        dateFormat: 'yy-mm-dd',
+//        onSelect: function(selectedDate) {
+//            checkInDate = $(this).datepicker('getDate');
+//            checkInDate.setDate(checkInDate.getDate() + 1);
+//
+//            var maxDate = new Date(checkInDate);
+//            maxDate.setMonth(maxDate.getMonth() + 6);
+//
+//            $("#date-out").datepicker("option", "minDate", checkInDate);
+//            $("#date-out").datepicker("option", "maxDate", maxDate);
+//        }
+//    });
+//
+//    $("#date-out").datepicker({
+//        dateFormat: 'yy-mm-dd'
+//    });
+//});
 
 
 /*------------------
