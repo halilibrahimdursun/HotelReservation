@@ -29,7 +29,7 @@ public class RoomController {
     // Endpoint
     // http://localhost:8080/api/room
     // GET
-    @GetMapping (value = "room/{roomId}/", consumes = "application/json", produces = "application/json")
+    @GetMapping (value = "room/{roomId}/", produces = "application/json")
     public ResponseEntity<Room> findRoomById(@PathVariable long roomId) {
         Optional<Room> room = roomService.findById(roomId);
         if (room.isEmpty()) {
@@ -42,7 +42,7 @@ public class RoomController {
     // http://localhost:8080/api/room
     // GET
 
-    @GetMapping (value = "rooms", consumes = "application/json", produces = "application/json")
+    @GetMapping (value = "rooms", produces = "application/json")
     public ResponseEntity<List<Room>> findAll() {
         Iterable<Room> room = roomService.findAll();
         if (room.iterator().hasNext()) {
@@ -78,7 +78,7 @@ public class RoomController {
 //        System.out.println("Adult Value: " + room.getCapacityOfAdults());
 //        System.out.println("Children Count: " + room.getCapacityOfChildren());
 //        System.out.println("Disabled: " + room.isDisabled());
-//        System.out.println("Smocking: " + room.isSmoking());
+//        System.out.println("Smoking: " + room.isSmoking());
 //        logger.info("Inside 'saveReservation'");
 //
 //
@@ -97,20 +97,18 @@ public class RoomController {
         System.out.println("Adult Value: " + room.getCapacityOfAdults());
         System.out.println("Children Count: " + room.getCapacityOfChildren());
         System.out.println("Disabled: " + room.isDisabled());
-        System.out.println("Smocking: " + room.isSmocking());
+        System.out.println("Smoking: " + room.isSmoking());
         System.out.println("Cleaned: " + room.isCleaned());
         logger.info("Inside 'saveReservation'");
 
         List<Room> rooms = roomService.findAllFiltered(room, checkInDate, checkOutDate);
-
-
         System.out.println("[");
+
         for (Room availableRoom : rooms) {
             System.out.println("    " + availableRoom.toString());
         }
+
         System.out.println("]");
-
-
         return ResponseEntity.ok(rooms) ;
 
 
@@ -128,7 +126,7 @@ public class RoomController {
 //        System.out.println("Adult Value: " + room.getCapacityOfAdults());
 //        System.out.println("Children Count: " + room.getCapacityOfChildren());
 //        System.out.println("Disabled: " + room.isDisabled());
-//        System.out.println("Smocking: " + room.isSmoking());
+//        System.out.println("Smoking: " + room.isSmoking());
 //         Other output to the console for data validation // Другие выводы в консоль для проверки данных
 //
 //        Iterable<Room> filteredRooms = roomService.findAllFiltered(room);

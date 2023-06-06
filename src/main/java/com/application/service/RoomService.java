@@ -31,6 +31,5 @@ public interface RoomService {
 
 //    Iterable<Room> findAllFiltered(Room room);
 
-//    Iterable<Room> findAllFiltered(Room room);
 }
 

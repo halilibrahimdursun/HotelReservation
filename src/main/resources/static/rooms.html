@@ -112,57 +112,57 @@
 
 
 
-<div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
-    <div class="booking-form">
-        <h3>Booking Your Hotel</h3>
-        <form action="/api/room/available" id="booking-form" method="post">
-            <div class="check-date">
-                <label for="date-in">Check In:</label>
-                <input type="text" class="date-in" id="date-in" name="dateIn" autocomplete="off">
-                <i class="icon_calendar"></i>
-            </div>
-            <div class="check-date">
-                <label for="date-out">Check Out:</label>
-                <input type="text" class="date-out" id="date-out" name="date-out" autocomplete="off">
-                <i class="icon_calendar"></i>
-            </div>
-            <div class="select-option">
-                <label for="adult">Adult:</label>
-                <select id="adult" name="capacityOfAdults">
-                    <option value="1">1 </option>
-                    <option value="2">2 </option>
-                    <option value="4">4 </option>
-                    <option value="8">8 </option>
-                    <option value="10">10 </option>
-                </select>
-            </div>
-            <div class="select-option">
-                <label for="children">Children: (aged 0-12)</label>
-                <select id="children" name="capacityOfChildren">
-                    <option value="0">0 </option>
-                    <option value="1">1 </option>
-                    <option value="2">2</option>
-                </select>
-            </div>
-            <div class="select-option">
-                <label for="smocking">Smocking:</label>
-                <select id="smocking" name="smocking">
-                    <option value= "0" >Non Smocking</option>
-                    <option value= "1" >Smocking</option>
-                </select>
-            </div>
-            <div class="select-option">
-                <label for="disabled">Disabled:</label>
-                <select id="disabled" name="disabled">
-                    <option value="0">Non Disabled</option>
-                    <option value="1">Disabled</option>
-                </select>
-            </div>
-            <button type="submit">Check Availability</button>
-        </form>
-    </div>
-</div>
-</div>
+<!--<div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">-->
+<!--    <div class="booking-form">-->
+<!--        <h3>Booking Your Hotel</h3>-->
+<!--        <form action="/api/room/available" id="booking-form" method="post">-->
+<!--            <div class="check-date">-->
+<!--                <label for="date-in">Check In:</label>-->
+<!--                <input type="text" class="date-in" id="date-in" name="dateIn" autocomplete="off">-->
+<!--                <i class="icon_calendar"></i>-->
+<!--            </div>-->
+<!--            <div class="check-date">-->
+<!--                <label for="date-out">Check Out:</label>-->
+<!--                <input type="text" class="date-out" id="date-out" name="date-out" autocomplete="off">-->
+<!--                <i class="icon_calendar"></i>-->
+<!--            </div>-->
+<!--            <div class="select-option">-->
+<!--                <label for="adult">Adult:</label>-->
+<!--                <select id="adult" name="capacityOfAdults">-->
+<!--                    <option value="1">1 </option>-->
+<!--                    <option value="2">2 </option>-->
+<!--                    <option value="4">4 </option>-->
+<!--                    <option value="8">8 </option>-->
+<!--                    <option value="10">10 </option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="select-option">-->
+<!--                <label for="children">Children: (aged 0-12)</label>-->
+<!--                <select id="children" name="capacityOfChildren">-->
+<!--                    <option value="0">0 </option>-->
+<!--                    <option value="1">1 </option>-->
+<!--                    <option value="2">2</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="select-option">-->
+<!--                <label for="smoking">Smoking:</label>-->
+<!--                <select id="smoking" name="smoking">-->
+<!--                    <option value= "0" >Non Smoking</option>-->
+<!--                    <option value= "1" >Smoking</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="select-option">-->
+<!--                <label for="disabled">Disabled:</label>-->
+<!--                <select id="disabled" name="disabled">-->
+<!--                    <option value="0">Non Disabled</option>-->
+<!--                    <option value="1">Disabled</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <button type="submit">Check Availability</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
 
 
 
@@ -189,13 +189,11 @@
 <!-- Rooms Section Begin -->
 <section class="rooms-section spad">
     <div class="container">
-<!--        <form class="my-form">-->
             <div class="row" id="roomItems">
             <!-- Динамические элементы комнат будут добавлены сюда -->
 
                 <!-- Элементы вашей формы -->
             </div>
-<!--        </form>-->
     </div>
 </section>
 <!-- Rooms Section End -->
@@ -242,7 +240,8 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/rooms.js"></script>
+<!--<script src="js/rooms.js"></script>-->
+<script src="js/index.js"></script>
 
 
 
