@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MvcController {
     // http://localhost:8080/
-    @GetMapping("/")
+    @GetMapping("/index")
     public String homePage() {
 
         System.out.println("Inside homePage");
@@ -53,7 +53,19 @@ public class MvcController {
     // http://localhost:8080/login
     @GetMapping("/login")
     public String loginPage() {
+        System.out.println("Inside loginPage");
+
         return "login";
+    }
+    @GetMapping("/receptionist")
+    public String receptionistPage() {
+        System.out.println("Inside receptionistPage");
+        return "receptionist";
+    }
+    @GetMapping("/manager")
+    public String managerPage() {
+        System.out.println("Inside managerPage");
+        return "manager";
     }
 
 

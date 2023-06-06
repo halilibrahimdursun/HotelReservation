@@ -1,35 +1,44 @@
 package com.application.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "reservations")
 public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "RESERVATION_NUMBER")
+    private int reservationNumber;
+
+    @Column(name = "ROOM_NUMBER")
     private int roomNumber;
+
+    @Column(name = "TELEPHONE_NUMBER")
     private String telephoneNumber;
+    @Column(name = "EMAIL")
     private String email;
-    private int guests;
-    private LocalDate date;
+    @Column(name = "GUESTS")
+    private String guests;
+    @Column(name = "CHECK_IN_DATE")
     private LocalDate checkInDate;
+    @Column(name = "CHECK_OUT_DATE")
     private LocalDate checkOutDate;
+
 
     public Reservation() {
     }
 
-    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, LocalDate date, LocalDate checkInDate, LocalDate checkOutDate) {
+    public Reservation(long id, int reservationNumber, int roomNumber, String telephoneNumber, String email, String guests, LocalDate checkInDate, LocalDate checkOutDate) {
+        this.id = id;
+        this.reservationNumber = reservationNumber;
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.guests = guests;
-        this.date = date;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
     }
@@ -40,6 +49,14 @@ public class Reservation {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getReservationNumber() {
+        return reservationNumber;
+    }
+
+    public void setReservationNumber(int reservationNumber) {
+        this.reservationNumber = reservationNumber;
     }
 
     public int getRoomNumber() {
@@ -66,34 +83,12 @@ public class Reservation {
         this.email = email;
     }
 
-    public int getGuests() {
+    public String getGuests() {
         return guests;
     }
 
-    public void setGuests(int guests) {
+    public void setGuests(String guests) {
         this.guests = guests;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-
-//    @Override
-//    public String toString() {
-//        return "Reservation{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", description='" + description + '\'' +
-//                ", price=" + price +
-//                ", images=" + Arrays.toString(image) +
-//                ", stock=" + stock +
-//                '}';
-//
-//    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     public LocalDate getCheckInDate() {
@@ -111,5 +106,4 @@ public class Reservation {
     public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
-
 }

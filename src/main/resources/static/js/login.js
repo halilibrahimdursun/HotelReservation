@@ -26,7 +26,7 @@ function validateForm() {
     if (username === "manager") {
       window.location.href = "manager.html";
     } else if (username === "receptionist") {
-      window.location.href = "receptionist.html";
+      window.location.href = "/receptionist";
     }
   } else {
     alert("Wrong login or password");

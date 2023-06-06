@@ -7,10 +7,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ReservationService {
+    List<Reservation> getAllReservations();
+    void saveReservation(Reservation reservation);
 
-    Iterable<Reservation> findAll();
+}
+
+    /*Iterable<Reservation> findAll();
     Optional<Reservation> findById(long id);
     Reservation save(Reservation reservation);
     void remove( long id);
     Iterable<Reservation> filterReservationForVegan(Reservation reservation);
-}
+} */

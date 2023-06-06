@@ -16,43 +16,14 @@ public class ReservationServiceImpl implements ReservationService {
     @Autowired
     ReservationRepository reservationRepository;
 
-    @Autowired
-    RoomServiceImpl roomServiceImpl;
-
     @Override
-    public Iterable<Reservation> findAll() {
+    public List<Reservation> getAllReservations() {
         return reservationRepository.findAll();
     }
-
     @Override
-    public Optional<Reservation> findById(long id) {
-        return reservationRepository.findById(id);
+    public void saveReservation(Reservation reservation) {
+        this.reservationRepository.save(reservation);
     }
 
-    @Override
-    public Reservation save(Reservation reservation) {
 
-        return reservationRepository.save(reservation);
-    }
-
-    @Override
-    public void remove(long id) {
-        reservationRepository.deleteById(id);
-
-    }
-
-    @Override
-    public Iterable<Reservation> filterReservationForVegan(Reservation reservation) {
-        return null;
-    }
-
-   /* public static Room roomCheck(long id){
-        List<Room> rooms = new ArrayList<>();
-        for (Room room : rooms);
-        if()
-
-
-
-    }
-*/
 }
