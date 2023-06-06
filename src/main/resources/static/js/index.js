@@ -69,7 +69,10 @@ $(document).ready(function() {
     data: criteria, // Convert formData object to JSON format // Преобразуйте объект formData в формат JSON
    success: function(response) {
 console.log(response);
-window.location.href = 'rooms.html';
+localStorage.setItem('rooms', JSON.stringify(response));
+//window.location.href = 'rooms.html';
+
+
                 var rooms = response;
                 var roomItems = $('#roomItems');
                     roomItems.empty();
