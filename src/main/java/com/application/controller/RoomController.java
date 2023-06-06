@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("/api")
 public class RoomController {
@@ -29,7 +30,9 @@ public class RoomController {
     // Endpoint
     // http://localhost:8080/api/room
     // GET
+
     @GetMapping (value = "room/{roomId}/", produces = "application/json")
+
     public ResponseEntity<Room> findRoomById(@PathVariable long roomId) {
         Optional<Room> room = roomService.findById(roomId);
         if (room.isEmpty()) {
@@ -42,7 +45,9 @@ public class RoomController {
     // http://localhost:8080/api/room
     // GET
 
+
     @GetMapping (value = "rooms", produces = "application/json")
+
     public ResponseEntity<List<Room>> findAll() {
         Iterable<Room> room = roomService.findAll();
         if (room.iterator().hasNext()) {
@@ -57,6 +62,7 @@ public class RoomController {
         // Endpoint
         // http://localhost:8080/api/room
         // GET
+
 //        @GetMapping (value = "room", produces = "application/json")
 //        public ResponseEntity<Iterable<Room>> findAll(){
 //
@@ -65,6 +71,7 @@ public class RoomController {
 //
 //
 //        }
+
 
     // Endpoint
     // http://localhost:8080/api/room/available
@@ -112,6 +119,55 @@ public class RoomController {
         return ResponseEntity.ok(rooms) ;
 
 
+//    @PostMapping(value = "/room/available")
+//    public ResponseEntity<List<Room>> getAvailableRooms(@RequestBody Room room,
+//                                                           // @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+//                                                            @JsonFormat(pattern="yyyy-MM-dd")
+//                                                             Date startDate,
+//                                                       // @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+//                                                        @JsonFormat(pattern="yyyy-MM-dd")
+//                                                            Date endDate
+//)
+//
+//    //@RequestBody final Room room
+//    //@RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+//    //@RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
+//
+//
+//    {
+//
+//        logger.info("Inside 'saveReservation'");
+//        Room room = new Room();
+//        room.setDisabled(isDisabled);
+//        room.setCapacityOfAdults(capacityOfAdults);
+//        room.setCapacityOfChildren(capacityOfChildren);
+//        room.setSmoking(isSmoking);
+////room.setCleaned(true);
+//
+//        //  List<Room> rooms = roomService.findAllFiltered(room, avelibalview.startDate, avelibalview.endDate);
+//        List<Room> rooms = roomServiceimpl.findAllFiltered(room, startDate,endDate);
+//        return ResponseEntity.ok().body(rooms);
+//
+//    }
+//
+//    private static class Avelibalview {
+//
+//
+//    }
+
+
+    @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<Room>> getAvailableRooms(
+            @RequestBody final Room room,
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate
+    ) {
+
+        logger.info("Inside 'saveReservation'");
+
+        List<Room> rooms = roomService.findAllFiltered(room, startDate, endDate);
+
+        return ResponseEntity.ok(rooms) ;
 
 
         // Endpoint
@@ -132,6 +188,5 @@ public class RoomController {
 //        Iterable<Room> filteredRooms = roomService.findAllFiltered(room);
 //        return ResponseEntity.ok().body(filteredRooms);
     }
-
 
 }

@@ -1,9 +1,7 @@
 package com.application.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity
 public class Room {
 
@@ -13,6 +11,7 @@ public class Room {
 
     long Id;
     int roomNumber;
+
     boolean smoking;
     double price;
     String typeOfRoom;
@@ -21,9 +20,11 @@ public class Room {
     int capacityOfChildren;
     int capacityOfGuests;
     String typeOfBed;
+
     boolean disabled;
     String facilities;
     String imageLink;
+
     boolean cleaned;
 //
 

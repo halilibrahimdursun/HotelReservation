@@ -2,17 +2,20 @@ package com.application.controller;
 
 import com.application.model.Reservation;
 import com.application.service.ReservationService;
-import com.application.service.ReservationServiceImpl;
 import com.application.service.RoomService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.Collections;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.List;
+
 import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,9 +31,8 @@ public class ReservationController {
     RoomService roomService;
 
 
+
     protected static final Logger logger = LogManager.getLogger(ReservationController.class);
-
-
 
     // Endpoint
     // http://localhost:8080/api/reservation
@@ -76,21 +78,18 @@ public class ReservationController {
             @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkInDate,
             @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkOutDate) {
 
+
         logger.info("Inside 'getReservationsIncluded'");
 
         try {
             Iterable<Reservation> reservations = reservationService.findReservationByCheckOutDateBeforeAndCheckInDateAfter(checkInDate, checkOutDate);
+
             return ResponseEntity.ok( reservations);
         } catch (Exception e) {
             return ResponseEntity.ok( Collections.emptyList());
         }
 
     }
-
-
-
-
-
 
 
     // Endpoint

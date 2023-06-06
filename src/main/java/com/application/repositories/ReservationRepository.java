@@ -9,6 +9,8 @@ import java.util.Date;
 
 @Repository
 public interface ReservationRepository extends CrudRepository<Reservation, Long> {
+
     Iterable<Reservation> findReservationByCheckOutDateBeforeAndCheckInDateAfter(Date checkInDate1, Date checOutDate1);
+
 
 }

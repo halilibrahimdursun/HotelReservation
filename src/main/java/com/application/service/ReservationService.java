@@ -17,6 +17,7 @@ public interface ReservationService {
 
     Iterable<Reservation> findAllFiltered(Reservation reservation);
 
+
     Iterable<Reservation> findReservationByCheckOutDateBeforeAndCheckInDateAfter(Date checkInDate, Date checkOutDate);
 
 }
