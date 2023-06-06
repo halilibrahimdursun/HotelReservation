@@ -111,7 +111,7 @@
             <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                 <div class="booking-form">
                     <h3>Booking Your Hotel</h3>
-                    <form action="/api/room/filtered" id="booking-form" method="post">
+                    <form action="/api/room/available" id="booking-form" method="post">
                         <div class="check-date">
                             <label for="date-in">Check In:</label>
                             <input type="text" class="date-in" id="date-in" name="dateIn" autocomplete="off">
@@ -141,24 +141,20 @@
                             </select>
                         </div>
                         <div class="select-option">
-                            <label for="isSmoking">Smocking:</label>
-                            <select id="isSmoking" name="isSmoking">
-                                <option value="false">Non Smoking</option>
-                                <option value="true">Smoking</option>
+                            <label for="smoking">Smoking:</label>
+                            <select id="smoking" name="smoking">
+                                <option value= "0" >Non Smoking</option>
+                                <option value= "1" >Smoking</option>
                             </select>
                         </div>
                         <div class="select-option">
-                            <label for="isDisabled">Disabled:</label>
-                            <select id="isDisabled" name="isDisabled">
-                                <option value="false">Non Disabled</option>
-                                <option value="true">Disabled</option>
+                            <label for="disabled">Disabled:</label>
+                            <select id="disabled" name="disabled">
+                                <option value="0">Non Disabled</option>
+                                <option value="1">Disabled</option>
                             </select>
                         </div>
                         <button type="submit">Check Availability</button>
-
-<!--                        <button type="submit" onclick="redirectToRooms()">Check Availability</button>-->
-
-
                     </form>
                 </div>
             </div>
@@ -173,6 +169,23 @@
     </div>
 </section>
 <!-- Hero Section End -->
+
+<!-- Rooms Section Begin -->
+<section class="rooms-section spad">
+    <div class="container">
+            <div class="row" id="roomItems">
+            <!-- Динамические элементы комнат будут добавлены сюда -->
+            <!-- Элементы вашей формы -->
+        </div>
+
+    </div>
+</section>
+<!-- Rooms Section End -->
+
+
+
+
+
 
 <!-- About Us Section Begin -->
 <section class="aboutus-section spad">
@@ -514,6 +527,7 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+
 
 
 <!--<style>-->

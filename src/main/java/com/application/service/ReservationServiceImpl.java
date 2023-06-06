@@ -5,8 +5,11 @@ import com.application.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import java.util.Optional;
 
 @Service
@@ -14,6 +17,10 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
     ReservationRepository reservationRepository;
+
+
+//    @Autowired
+//    RoomServiceImpl roomServiceImpl;
 
 
     @Override
@@ -49,9 +56,12 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Iterable<Reservation> findReservationByEndDateBeforeAndStartDateAfter(Date startDate, Date endDate) {
-        return reservationRepository.findReservationByEndDateAfterAndStartDateBefore(startDate, endDate);
+
+    public Iterable<Reservation> findReservationByCheckOutDateBeforeAndCheckInDateAfter(Date checkInDate, Date checkOutDate) {
+        return reservationRepository.findReservationByCheckOutDateBeforeAndCheckInDateAfter(checkInDate, checkOutDate);
+
     }
+
 
 
 

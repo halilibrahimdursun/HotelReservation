@@ -3,7 +3,6 @@ package com.application.service;
 import com.application.model.Reservation;
 import com.fasterxml.jackson.annotation.OptBoolean;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -18,5 +17,7 @@ public interface ReservationService {
 
     Iterable<Reservation> findAllFiltered(Reservation reservation);
 
-    Iterable<Reservation> findReservationByEndDateBeforeAndStartDateAfter(Date startDate, Date endDate);
+
+    Iterable<Reservation> findReservationByCheckOutDateBeforeAndCheckInDateAfter(Date checkInDate, Date checkOutDate);
+
 }

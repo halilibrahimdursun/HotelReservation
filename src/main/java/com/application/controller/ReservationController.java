@@ -10,10 +10,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+
 import java.util.Collections;
 import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
+
 import java.util.Optional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 @RestController
 @RequestMapping("/api")
@@ -23,6 +29,8 @@ public class ReservationController {
     ReservationService reservationService;
     @Autowired
     RoomService roomService;
+
+
 
     protected static final Logger logger = LogManager.getLogger(ReservationController.class);
 
@@ -35,7 +43,7 @@ public class ReservationController {
         return ResponseEntity.ok().body(reservationService.save(reservation));
 
     }
-    
+
     // Endpoint
     // http://localhost:8080/api/reservation
     // GET
@@ -65,16 +73,17 @@ public class ReservationController {
     }
 
 
-
     @GetMapping(value = "/reservationincluded", produces = "application/json")
     public ResponseEntity<Iterable<Reservation>> getReservationsIncluded(
-            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+            @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkInDate,
+            @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkOutDate) {
+
 
         logger.info("Inside 'getReservationsIncluded'");
 
         try {
-            Iterable<Reservation> reservations = reservationService.findReservationByEndDateBeforeAndStartDateAfter(startDate, endDate);
+            Iterable<Reservation> reservations = reservationService.findReservationByCheckOutDateBeforeAndCheckInDateAfter(checkInDate, checkOutDate);
+
             return ResponseEntity.ok( reservations);
         } catch (Exception e) {
             return ResponseEntity.ok( Collections.emptyList());
