@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Sona Template">
-    <meta name="keywords" content="Sona, unica, creative, html">
+    <meta name="description" content="Molveno Template">
+    <meta name="keywords" content="Molveno, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sona | Template</title>
+    <title>Molveno | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="your-css-file.css">
 </head>
 
 <body>
@@ -96,21 +97,10 @@
                                         </ul>
                                     </li>
                                     <li><a href="./about-us.html">About Us</a></li>
-<!--                                    <li><a href="./pages.html">Pages</a>-->
-<!--                                        <ul class="dropdown">-->
-<!--                                            <li><a href="./room-details.html">Room Details</a></li>-->
-<!--                                            <li><a href="./blog-details.html">Blog Details</a></li>-->
-<!--                                            <li><a href="#">Family Room</a></li>-->
-<!--                                            <li><a href="#">Premium Room</a></li>-->
-<!--                                        </ul>-->
-<!--                                    </li>-->
-<!--                                    <li><a href="./blog.html">News</a></li>-->
+
                                     <li><a href="./contact.html">Contact</a></li>
                                 </ul>
                             </nav>
-<!--                            <div class="nav-right search-switch">-->
-<!--                                <i class="icon_search"></i>-->
-<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -149,14 +139,7 @@
                             <div class="rd-title">
                                 <h3>Single room</h3>
                                 <div class="rdt-right">
-<!--                                    <div class="rating">-->
-<!--                                        <i class="icon_star"></i>-->
-<!--                                        <i class="icon_star"></i>-->
-<!--                                        <i class="icon_star"></i>-->
-<!--                                        <i class="icon_star"></i>-->
-<!--                                        <i class="icon_star-half_alt"></i>-->
-<!--                                    </div>-->
-<!--                                    <a href="./index.html">Booking Now</a>-->
+                                    <a href="./index.html">Booking Now</a>
                                    </div>
                             </div>
                             <h2><span>from </span>220$<span>/Per night</span></h2>
@@ -180,71 +163,56 @@
                                     </tr>
                                 </tbody>
                             </table>
-<!--                            <p class="f-para">Motorhome or Trailer that is the question for you. Here are some of the-->
-<!--                                advantages and disadvantages of both, so you will be confident when purchasing an RV.-->
-<!--                                When comparing Rvs, a motorhome or a travel trailer, should you buy a motorhome or fifth-->
-<!--                                wheeler? The advantages and disadvantages of both are studied so that you can make your-->
-<!--                                choice wisely when purchasing an RV. Possessing a motorhome or fifth wheel is an-->
-<!--                                achievement of a lifetime. It can be similar to sojourning with your residence as you-->
-<!--                                search the various sites of our great land, America.</p>-->
-<!--                            <p>The two commonly known recreational vehicle classes are the motorized and towable.-->
-<!--                                Towable rvs are the travel trailers and the fifth wheel. The rv travel trailer or fifth-->
-<!--                                wheel has the attraction of getting towed by a pickup or a car, thus giving the-->
-<!--                                adaptability of possessing transportation for you when you are parked at your campsite.-->
-<!--                            </p>-->
                         </div>
                     </div>
 
                 </div>
                 <div class="col-lg-4">
                     <div class="booking-form">
-                        <h3>Booking Room</h3>
+<!--                        <h3>Booking Room</h3>-->
                         <form action="#" id="booking-form">
                             <div class="check-date">
-                                <label for="date-in">Check In:</label>
-                                <input type="text" class="date-in" id="date-in" autocomplete="off">
+                                <label for="inDate">Check In:</label>
+                                <input type="text" class="date-in" id="inDate" readonly>
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="check-date">
-                                <label for="date-out">Check Out:</label>
-                                <input type="text" class="date-out" id="date-out" autocomplete="off">
+                                <label for="outDate">Check Out:</label>
+                                <input type="text" class="date-out" id="outDate" readonly>
                                 <i class="icon_calendar"></i>
                             </div>
-                            <div class="select-option">
+                            <div class="check-date">
                                 <label for="adult">Adult:</label>
-                                <select id="adult">
-                                    <option value="1">1 </option>
-                                    <option value="2">2 </option>
-                                    <!--                                    <option value="">3 </option>-->
-                                    <option value="4">4 </option>
-                                    <!--                                    <option value="">5 </option>-->
-                                    <!--                                    <option value="">6 </option>-->
-                                    <!--                                    <option value="">7 </option>-->
-                                    <option value="8">8 </option>
-                                    <!--                                    <option value="">9 </option>-->
-                                    <option value="10">10 </option>
-                                </select>
+                                <input type="text" id="adult" readonly>
                             </div>
-                            <div class="select-option">
+                            <div class="check-date">
                                 <label for="children">Children: (aged 0-12)</label>
-                                <select id="children">
-                                    <option value="0">0 </option>
-                                    <option value="1">1 </option>
-                                    <option value="2">2</option>
-                                </select>
+                                <input type="text" id="children" readonly>
                             </div>
-                            <div class="select-option">
-                                <label for="options">Room's options:</label>
-                                <select id="options">
-                                    <option value="">------</option>
-                                    <option value="Smoking">Smoking</option>
-                                    <option value="Non Smoking">Non Smoking</option>
-                                    <option value="123424324">Disabled</option>
-                                </select>
+                            <div class="check-date">
+                                <label for="smoking">Smoking:</label>
+                                <input type="text" id="smoking" readonly>
                             </div>
-                            <!--                        <button type="submit">Check Availability</button>-->
+                            <div class="check-date">
+                                <label for="disabled">Disabled:</label>
+                                <input type="text" id="disabled" readonly>
+                            </div>
+                            <div class="check-date">
+                                <label for="name">Full name:</label>
+                                <input type="text" id="name" >
+                            </div>
+                            <div class="check-date">
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" >
+                            </div>
+                            <div class="check-date">
+                                <label for="phone">Phone number:</label>
+                                <input type="text" id="phone" >
+                            </div>
 
-                            <button type="submit" onclick="redirectToRooms()">Check Availability</button>
+                            <button type="submit">Book now</button>
+
+<!--                            <button type="submit" onclick="redirectToRooms()">Books room</button>-->
                         </form>
                     </div>
                 </div>
@@ -340,6 +308,7 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/rooms.js"></script>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
