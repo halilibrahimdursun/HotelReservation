@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Room List</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Room List</h1>
+
+<div id="room-list"></div>
+
+<script>
+    $(document).ready(function() {
+      // Отправка AJAX-запроса на сервер при загрузке страницы
+      $.ajax({
+        url: 'api/room/filtered',
+        type: 'GET',
+        success: function(response) {
+          // Очистка предыдущего списка комнат
+          $("#room-list").empty();
+
+          // Обновление пользовательского интерфейса с полученным списком комнат
+          response.forEach(function(room) {
+            // Создание элемента HTML для комнаты и заполнение его данными
+            var roomElement = "<div class='room'>" +
+                              "<h3>" + room.name + "</h3>" +
+                              "<p>Capacity: " + room.capacity + "</p>" +
+                              "<p>Price: " + room.price + "</p>" +
+                              "</div>";
+
+            // Добавление элемента комнаты к списку на веб-странице
+            $("#room-list").append(roomElement);
+          });
+        },
+        error: function(xhr, status, error) {
+          console.log(error);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -15,6 +15,7 @@ public class Room {
     boolean smoking;
     double price;
     String typeOfRoom;
+
     int capacityOfAdults;
     int capacityOfChildren;
     int capacityOfGuests;
