@@ -9,6 +9,6 @@ import java.util.Date;
 
 @Repository
 public interface ReservationRepository extends CrudRepository<Reservation, Long> {
-    Iterable<Reservation> findReservationByEndDateAfterAndStartDateBefore(Date startDate1, Date endDate1);
+    Iterable<Reservation> findReservationByEndDateAfterAndStartDateBefore(Date startDate, Date endDate);
 
 }

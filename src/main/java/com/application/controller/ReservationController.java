@@ -1,6 +1,7 @@
 package com.application.controller;
 
 import com.application.model.Reservation;
+import com.application.model.Room;
 import com.application.service.ReservationService;
 import com.application.service.RoomService;
 import org.apache.logging.log4j.LogManager;
@@ -63,15 +64,25 @@ public class ReservationController {
         return reservation.isPresent()?ResponseEntity.ok().body(reservation.get()):ResponseEntity.notFound().build();
 
     }
+    @PutMapping(value = "/totallyPrice" ,  consumes = "application/json")
+    public ResponseEntity<Double> totally (
+        @RequestBody Room room,
+        @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+        @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate){
+        double totally = reservationService.counter(startDate,endDate,room);
 
 
+
+        return ResponseEntity.ok(totally);
+
+    }
 
     @GetMapping(value = "/reservationincluded", produces = "application/json")
     public ResponseEntity<Iterable<Reservation>> getReservationsIncluded(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
 
-        logger.info("Inside 'getReservationsIncluded'");
+
 
         try {
             Iterable<Reservation> reservations = reservationService.findReservationByEndDateBeforeAndStartDateAfter(startDate, endDate);

@@ -2,7 +2,6 @@ package com.application.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -10,6 +9,8 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
+    long totallyPrice;
     private long id;
     private int roomNumber;
     private String telephoneNumber;
@@ -33,7 +34,7 @@ private Room room;
     public Reservation() {
     }
 
-    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date startDate, Date endDate) {
+    public Reservation(long totallyPrice, int roomNumber, String telephoneNumber, String email, int guests, Date date, Date startDate, Date endDate) {
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
@@ -41,6 +42,15 @@ private Room room;
         this.date = date;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.totallyPrice = totallyPrice;
+    }
+
+    public long getTotallyPrice() {
+        return totallyPrice;
+    }
+
+    public void setTotallyPrice(long totallyPrice) {
+        this.totallyPrice = totallyPrice;
     }
 
     public long getId() {
