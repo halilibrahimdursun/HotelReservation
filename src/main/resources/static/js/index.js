@@ -72,6 +72,12 @@ console.log(response);
 localStorage.setItem('rooms', JSON.stringify(response));
 localStorage.setItem('inDate', checkInDate);
 localStorage.setItem('outDate', checkOutDate);
+localStorage.setItem('adult', capacityOfAdults);
+//localStorage.setItem('children', capacityOfChildren);
+localStorage.setItem('smoking', smoking);
+localStorage.setItem('disabled', disabled);
+
+
 window.location.href = 'rooms.html';
 
 

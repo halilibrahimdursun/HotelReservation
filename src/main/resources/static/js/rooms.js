@@ -5,10 +5,18 @@ $(document).ready(function() {
   var storedRooms = localStorage.getItem('rooms');
   var inDate = localStorage.getItem('inDate');
   var outDate = localStorage.getItem('outDate');
-  console.log(inDate,outDate);
+  var adult = localStorage.getItem('adult');
+  var children = localStorage.getItem('children');
+  var smoking = localStorage.getItem('smoking');
+  var disabled = localStorage.getItem('disabled');
+  console.log(inDate,outDate,adult,children,smoking,disabled );
 
-  $('#inDate').val("123");
-  $('#outDate').val("345");
+  $('#inDate').val("2023-88-99");
+  $('#outDate').val("2023-88-66");
+  $('#adult').val("2");
+  $('#children').val("1");
+  $('#smoking').val("Smoking");
+  $('#disabled').val("Non Disabled");
 
   var addedRoomTypes = []; // Track the room types that have been added
 
