@@ -15,7 +15,6 @@ public class Reservation {
     private String email;
     private int guests;
     private Date date;
-
     private Date checkInDate;
     private Date checkOutDate;
 
@@ -23,7 +22,6 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
-
 
     public Room getRoom() {
         return room;
@@ -37,16 +35,15 @@ public class Reservation {
     public Reservation() {
     }
 
-
     public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date checkInDate, Date checkOutDate) {
-
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.guests = guests;
         this.date = date;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+
     }
 
     public long getId() {
@@ -111,10 +108,6 @@ public class Reservation {
 
     public void setCheckOutDate(Date checkOutDate) {
         this.checkOutDate = checkOutDate;
-
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
 }

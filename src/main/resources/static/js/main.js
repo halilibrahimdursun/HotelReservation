@@ -110,29 +110,38 @@
 /*------------------
 		Date Picker Check-in - Check-out
 	--------------------*/
-$(document).ready(function() {
-    var currentDate = new Date();
-    var maxDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 6, currentDate.getDate());
-    var nextDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
 
-    $("#date-in").datepicker({
+$(document).ready(function() {
+    // Получаем текущую дату и следующий день
+    var currentDate = new Date();
+    var nextDay = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+
+    // Вычисляем дату, ограничивающую период
+    var maxDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 6, currentDate.getDate() + 1);
+
+    // Форматируем даты в формат "yyyy-mm-dd"
+    var formattedCurrentDate = currentDate.toISOString().split('T')[0];
+    var formattedNextDay = nextDay.toISOString().split('T')[0];
+    var formattedMaxDate = maxDate.toISOString().split('T')[0];
+
+    // Устанавливаем значения и настройки datepicker для полей "date-in" и "date-out"
+    $("#date-in").val(formattedCurrentDate).datepicker({
         minDate: 0,
-        maxDate: maxDate,
+        maxDate: formattedMaxDate,
         dateFormat: 'yy-mm-dd',
         onSelect: function(selectedDate) {
             var checkInDate = $(this).datepicker('getDate');
-            nextDay = new Date(checkInDate.getFullYear(), checkInDate.getMonth(), checkInDate.getDate() + 1);
+            var nextDay = new Date(checkInDate.getTime() + 24 * 60 * 60 * 1000);
             $("#date-out").datepicker("option", "minDate", nextDay);
         }
     });
 
-    $("#date-out").datepicker({
-        minDate: nextDay,
-        maxDate: maxDate,
+    $("#date-out").val(formattedNextDay).datepicker({
+        minDate: 1,
+        maxDate: formattedMaxDate,
         dateFormat: 'yy-mm-dd'
     });
 });
-
 
 
 

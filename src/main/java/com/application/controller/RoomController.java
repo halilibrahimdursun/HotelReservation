@@ -155,19 +155,19 @@ public class RoomController {
 //
 //    }
 
-
-    @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<Room>> getAvailableRooms(
-            @RequestBody final Room room,
-            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate
-    ) {
-
-        logger.info("Inside 'saveReservation'");
-
-        List<Room> rooms = roomService.findAllFiltered(room, startDate, endDate);
-
-        return ResponseEntity.ok(rooms) ;
+//
+//    @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
+//    public ResponseEntity<List<Room>> getAvailableRooms(
+//            @RequestBody final Room room,
+//            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+//            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate
+//    ) {
+//
+//        logger.info("Inside 'saveReservation'");
+//
+//        List<Room> rooms = roomService.findAllFiltered(room, startDate, endDate);
+//
+//        return ResponseEntity.ok(rooms) ;
 
 
         // Endpoint
@@ -190,3 +190,4 @@ public class RoomController {
     }
 
 }
+

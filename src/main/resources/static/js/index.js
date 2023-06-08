@@ -70,64 +70,16 @@ $(document).ready(function() {
    success: function(response) {
 console.log(response);
 localStorage.setItem('rooms', JSON.stringify(response));
+localStorage.setItem('inDate', checkInDate);
+localStorage.setItem('outDate', checkOutDate);
+localStorage.setItem('adult', capacityOfAdults);
+//localStorage.setItem('children', capacityOfChildren);
+localStorage.setItem('smoking', smoking);
+localStorage.setItem('disabled', disabled);
+
+
 window.location.href = 'rooms.html';
 
-
-//
-//                var rooms = response;
-//                var roomItems = $('#roomItems');
-//                    roomItems.empty();
-//
-//                if (rooms.length > 0) {
-//                    rooms.forEach(function(room) {
-//                        var imagePath = room.imageLink;
-//                        var roomName = room.typeOfRoom;
-//                        var roomPrice = room.price;
-//                        var maxCapacity = room.capacityOfGuests;
-//                        var bedType = room.typeOfBed;
-//                        var special = room.disabled;
-//                        var amenities = room.facilities;
-//
-//                        var roomItem = $('<div class="col-lg-4 col-md-6">\
-//                            <div class="room-item">\
-//                            <form class="my-form">\
-//                               <img src="' + imagePath + '" alt="">\
-//                                <div class="ri-text">\
-//                                    <h4>' + roomName + '</h4>\
-//                                    <h3>' + roomPrice + '$<span>/Pernight</span></h3>\
-//                                    <table>\
-//                                        <tbody>\
-//                                            <tr>\
-//                                                <td class="r-o">Capacity:</td>\
-//                                                <td>Max person ' + maxCapacity + '</td>\
-//                                            </tr>\
-//                                            <tr>\
-//                                                <td class="r-o">Bed:</td>\
-//                                                <td>' + bedType + '</td>\
-//                                            </tr>\
-//                                            <tr>\
-//                                                <td class="r-o">Special:</td>\
-//                                                <td>' + special + '</td>\
-//                                            </tr>\
-//                                            <tr>\
-//                                                <td class="r-o">Services:</td>\
-//                                                <td>' + amenities + '</td>\
-//                                            </tr>\
-//                                        </tbody>\
-//                                    </table>\
-//                                    <a href="./room-single.html" class="primary-btn">More Details</a>\
-//                                </div>\
-//                            </div>\
-//                            </form>\
-//                        </div>');
-//
-//                        roomItems.append(roomItem);
-//                        console.log("test2");
-//                    });
-//                } else {
-//                    roomItems.html('<p>No rooms found.</p>');
-//                }
-//
 
    },
 

@@ -655,6 +655,30 @@ ul, ol {
 .hero-slider .owl-stage-outer, .hero-slider .owl-stage, .hero-slider .owl-item, .hero-slider .hs-item {
 	height: 100%;
 }
+
+/*---------------------
+  Booking
+-----------------------*/
+.check-date-double {
+    display: flex;
+    justify-content: space-between;
+}
+
+.check-date-item {
+    flex-basis: 48%;
+}
+
+.date-in,
+.date-out {
+    width: 100%;
+}
+
+
+
+/*---------------------
+  Booking
+-----------------------*/
+
 /*---------------------
   About US
 -----------------------*/
