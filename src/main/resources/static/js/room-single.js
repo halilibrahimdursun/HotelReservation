@@ -115,13 +115,13 @@ $(document).ready(function() {
   $('#smoking').val(smoking === "true" ? "Smoking" : "Non smoking");
   $('#disabled').val(disabled === "true" ? "Disabled" : "Non disabled");
 
-  var addedRoomTypes = []; // Отслеживаем добавленные типы комнат
-  var isFirstRoomAdded = false; // Флаг для отслеживания добавления первой комнаты
+  var addedRoomTypes = []; // Keeping track of added room types // Отслеживаем добавленные типы комнат
+  var isFirstRoomAdded = false; // Flag to keep track of adding the first room // Флаг для отслеживания добавления первой комнаты
 
   if (storedRooms) {
     var rooms = JSON.parse(storedRooms);
 
-    // Сортируем массив комнат по цене в порядке возрастания
+    // Sort the array of rooms by price in ascending order // Сортируем массив комнат по цене в порядке возрастания
     rooms.sort(function(a, b) {
       return a.price - b.price;
     });
@@ -130,9 +130,9 @@ $(document).ready(function() {
       rooms.forEach(function(room) {
         var roomType = room.typeOfRoom;
 
-        // Проверяем, если тип комнаты 'Single' и первая комната еще не добавлена
+        // Check if the room type is 'Single' and the first room has not been added yet //Проверяем, если тип комнаты 'Single' и первая комната еще не добавлена
         if (roomType === 'Single' && !isFirstRoomAdded) {
-          addedRoomTypes.push(roomType); // Добавляем тип комнаты в массив
+          addedRoomTypes.push(roomType); // Add room type to array // Добавляем тип комнаты в массив
 
 //          var inDate = room.checkInDate;
 //          var outDate = room.checkOutDate;
@@ -145,10 +145,10 @@ $(document).ready(function() {
           var amenities = room.facilities;
 console.log(inDate);
 console.log(outDate);
-          // Создаем выпадающее меню для услуг с горизонтальным текстом
-          var selectMenu = '<select id="servicesSelect" style="width: 500px;">' +
-                           '<option style="writing-mode: horizontal;">' + amenities + '</option>' +
-                           '</select>';
+          // Creating a dropdown menu for services with horizontal text // Создаем выпадающее меню для услуг с горизонтальным текстом
+//          var selectMenu = '<select id="servicesSelect" style="width: 500px;">' +
+//                           '<option style="writing-mode: horizontal;">' + amenities + '</option>' +
+//                           '</select>';
 
           var roomItem = $('<h2><span>Price: </span>' + roomPrice + '$<span>/Per night</span></h2>\
                               <table>\
@@ -174,7 +174,7 @@ console.log(outDate);
                                   </tr>\
                                   <tr>\
                                       <td class="r-o">Facilities:</td>\
-                                      <td>' + selectMenu + '</td>\
+                                      <td>' + amenities + '</td>\
                                   </tr>\
                                   </tbody>\
                               </table>\
@@ -183,34 +183,35 @@ console.log(outDate);
           roomItems.append(roomItem);
 
           // Обновляем цену комнаты при выборе значения в выпадающем меню
-          $('#servicesSelect').on('change', function() {
-            var selectedService = $(this).val();
-            $('#roomPrice').text(selectedService);
-          });
+//          $('#servicesSelect').on('change', function() {
+//            var selectedService = $(this).val();
+//            $('#roomPrice').text(selectedService);
+//          });
 
           isFirstRoomAdded = true;
         }
       });
     } else {
-      roomItems.html('<p>Комнаты не найдены.</p>');
+      roomItems.html('<p>No rooms found.</p>');
     }
 //    localStorage.removeItem('rooms');
   } else {
-    roomItems.html('<p>Комнаты не найдены.</p>');
+    roomItems.html('<p>No rooms found.</p>');
   }
 });
 
 
 
-        // Обработчик события submit для формы
-        // The submit event handler for the form
+        //--------------------- Обработчик события submit для формы----------------------------//
+        // --------------------The submit event handler for the form---------------------------//
+
         document.getElementById("booking-form").addEventListener("submit", function(event) {
             event.preventDefault(); // Cancel the default form submission // Отменяем отправку формы по умолчанию
 
 
             // Getting values from input fields // Получение значений из полей ввода
-            var nameInput = document.getElementById("inDate");
-            var nameInput = document.getElementById("outDate");
+            var inDateInput = document.getElementById("inDate");
+            var outDateInput = document.getElementById("outDate");
             var nameInput = document.getElementById("name");
             var surnameInput = document.getElementById("surname");
             var emailInput = document.getElementById("email");
@@ -223,6 +224,7 @@ console.log(outDate);
             var emailValue = emailInput.value;
             var phoneValue = phoneInput.value;
 
+
             // print to console
             console.log("inDate: " + inDateValue);
             console.log("outDate: " + outDateValue);
@@ -231,6 +233,28 @@ console.log(outDate);
             console.log("Email: " + emailValue);
             console.log("Phone number: " + phoneValue);
 
+
+ // Генерация случайного номера бронирования
+            var bookingNumber = Math.floor(Math.random() * 100000);
+
+   // Отображение всплывающего окна с сообщением
+            var popup = document.getElementById("popup");
+            var bookingNumberElement = document.getElementById("bookingNumber");
+            bookingNumberElement.textContent = bookingNumber;
+            popup.style.display = "block";
+
+            // Обработчик события для кнопки "Закрыть"
+          var closeButton = document.getElementById("closeButton");
+          closeButton.addEventListener("click", function() {
+              popup.style.display = "none";
+          });
+
+
+
             //Additional actions, such as sending data to the server
             // Дополнительные действия, например, отправка данных на сервер
         });
+     
+
+        //--------------------- Обработчик события submit для формы----------------------------//
+        // --------------------The submit event handler for the form---------------------------//
