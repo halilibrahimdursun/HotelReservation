@@ -70,15 +70,18 @@ $(document).ready(function() {
    success: function(response) {
 console.log(response);
 localStorage.setItem('rooms', JSON.stringify(response));
+
+
 localStorage.setItem('inDate', checkInDate);
 localStorage.setItem('outDate', checkOutDate);
 localStorage.setItem('adult', capacityOfAdults);
-//localStorage.setItem('children', capacityOfChildren);
+localStorage.setItem('children', capacityOfChildren);
 localStorage.setItem('smoking', smoking);
 localStorage.setItem('disabled', disabled);
 
 
 window.location.href = 'rooms.html';
+//window.location.href = 'room-single.html';
 
 
    },

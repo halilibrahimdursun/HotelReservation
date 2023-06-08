@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="your-css-file.css">
+
+
 </head>
 
 <body>
@@ -33,9 +35,6 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Offcanvas Menu Section Begin -->
-
-    <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
     <header class="header-section header-normal">
@@ -50,20 +49,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="tn-right">
-<!--                            <div class="top-social">-->
-<!--                                <a href="#"><i class="fa fa-facebook"></i></a>-->
-<!--                                <a href="#"><i class="fa fa-twitter"></i></a>-->
-<!--                                <a href="#"><i class="fa fa-tripadvisor"></i></a>-->
-<!--                                <a href="#"><i class="fa fa-instagram"></i></a>-->
-<!--                            </div>-->
-<!--                            <a href="./index.html" class="bk-btn">Booking Now</a>-->
                             <div class="language-option">
                                 <img src="img/flag.jpg" alt="">
                                 <span>EN <i class="fa fa-angle-down"></i></span>
                                 <div class="flag-dropdown">
                                     <ul>
                                         <li><a href="#">CN</a></li>
-<!--                                        <li><a href="#">Fr</a></li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -109,6 +100,7 @@
     </header>
     <!-- Header End -->
 
+
     <!-- Breadcrumb Section Begin -->
     <div class="breadcrumb-section">
         <div class="container">
@@ -128,41 +120,52 @@
     </div>
     <!-- Breadcrumb Section End -->
 
-    <!-- Room Details Section Begin -->
+
+
+    <!-- Booking Room table  -->
     <section class="room-details-section spad">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8">
                     <div class="room-details-item">
                         <img src="img/room/room-1c.jpg" alt="">
                         <div class="rd-text">
                             <div class="rd-title">
-                                <h3><div><id="phone" ></div></h3>
-                                <div class="rdt-right">
-                                    <a href="./index.html">Booking Now</a>
-                                   </div>
+                                <h3>Single room</h3>
+                                    <div class="rdt-right">
+                                        <a href="./index.html">Booking Now</a>
+                                    </div>
                             </div>
-                            <h2><span>from </span>220$<span>/Per night</span></h2>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>Single</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <div id="roomItems">
+<!--                                <h2><span>from </span>220$<span>/Per night</span></h2>-->
+<!--                                <table>-->
+<!--                                    <tbody>-->
+<!--                                        <tr>-->
+<!--                                          <td class="r-o">Capacity:</td>-->
+<!--                                         <td>Max persion 2</td>-->
+<!--                                      </tr>-->
+<!--                                      <tr>-->
+<!--                                         <td class="r-o">Bed:</td>-->
+<!--                                           <td>Single</td>-->
+<!--                                      </tr>-->
+<!--                                      <tr>-->
+<!--                                        <td class="r-o">Services:</td>-->
+<!--                                        <td>mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler</td>-->
+<!--                                      </tr>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
+
+                <!-- -----------Booking Room table ------------- -->
+
+
+
                 <div class="col-lg-4">
                     <div class="booking-form">
 <!--                        <h3>Booking Room</h3>-->
@@ -210,12 +213,14 @@
 
 <!--                            <button type="submit" onclick="redirectToRooms()">Books room</button>-->
                         </form>
-                    </div>
+<!--                    </div>-->
                 </div>
             </div>
         </div>
     </section>
-    <!-- Room Details Section End -->
+    <!-- Booking Room table  End -->
+
+
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">
@@ -258,52 +263,54 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/rooms.js"></script>
+<!--    <script src="js/rooms.js"></script>-->
+    <script src="js/room-single.js"></script>
+    <!--    <script src="js/index.js"></script>-->
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-  $(document).ready(function() {
-    $("#booking-form").on('submit', function(event) {
-      event.preventDefault(); // Предотвращаем перезагрузку страницы
+<!--    <script>-->
+<!--  $(document).ready(function() {-->
+<!--    $("#booking-form").on('submit', function(event) {-->
+<!--      event.preventDefault(); // Предотвращаем перезагрузку страницы-->
 
-      // Получение значений полей формы
-      var dateIn = $("#date-in").val();
-      var dateOut = $("#date-out").val();
-<!--      var adultCount = $("#adult").val();-->
-      var adultValue = $("#adult").val();
-      var childrenCount = $("#children").val();
-      var roomOptions = $("#options").val();
+<!--      // Получение значений полей формы-->
+<!--      var dateIn = $("#date-in").val();-->
+<!--      var dateOut = $("#date-out").val();-->
+<!--&lt;!&ndash;      var adultCount = $("#adult").val();&ndash;&gt;-->
+<!--      var adultValue = $("#adult").val();-->
+<!--      var childrenCount = $("#children").val();-->
+<!--      var roomOptions = $("#options").val();-->
 
 
 
-      // Выполнение дополнительных действий с данными формы
-      console.log("Form submitted");
-      console.log("Check-in date: " + dateIn);
-      console.log("Check-out date: " + dateOut);
-<!--      console.log("Adult count: " + adultCount);-->
-      console.log("Selected Adult:", adultValue);
-      console.log("Children count: " + childrenCount);
-<!--      console.log("Room options: " + roomOptions);-->
-      console.log("Selected Room options:",roomOptions);
+<!--      // Выполнение дополнительных действий с данными формы-->
+<!--      console.log("Form submitted");-->
+<!--      console.log("Check-in date: " + dateIn);-->
+<!--      console.log("Check-out date: " + dateOut);-->
+<!--&lt;!&ndash;      console.log("Adult count: " + adultCount);&ndash;&gt;-->
+<!--      console.log("Selected Adult:", adultValue);-->
+<!--      console.log("Children count: " + childrenCount);-->
+<!--&lt;!&ndash;      console.log("Room options: " + roomOptions);&ndash;&gt;-->
+<!--      console.log("Selected Room options:",roomOptions);-->
 
-      // Пример отправки AJAX-запроса
-      $.ajax({
-        url: 'обработчик.php',
-        type: 'POST',
-        data: $(this).serialize(),
-        success: function(response) {
-          // Обработка успешного ответа от сервера
-          console.log(response);
-        },
-        error: function(xhr, status, error) {
-          // Обработка ошибки
-          console.log(error);
-        }
-      });
-    });
-  });
-</script>
+<!--      // Пример отправки AJAX-запроса-->
+<!--      $.ajax({-->
+<!--        url: 'обработчик.php',-->
+<!--        type: 'POST',-->
+<!--        data: $(this).serialize(),-->
+<!--        success: function(response) {-->
+<!--          // Обработка успешного ответа от сервера-->
+<!--          console.log(response);-->
+<!--        },-->
+<!--        error: function(xhr, status, error) {-->
+<!--          // Обработка ошибки-->
+<!--          console.log(error);-->
+<!--        }-->
+<!--      });-->
+<!--    });-->
+<!--  });-->
+<!--</script>-->
 
 
 

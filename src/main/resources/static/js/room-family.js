@@ -17,12 +17,12 @@ $(document).ready(function() {
   var disabled = localStorage.getItem('disabled');
   console.log(inDate, outDate, adult, children, smoking, disabled);
 
-  $('#inDate').val(inDate);
-  $('#outDate').val(outDate);
-  $('#adult').val(adult);
-  $('#children').val(children);
-  $('#smoking').val(smoking ? "Smoking" : "Non smoking");
-  $('#disabled').val(disabled ? "Disabled" : "Non disabled" );
+  $('#inDate').val("2023-01-02");
+  $('#outDate').val("2023-02-02");
+  $('#adult').val("2");
+  $('#children').val("1");
+  $('#smoking').val("Smoking");
+  $('#disabled').val("Non Disabled");
 
  var addedRoomTypes = []; // Track the room types that have been added
   var isFirstRoomAdded = false; // Flag to track if the first room has been added
@@ -40,14 +40,14 @@ $(document).ready(function() {
         var roomType = room.typeOfRoom;
 
         // Check if the room type is 'Single' and the first room has not been added
-        if (roomType === 'Single' && !isFirstRoomAdded) {
+        if (roomType === '2xDouble' && !isFirstRoomAdded) {
           addedRoomTypes.push(roomType); // Add the room type to the array
 
 
           // Rest of the code for creating the room item element
 //          var imagePath = room.imageLink;
 //          var roomName = room.typeOfRoom;
-          var inDate = room.checkInDate;
+
           var roomPrice = room.price;
           var maxCapacity = room.capacityOfGuests;
           var bedType = room.typeOfBed;
