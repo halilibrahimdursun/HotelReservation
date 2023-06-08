@@ -234,6 +234,20 @@ console.log(outDate);
             console.log("Phone number: " + phoneValue);
 
 
+ // Валидация email
+    if (!validateEmail(emailValue)) {
+        alert("Please enter a valid email.");
+        return;
+    }
+
+    // Валидация phone
+    if (!validatePhone(phoneValue)) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+
+
+
  // Генерация случайного номера бронирования
             var bookingNumber = Math.floor(Math.random() * 100000);
 
@@ -247,6 +261,8 @@ console.log(outDate);
           var closeButton = document.getElementById("closeButton");
           closeButton.addEventListener("click", function() {
               popup.style.display = "none";
+              localStorage.removeItem('rooms');
+              window.location.href = 'index.html';
           });
 
 
@@ -254,7 +270,20 @@ console.log(outDate);
             //Additional actions, such as sending data to the server
             // Дополнительные действия, например, отправка данных на сервер
         });
-     
+     // Функция для валидации email
+     function validateEmail(email) {
+         // Регулярное выражение для проверки email
+         var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         return regex.test(email);
+     }
+
+     // Функция для валидации phone
+     function validatePhone(phone) {
+         // Регулярное выражение для проверки phone
+         // В примере используется простая проверка на числовое значение длиной 10 символов
+         var regex = /^\d{10}$/;
+         return regex.test(phone);
+     }
 
         //--------------------- Обработчик события submit для формы----------------------------//
         // --------------------The submit event handler for the form---------------------------//
