@@ -180,29 +180,33 @@
                                 <input type="text" class="date-out" id="outDate" readonly>
                                 <i class="icon_calendar"></i>
                             </div>
+<!--                            <div class="check-date">-->
+<!--                                <label for="adult">Adult:</label>-->
+<!--                                <input type="text" id="adult" readonly>-->
+<!--                            </div>-->
+<!--                            <div class="check-date">-->
+<!--                                <label for="children">Children: (aged 0-12)</label>-->
+<!--                                <input type="text" id="children" readonly>-->
+<!--                            </div>-->
+<!--                            <div class="check-date">-->
+<!--                                <label for="smoking">Smoking:</label>-->
+<!--                                <input type="text" id="smoking" readonly>-->
+<!--                            </div>-->
+<!--                            <div class="check-date">-->
+<!--                                <label for="disabled">Disabled:</label>-->
+<!--                                <input type="text" id="disabled" readonly>-->
+<!--                            </div>-->
                             <div class="check-date">
-                                <label for="adult">Adult:</label>
-                                <input type="text" id="adult" readonly>
-                            </div>
-                            <div class="check-date">
-                                <label for="children">Children: (aged 0-12)</label>
-                                <input type="text" id="children" readonly>
-                            </div>
-                            <div class="check-date">
-                                <label for="smoking">Smoking:</label>
-                                <input type="text" id="smoking" readonly>
-                            </div>
-                            <div class="check-date">
-                                <label for="disabled">Disabled:</label>
-                                <input type="text" id="disabled" readonly>
-                            </div>
-                            <div class="check-date">
-                                <label for="name">Full name:</label>
+                                <label for="name">Name:</label>
                                 <input type="text" id="name" >
                             </div>
                             <div class="check-date">
+                                <label for="surname">Surname:</label>
+                                <input type="text" id="surname" >
+                            </div>
+                            <div class="check-date">
                                 <label for="email">Email:</label>
-                                <input type="text" id="email" >
+                                <h2></h2><input type="text" id="email" ></h2>
                             </div>
                             <div class="check-date">
                                 <label for="phone">Phone number:</label>
@@ -216,6 +220,7 @@
 <!--                    </div>-->
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Booking Room table  End -->
@@ -269,51 +274,39 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!--    <script>-->
-<!--  $(document).ready(function() {-->
-<!--    $("#booking-form").on('submit', function(event) {-->
-<!--      event.preventDefault(); // Предотвращаем перезагрузку страницы-->
+<!--        // Обработчик события submit для формы-->
+<!--        document.getElementById("booking-form").addEventListener("submit", function(event) {-->
+<!--            event.preventDefault(); // Отменяем отправку формы по умолчанию-->
 
-<!--      // Получение значений полей формы-->
-<!--      var dateIn = $("#date-in").val();-->
-<!--      var dateOut = $("#date-out").val();-->
-<!--&lt;!&ndash;      var adultCount = $("#adult").val();&ndash;&gt;-->
-<!--      var adultValue = $("#adult").val();-->
-<!--      var childrenCount = $("#children").val();-->
-<!--      var roomOptions = $("#options").val();-->
+<!--            // Получение значений из полей ввода-->
+<!--            var nameInput = document.getElementById("inDate");-->
+<!--            var nameInput = document.getElementById("outDate");-->
+<!--            var nameInput = document.getElementById("name");-->
+<!--            var surnameInput = document.getElementById("surname");-->
+<!--            var emailInput = document.getElementById("email");-->
+<!--            var phoneInput = document.getElementById("phone");-->
 
+<!--            var inDateValue = inDate.value;-->
+<!--            var outDateValue = outDate.value;-->
+<!--            var nameValue = nameInput.value;-->
+<!--            var surnameValue = surnameInput.value;-->
+<!--            var emailValue = emailInput.value;-->
+<!--            var phoneValue = phoneInput.value;-->
 
-
-<!--      // Выполнение дополнительных действий с данными формы-->
-<!--      console.log("Form submitted");-->
-<!--      console.log("Check-in date: " + dateIn);-->
-<!--      console.log("Check-out date: " + dateOut);-->
-<!--&lt;!&ndash;      console.log("Adult count: " + adultCount);&ndash;&gt;-->
-<!--      console.log("Selected Adult:", adultValue);-->
-<!--      console.log("Children count: " + childrenCount);-->
-<!--&lt;!&ndash;      console.log("Room options: " + roomOptions);&ndash;&gt;-->
-<!--      console.log("Selected Room options:",roomOptions);-->
-
-<!--      // Пример отправки AJAX-запроса-->
-<!--      $.ajax({-->
-<!--        url: 'обработчик.php',-->
-<!--        type: 'POST',-->
-<!--        data: $(this).serialize(),-->
-<!--        success: function(response) {-->
-<!--          // Обработка успешного ответа от сервера-->
-<!--          console.log(response);-->
-<!--        },-->
-<!--        error: function(xhr, status, error) {-->
-<!--          // Обработка ошибки-->
-<!--          console.log(error);-->
-<!--        }-->
-<!--      });-->
-<!--    });-->
-<!--  });-->
-<!--</script>-->
+<!--            // Дальнейшая обработка полученных значений-->
+<!--            console.log("inDate: " + inDateValue);-->
+<!--            console.log("outDate: " + outDateValue);-->
+<!--            console.log("Name: " + nameValue);-->
+<!--            console.log("Surname: " + surnameValue);-->
+<!--            console.log("Email: " + emailValue);-->
+<!--            console.log("Phone number: " + phoneValue);-->
 
 
-
+<!--            // Дополнительные действия, например, отправка данных на сервер-->
+<!--        });-->
+<!--    </script>-->
 
 
 </body>
