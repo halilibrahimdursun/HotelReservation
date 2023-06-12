@@ -22,13 +22,10 @@ $(document).ready(function() {
      var checkOutDate = $("#date-out").val();
      var capacityOfAdults = $("#adult").val();
      var capacityOfChildren = $("#children").val();
-
      var smokingValue = $("#smoking").val();
      var smoking = (smokingValue === "0") ? false : true;
-
      var disabledValue = $("#disabled").val();
      var disabled = (disabledValue === "0") ? false : true;
-
      var cleaned = true;
 
 
@@ -69,9 +66,23 @@ $(document).ready(function() {
     data: criteria, // Convert formData object to JSON format // Преобразуйте объект formData в формат JSON
    success: function(response) {
 console.log(response);
+
+
+ // Очищаем предыдущие значения roomNumber в локальном хранилище
+    localStorage.removeItem('roomNumber');
+ // Создаем массив для хранения roomNumber
+    var roomNumbers = [];
+
+    // Извлекаем значения roomNumber из каждого объекта в ответе
+    for (var i = 0; i < response.length; i++) {
+      var roomNumber = response[i].roomNumber;
+      console.log("Room number: " + roomNumber);
+
+      // Добавляем roomNumber в массив
+      roomNumbers.push(roomNumber);
+    }
+
 localStorage.setItem('rooms', JSON.stringify(response));
-
-
 localStorage.setItem('inDate', checkInDate);
 localStorage.setItem('outDate', checkOutDate);
 localStorage.setItem('adult', capacityOfAdults);
@@ -79,14 +90,10 @@ localStorage.setItem('children', capacityOfChildren);
 localStorage.setItem('smoking', smoking);
 localStorage.setItem('disabled', disabled);
 
-
 window.location.href = 'rooms.html';
 //window.location.href = 'room-single.html';
 
-
    },
-
-
    error: function(xhr, status, error) {
      console.log(status);
    }
@@ -97,3 +104,4 @@ window.location.href = 'rooms.html';
 
 
 ///-----------------------END script for getting information from booking form ------------
+

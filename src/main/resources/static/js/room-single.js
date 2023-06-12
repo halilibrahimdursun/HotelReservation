@@ -1,101 +1,3 @@
-//function init(){
-//    // Add submit event to form for new and edit
-//    $("#booking-form").on('submit', function() {
-//        console.log("Submitting");
-//    });
-//}
-
-//
-//$(document).ready(function() {
-//  var roomItems = $('#roomItems');
-//  var storedRooms = localStorage.getItem('rooms');
-//  var inDate = localStorage.getItem('inDate');
-//  var outDate = localStorage.getItem('outDate');
-//  var adult = localStorage.getItem('adult');
-//  var children = localStorage.getItem('children');
-//  var smoking = localStorage.getItem('smoking');;
-//  var disabled = localStorage.getItem('disabled');
-//  console.log(inDate, outDate, adult, children, smoking, disabled);
-//
-//  $('#inDate').val(inDate);
-//  $('#outDate').val(outDate);
-//  $('#adult').val(adult);
-//  $('#children').val(children);
-//  $('#smoking').val(smoking === "true" ? "Smoking" : "Non smoking");
-//  $('#disabled').val(disabled === "true" ? "Disabled" : "Non disabled" );
-//
-// var addedRoomTypes = []; // Track the room types that have been added
-//  var isFirstRoomAdded = false; // Flag to track if the first room has been added
-//
-//  if (storedRooms) {
-//    var rooms = JSON.parse(storedRooms);
-//
-//    // Sort the rooms array by price in ascending order
-//    rooms.sort(function(a, b) {
-//      return a.price - b.price;
-//    });
-//
-//    if (rooms.length > 0) {
-//      rooms.forEach(function(room) {
-//        var roomType = room.typeOfRoom;
-//
-//        // Check if the room type is 'Single' and the first room has not been added
-//        if (roomType === 'Single' && !isFirstRoomAdded) {
-//          addedRoomTypes.push(roomType); // Add the room type to the array
-//
-//
-//          // Rest of the code for creating the room item element
-////          var imagePath = room.imageLink;
-////          var roomName = room.typeOfRoom;
-//          var inDate = room.checkInDate;
-//          var roomPrice = room.price;
-//          var maxCapacity = room.capacityOfGuests;
-//          var bedType = room.typeOfBed;
-//          var special = room.smoking ? "Yes" : "No";
-//          var amenities = room.facilities;
-////          var roomLink = getRoomLink(roomName);
-//
-//
-//  var roomItem = $('<h2><span>from </span>' + roomPrice + '<span>/Per night</span></h2>\
-//                              <table>\
-//                                  <tbody>\
-//                                  <tr>\
-//                                      <td class="r-o">Capacity:</td>\
-//                                      <td>Max persion ' + maxCapacity + '</td>\
-//                                  </tr>\
-//                                  <tr>\
-//                                      <td class="r-o">Bed:</td>\
-//                                      <td>' + bedType + '</td>\
-//                                  </tr>\
-//                                  <tr>\
-//                                      <td class="r-o">Services:</td>\
-//                                      <td>' + amenities + '</td>\
-//                                  </tr>\
-//                                  </tbody>\
-//                              </table>\
-//                             ');
-//          roomItems.append(roomItem);
-//           isFirstRoomAdded = true;
-//        }
-//      });
-//    } else {
-//      roomItems.html('<p>No rooms found.</p>');
-//    }
-//    localStorage.removeItem('rooms');
-//  } else {
-//    roomItems.html('<p>No rooms found.</p>');
-//  }
-//});
-
-
-
-
-function init() {
-  // Добавляем событие submit для формы создания и редактирования
-  $("#booking-form").on('submit', function() {
-    console.log("Submitting");
-  });
-}
 
 $(document).ready(function() {
   var roomItems = $('#roomItems');
@@ -106,7 +8,8 @@ $(document).ready(function() {
   var children = localStorage.getItem('children');
   var smoking = localStorage.getItem('smoking');
   var disabled = localStorage.getItem('disabled');
-  console.log(inDate, outDate, adult, children, smoking, disabled);
+
+  console.log(inDate, outDate, adult, children, disabled);
 
   $('#inDate').val(inDate);
   $('#outDate').val(outDate);
@@ -115,13 +18,13 @@ $(document).ready(function() {
   $('#smoking').val(smoking === "true" ? "Smoking" : "Non smoking");
   $('#disabled').val(disabled === "true" ? "Disabled" : "Non disabled");
 
-  var addedRoomTypes = []; // Keeping track of added room types // Отслеживаем добавленные типы комнат
-  var isFirstRoomAdded = false; // Flag to keep track of adding the first room // Флаг для отслеживания добавления первой комнаты
+  var addedRoomTypes = []; // Keeping track of added room types
+  var isFirstRoomAdded = false; // Flag to keep track of adding the first room
 
   if (storedRooms) {
     var rooms = JSON.parse(storedRooms);
 
-    // Sort the array of rooms by price in ascending order // Сортируем массив комнат по цене в порядке возрастания
+    // Sort the array of rooms by price in ascending order
     rooms.sort(function(a, b) {
       return a.price - b.price;
     });
@@ -130,12 +33,10 @@ $(document).ready(function() {
       rooms.forEach(function(room) {
         var roomType = room.typeOfRoom;
 
-        // Check if the room type is 'Single' and the first room has not been added yet //Проверяем, если тип комнаты 'Single' и первая комната еще не добавлена
+        // Check if the room type is 'Single' and the first room has not been added yet
         if (roomType === 'Single' && !isFirstRoomAdded) {
-          addedRoomTypes.push(roomType); // Add room type to array // Добавляем тип комнаты в массив
+          addedRoomTypes.push(roomType); // Add room type to array
 
-//          var inDate = room.checkInDate;
-//          var outDate = room.checkOutDate;
           var roomPrice = room.price;
           var adult = room.capacityOfAdults;
           var children = room.capacityOfChildren;
@@ -143,12 +44,7 @@ $(document).ready(function() {
           var smoking = room.smoking ? "Yes" : "No";
           var disabled = room.disabled ? "Yes" : "No";
           var amenities = room.facilities;
-console.log(inDate);
-console.log(outDate);
-          // Creating a dropdown menu for services with horizontal text // Создаем выпадающее меню для услуг с горизонтальным текстом
-//          var selectMenu = '<select id="servicesSelect" style="width: 500px;">' +
-//                           '<option style="writing-mode: horizontal;">' + amenities + '</option>' +
-//                           '</select>';
+          var roomNumber = room.roomNumber;
 
           var roomItem = $('<h2><span>Price: </span>' + roomPrice + '$<span>/Per night</span></h2>\
                               <table>\
@@ -182,108 +78,109 @@ console.log(outDate);
 
           roomItems.append(roomItem);
 
-          // Обновляем цену комнаты при выборе значения в выпадающем меню
-//          $('#servicesSelect').on('change', function() {
-//            var selectedService = $(this).val();
-//            $('#roomPrice').text(selectedService);
-//          });
+          // Store roomNumber in a hidden input field
+          var roomNumberInput = $('<input type="hidden" name="roomNumber" value="' + roomNumber + '">');
+          roomItem.append(roomNumberInput);
 
-          isFirstRoomAdded = true;
+          isFirstRoomAdded = false;
         }
       });
     } else {
       roomItems.html('<p>No rooms found.</p>');
     }
-//    localStorage.removeItem('rooms');
   } else {
     roomItems.html('<p>No rooms found.</p>');
   }
 });
 
 
+//--------------------- Обработчик события submit для формы----------------------------//
+/* --------------------The submit event handler for the form---------------------------*/
+$(document).ready(function() {
+  $('#booking-form').submit(function(event) {
+    event.preventDefault(); // Cancel the default form submission
+    var numadults = localStorage.getItem('adult');
+    var numchildren = localStorage.getItem('children');
+    var formData = {
+      // Getting values from input fields
+      checkInDate: $('#inDate').val(),
+      checkOutDate: $('#outDate').val(),
+      name: $('#name').val(),
+      surName: $('#surname').val(),
+      numberOfAdults: numadults,
+      numberOfChildren: numchildren,
+      telephoneNumber: $('#phone').val(),
+      email: $('#email').val(),
+      room : {roomNumber: $('[name="roomNumber"]').val()} // Get roomNumber from the hidden input field
+    };
 
-        //--------------------- Обработчик события submit для формы----------------------------//
-        // --------------------The submit event handler for the form---------------------------//
+    // Print form data to console
+    console.log("Check-in Date: " + formData.checkInDate);
+    console.log("Check-out Date: " + formData.checkOutDate);
+    console.log("Name: " + formData.name);
+    console.log("Surname: " + formData.surName);
+    console.log("Email: " + formData.email);
+    console.log("Telephone Number: " + formData.telephoneNumber);
+    console.log("Room Number: " + formData.room.roomNumber);
 
-        document.getElementById("booking-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Cancel the default form submission // Отменяем отправку формы по умолчанию
-
-
-            // Getting values from input fields // Получение значений из полей ввода
-            var inDateInput = document.getElementById("inDate");
-            var outDateInput = document.getElementById("outDate");
-            var nameInput = document.getElementById("name");
-            var surnameInput = document.getElementById("surname");
-            var emailInput = document.getElementById("email");
-            var phoneInput = document.getElementById("phone");
-
-            var inDateValue = inDate.value;
-            var outDateValue = outDate.value;
-            var nameValue = nameInput.value;
-            var surnameValue = surnameInput.value;
-            var emailValue = emailInput.value;
-            var phoneValue = phoneInput.value;
-
-
-            // print to console
-            console.log("inDate: " + inDateValue);
-            console.log("outDate: " + outDateValue);
-            console.log("Name: " + nameValue);
-            console.log("Surname: " + surnameValue);
-            console.log("Email: " + emailValue);
-            console.log("Phone number: " + phoneValue);
-
-
- // Валидация email
-    if (!validateEmail(emailValue)) {
-        alert("Please enter a valid email.");
-        return;
+    // Validate email
+    if (!validateEmail(formData.email)) {
+      alert("Please enter a valid email.");
+      return;
     }
 
-    // Валидация phone
-    if (!validatePhone(phoneValue)) {
-        alert("Please enter a valid phone number.");
-        return;
+    // Validate phone
+    if (!validatePhone(formData.telephoneNumber)) {
+      alert("Please enter a valid phone number.");
+      return;
     }
 
+    // Generate a random booking number
+    var bookingNumber = Math.floor(Math.random() * 100000);
+
+    // Display a popup message
+    var popup = $('#popup');
+    var bookingNumberElement = $('#bookingNumber');
+    bookingNumberElement.text(bookingNumber);
+    popup.show();
+
+    // Close button event handler
+    $('#closeButton').click(function() {
+      popup.hide();
+    });
+
+    // Additional actions, such as sending data to the server
+    $.ajax({
+      url: '/api/reservation',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(formData),
+      success: function(response) {
+        console.log(response);
 
 
- // Генерация случайного номера бронирования
-            var bookingNumber = Math.floor(Math.random() * 100000);
-
-   // Отображение всплывающего окна с сообщением
-            var popup = document.getElementById("popup");
-            var bookingNumberElement = document.getElementById("bookingNumber");
-            bookingNumberElement.textContent = bookingNumber;
-            popup.style.display = "block";
-
-            // Обработчик события для кнопки "Закрыть"
-          var closeButton = document.getElementById("closeButton");
-          closeButton.addEventListener("click", function() {
-              popup.style.display = "none";
-              localStorage.removeItem('rooms');
-              window.location.href = 'index.html';
-          });
 
 
 
-            //Additional actions, such as sending data to the server
-            // Дополнительные действия, например, отправка данных на сервер
-        });
-     // Функция для валидации email
-     function validateEmail(email) {
-         // Регулярное выражение для проверки email
-         var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-         return regex.test(email);
-     }
+      },
+      error: function(xhr, status, error) {
+        console.log(status);
+      }
+    });
+  });
+});
 
-     // Функция для валидации phone
-     function validatePhone(phone) {
-         // Регулярное выражение для проверки phone
-         // В примере используется простая проверка на числовое значение длиной 10 символов
-         var regex = /^\d{10}$/;
-         return regex.test(phone);
-     }
+// Email validation function
+function validateEmail(email) {
+  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+// Phone validation function
+function validatePhone(phone) {
+  var regex = /^\d{10}$/;
+  return regex.test(phone);
+}
 
         //--------------------- Обработчик события submit для формы----------------------------//
-        // --------------------The submit event handler for the form---------------------------//
+        /* --------------------The submit event handler for the form---------------------------*/

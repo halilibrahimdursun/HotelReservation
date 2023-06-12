@@ -11,7 +11,6 @@ public class Room {
 
     long Id;
     int roomNumber;
-
     boolean smoking;
     double price;
     String typeOfRoom;
@@ -29,7 +28,7 @@ public class Room {
 //
 
 
-    public Room(boolean smoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, int capacityOfGuests, String typeOfBed, boolean disabled, String facilities, String imageLink, boolean cleaned) {
+    public Room(boolean smoking, double price, String typeOfRoom, int capacityOfAdults, int capacityOfChildren, int capacityOfGuests, String typeOfBed, boolean disabled, String facilities, String imageLink, boolean cleaned, int roomNumber) {
         this.smoking = smoking;
         this.price = price;
         this.typeOfRoom = typeOfRoom;
@@ -41,6 +40,7 @@ public class Room {
         this.facilities = facilities;
         this.imageLink = imageLink;
         this.cleaned = cleaned;
+        this.roomNumber = roomNumber;
 //
     }
     public Room(){
@@ -87,6 +87,8 @@ public class Room {
     public boolean isCleaned() {
         return cleaned;
     }
+    public int getRoomNumber() { return roomNumber; }
+
 
 //
 
@@ -130,6 +132,10 @@ public class Room {
     public void setImageLink(String imageLink) { this.imageLink = imageLink; }
     public void setCleaned(boolean cleaned) {
         this.cleaned = cleaned;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
 //

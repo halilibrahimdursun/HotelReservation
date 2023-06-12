@@ -130,10 +130,19 @@ public class RoomServiceImpl implements RoomService {
             if( criteria.getCapacityOfAdults() > 0 && criteria.getCapacityOfAdults() > room.getCapacityOfAdults()){
                 continue;
             }
+            if( criteria.getCapacityOfChildren() > room.getCapacityOfChildren()){
+                continue;
+            }
             availableRooms.add( room);
         }
 
         return availableRooms;
+    }
+
+
+    @Override
+    public Room findByRoomNumber(int roomNumber) {
+        return roomRepository.findByRoomNumber( roomNumber);
     }
 }
 
