@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6z">
 <head>
-    <meta th:include="fragments/head :: metas" th:remove="tag"/>
+    <meta th:insert="fragments/head :: metas" th:remove="tag"/>
     <title>Customer page</title>
-    <style th:include="fragments/head :: styles" th:remove="tag"/>
-    <script th:include="fragments/head :: scripts" th:remove="tag"/>
-    <script src="/js/reservation.js"></script>
-
+    <style th:insert="fragments/head :: styles" th:remove="tag"></style>
+    <script th:insert="fragments/head :: scripts" th:remove="tag"></script>
+    <script src="/static/js/reservation.js"></script>
     <script>
         $( document ).ready(function() {
             console.log( "initializing" );
@@ -16,40 +16,32 @@
 
 </head>
 <body>
-<div th:insert="/fragments/menu :: menu">
-</div>
-<div th:insert="/fragments/header :: header">
-</div>
-<p/>
+<div th:insert="/fragments/menu :: menu"></div>
+<div th:insert="/fragments/header :: header"></div>
+<p>
 <div class="container">
-    <table id="reservationTable" class="display mx-auto">
-    </table>
+    <table id="reservation-table" class="display mx-auto"></table>
 </div>
 <p/>
 
 <div class="container">
-    <form>
+    <form id="reservation-form" name="reservation-form">
         <div class="form-group">
             <input type="text" class="d-none form-control" id="id">
         </div>
         <div class="form-group">
-            <label for="date">Date:</label>
-            <input type="text" class="form-control" id="date" value="2023-05-09T11:20:33.107Z">
+            <label for="checkinDate">Checkin:</label>
+            <input type="text" class="form-control" id="checkinDate" name="checkinDate" required="required" value="2023-05-09T11:20:33.107Z">
         </div>
         <div class="form-group">
-            <label for="tableid">Table:</label>
-            <input type="number" class="form-control" id="tableid"  name="address">
+            <label for="checkoutDate">Checkout:</label>
+            <input type="text" class="form-control" id="checkoutDate" name="checkoutDate" required="required" value="2023-05-09T11:20:33.107Z">
         </div>
         <div class="form-group">
-            <label for="roomid">Room:</label>
-            <input type="number" class="form-control" id="roomid"  name="address">
-        </div>
-        <div class="form-group">
-            <label for="seaview">Sea view:</label>
-            <input type="text" class="form-control" id="seaview">
+            <label for="roomNumber">Room:</label>
+            <input type="number" class="form-control" id="roomNumber" name="roomNumber" required="required">
         </div>
         <button type="button" class="btn btn-primary" id="create-reservation">Submit</button>
-
     </form>
 </div>
 
