@@ -14,6 +14,6 @@ public class UserController {
     RoomRepository roomRepository;
     @GetMapping("reservation")
     public Iterable<Reservation> getAllReservation(){
-        return (Iterable<Reservation>) reservationRepository.findAll();
+        return reservationRepository.findAll();
     }
 }
