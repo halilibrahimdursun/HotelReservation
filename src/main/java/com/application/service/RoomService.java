@@ -32,6 +32,8 @@ public interface RoomService {
     void remove(long id);
     List<Room> findAllFiltered(Room criteria, Date checkInDate, Date checkOutDate);
 
+    Room findByRoomNumber(int roomNumber);
+
 //    Iterable<Room> findAllFiltered(Room room);
 
 }

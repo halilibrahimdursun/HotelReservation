@@ -1,22 +1,24 @@
 package com.application.model;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
 public class Reservation {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private int roomNumber;
-    private String telephoneNumber;
-    private String email;
-    private int guests;
-    private Date date;
+    private long id;    // This is reservation ID !!!
+    //    private int roomNumber;
+
     private Date checkInDate;
     private Date checkOutDate;
+
+    private String name;
+    private String surName;
+    private String email;
+    private String telephoneNumber;
+    private int numberOfAdults;
+    private int numberOfChildren;
 
 
     @ManyToOne
@@ -31,19 +33,19 @@ public class Reservation {
         this.room = room;
     }
 
-
     public Reservation() {
     }
 
-    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date checkInDate, Date checkOutDate) {
-        this.roomNumber = roomNumber;
-        this.telephoneNumber = telephoneNumber;
-        this.email = email;
-        this.guests = guests;
-        this.date = date;
+    public Reservation(Date checkInDate, Date checkOutDate, String name, String surName, String email, String telephoneNumber, int numberOfAdults, int numberOfChildren, Room room) {
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
-
+        this.name = name;
+        this.surName = surName;
+        this.email = email;
+        this.telephoneNumber = telephoneNumber;
+        this.numberOfAdults = numberOfAdults;
+        this.numberOfChildren = numberOfChildren;
+        this.room = room;
     }
 
     public long getId() {
@@ -52,46 +54,6 @@ public class Reservation {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getGuests() {
-        return guests;
-    }
-
-    public void setGuests(int guests) {
-        this.guests = guests;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public Date getCheckInDate() {
@@ -110,4 +72,51 @@ public class Reservation {
         this.checkOutDate = checkOutDate;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public int getNumberOfAdults() {
+        return numberOfAdults;
+    }
+
+    public void setNumberOfAdults(int numberOfAdults) {
+        this.numberOfAdults = numberOfAdults;
+    }
+
+    public int getNumberOfChildren() {
+        return numberOfChildren;
+    }
+
+    public void setNumberOfChildren(int numberOfChildren) {
+        this.numberOfChildren = numberOfChildren;
+    }
 }

@@ -26,30 +26,14 @@ public class MvcController {
 //        return "customerT";
 //    }
 //
-//    // http://localhost:8080/reservation
-//    @GetMapping("/reservation")
-//    public String reservationPage() {
-//
-//        System.out.println("Inside reservationPage");
-//
-//        return "reservation";
-//    }
-//
-//    // http://localhost:8080/contact
-//    @GetMapping("/contact")
-//    public String contactPage() {
-//
-//        System.out.println("Inside cantactPage");
-//
-//        return "contact";
-//    }
-//
-//    // http://localhost:8080/blog
-//    @GetMapping("/blog")
-//    public String blogPage() {
-//
-//        System.out.println("Inside blogPage");
-//
-//        return "blog";
-//    }
+    // http://localhost:8080/reservation
+    @GetMapping("/reservation")
+    public String reservationPage() {
+
+        System.out.println("Inside reservationPage");
+
+        return "reservation";
+    }
+
+
 }
