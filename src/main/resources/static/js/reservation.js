@@ -68,6 +68,7 @@ function init(){
         console.log("Submitting");
         createReservation();
         $('#reservationModal').modal('hide');
+//        $('#reservationModal').modal('hide');
     });
 
     initReservationTable();
@@ -158,6 +159,8 @@ function getReservationData(){
 
 }
 
+
+//=========== createReservation DOESNT WORK============
 function createReservation(){
 
     console.log('inside createReservation' );
@@ -165,9 +168,12 @@ function createReservation(){
     // Put reservation data from page in Javascript object --- SIMILAR TO JSON
     var reservationData = {
             id: $("#id").val(),
+            checkInDate: $("#checkInDate").val(),
+            checkOutDate: $("#checkOutDate").val(),
             name: $("#name").val(),
-            address: $("#address").val(),
-            age: $("#age").val()
+            surName: $("#surName").val(),
+            email: $("#email").val(),
+            telephoneNumber: $("#telephoneNumber").val()
     }
 
     // Transform Javascript object to json
@@ -187,10 +193,10 @@ function createReservation(){
           console.log(reservation);
 
           // Clear fields in page
-          $("#id").val('');
-          $("#name").val('');
-          $("#address").val('');
-          $("#age").val('');
+//          $("#id").val('');
+//          $("#name").val('');
+//          $("#address").val('');
+//          $("#age").val('');
 
           // Refresh table data
           getReservationData();
@@ -204,6 +210,8 @@ function createReservation(){
     });
 
 }
+//=======================================================================================
+
 
 function deleteReservation(){
 
