@@ -3,10 +3,22 @@ var reservationTable;
 
 function init(){
 
-    console.log('inside init' );
+//
+//    // Add click event to button
+//    $("#create-reservation").click(function (){
+//        createReservation();
+//    });
+//
+    initReservationTable();
+    // Get reservations from backend and and update table
+    getReservationData();
 
-    $("#radio_1").attr('checked', true);
 
+
+//    console.log('inside init' );
+
+//    $("#radio_1").attr('checked', true);
+//
 //    $(function () {
 //        $("#gfg").datepicker(
 //            { firstDay: 1 }
@@ -14,10 +26,6 @@ function init(){
 //    });
 
 
-    $("#newReservationButton").click( function () {
-        console.log("Inside click of newReservationButton");
-        $('#reservationModal').modal('show');
-    });
 
     $("#editReservationButton").click( function () {
         console.log("Inside click of editReservationButton");
@@ -32,13 +40,11 @@ function init(){
         }else{
             var reservation = reservationTable.row($('.selected')).data();
             alert(reservation.id);
-            $("#id").val(reservation.id);
-            $("#checkInDate").val(reservation.checkInDate);
-            $("#checkOutDate").val(reservation.checkOutDate);
-            $("#name").val(reservation.name);
-            $("#surName").val(reservation.surName);
-            $("#email").val(reservation.email);
-            $("#telephoneNumber").val(reservation.telephoneNumber);
+//            $("#id").val(reservation.id);
+//            $("#name").val(reservation.name);
+//            $("#surname").val(reservation.surName);
+//            $("#email").val(reservation.email);
+//            $("#telephoneNumber").val(reservation.telephoneNumber);
 
             $('#reservationModal').modal('show');
         }
@@ -74,38 +80,36 @@ function init(){
     // Get reservations from backend and and update table
     getReservationData();
 
-
-
 }
 
 function initReservationTable() {
 
     console.log('inside initReservationTable' );
 
-     // Create columns (with titles) for datatable: id, name, address, age
-        columns = [
-            { "title":  "Reservation ID",
-                "data": "id",
-                "visible": true },
-            { "title":  "Check-in",
-                "data": "checkInDate" },  // 2022-06-08T08:09:18.922
-            { "title":  "Check-out",
-                "data": "checkOutDate" },
-            { "title":  "Name",
-            "data": "name" },
-            { "title":  "Surname",
-            "data": "surName" },
-            { "title":  "Email",
-            "data": "email" },
-            { "title":  "Telephone number",
-            "data": "telephoneNumber" },
-            { "title":  "Adults",
-            "data": "numberOfAdults" },
-            { "title":  "Children",
-                "data": "numberOfChildren" },
-            { "title":  "Room",
-            "data": "room.roomNumber" }
-        ];
+    // Create columns (with titles) for datatable: id, name, address, age
+    columns = [
+        { "title":  "Reservation ID",
+            "data": "id",
+            "visible": true },
+        { "title":  "Check-in",
+            "data": "checkInDate" },  // 2022-06-08T08:09:18.922
+        { "title":  "Check-out",
+            "data": "checkOutDate" },
+        { "title":  "Name",
+        "data": "name" },
+        { "title":  "Surname",
+        "data": "surName" },
+        { "title":  "Email",
+        "data": "email" },
+        { "title":  "Telephone number",
+        "data": "telephoneNumber" },
+        { "title":  "Adults",
+        "data": "numberOfAdults" },
+        { "title":  "Children",
+            "data": "numberOfChildren" },
+        { "title":  "Room",
+        "data": "room.roomNumber" }
+    ];
 
     // Define new table with above columns
     reservationTable = $("#reservationTable").DataTable( {
@@ -114,7 +118,8 @@ function initReservationTable() {
     });
 
 
-    $("#reservationTable tbody").on( 'click', 'tr', function () {
+
+$("#reservationTable tbody").on( 'click', 'tr', function () {
         console.log("Clicking on row");
         if ( $(this).hasClass('selected') ) {
           $(this).removeClass('selected');
@@ -127,12 +132,14 @@ function initReservationTable() {
         }
     });
 
+    getReservationData();
+
 }
 
 function getReservationData(){
 
     console.log('inside getReservationData' );
-    // http:/localhost:8080/api/reservation
+    // http:/localhost:9090/api/reservation
     // json list of reservations
     $.ajax({
         url: api,
@@ -141,7 +148,7 @@ function getReservationData(){
         // success: function(reservations, textStatus, jqXHR){
         success: function(reservations){
 
- //           console.log('Data: ' + reservations );
+            console.log('Data: ' + reservations );
 
             if (reservations) {
                 reservationTable.clear();
@@ -165,9 +172,11 @@ function createReservation(){
     // Put reservation data from page in Javascript object --- SIMILAR TO JSON
     var reservationData = {
             id: $("#id").val(),
-            name: $("#name").val(),
-            address: $("#address").val(),
-            age: $("#age").val()
+            checkinDate: $("#checkinDate").val(),
+            checkoutDate: $("#checkoutDate").val(),
+            room: {
+                    roomNumber: $("#roomNumber").val()
+                  }
     }
 
     // Transform Javascript object to json
@@ -188,9 +197,10 @@ function createReservation(){
 
           // Clear fields in page
           $("#id").val('');
-          $("#name").val('');
-          $("#address").val('');
-          $("#age").val('');
+          $("#checkinDate").val('');
+          $("#checkoutDate").val('');
+          $("#roomid").val('');
+          $("#seaview").val('');
 
           // Refresh table data
           getReservationData();
@@ -202,42 +212,5 @@ function createReservation(){
         }
 
     });
-
-}
-
-function deleteReservation(){
-
-    if (reservationTable.row($('.selected')).data() == undefined) {
-        alert("Select reservation first");
-    }else{
-        var reservation = reservationTable.row($('.selected')).data();
-
-        console.log(api + '/' + reservation.id);
-
-            $.ajax({
-                url: api + '/' + reservation.id,
-                type: "delete",
-                contentType: "application/json",
-                dataType: "text",  // get back from frontend
-                // success: function(reservation, textStatus, jqXHR){
-                success: function(message){
-
-                  console.log(message);
-
-                  // Refresh table data
-                  getReservationData();
-
-                },
-
-                fail: function (error) {
-                  console.log('Error: ' + error);
-                }
-
-            });
-
-
-
-    }
-
 
 }
