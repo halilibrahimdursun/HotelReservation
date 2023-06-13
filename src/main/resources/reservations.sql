@@ -1,0 +1,1 @@
+INSERT INTO reservations VALUES (NEXTVAL('RESERVATIONS_SEQ'),2023-06-05,2023-06-15,'kubranur@gmail.com','Kubranur Acikgoz',10101,101,0684903770)
