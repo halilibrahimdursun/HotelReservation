@@ -16,8 +16,9 @@ public class Reservation {
     private int guests;
     private Date date;
 
-    private Date checkInDate;
-    private Date checkOutDate;
+
+    private Date startDate;
+    private Date endDate;
 
 
     @ManyToOne
@@ -38,7 +39,7 @@ public class Reservation {
     }
 
 
-    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date checkInDate, Date checkOutDate) {
+    public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date startDate, Date endDate) {
 
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
@@ -98,23 +99,23 @@ public class Reservation {
     }
 
     public Date getCheckInDate() {
-        return checkInDate;
+        return startDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
-        this.checkInDate = checkInDate;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public Date getCheckOutDate() {
-        return checkOutDate;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
-        this.checkOutDate = checkOutDate;
-
+    public Date getEndDate() {
+        return endDate;
     }
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 }
+

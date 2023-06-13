@@ -65,7 +65,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     public  double counter (LocalDate startDate, LocalDate endDate , Room  room){
 
-     double discount = 20;
+     double discount = 1;
 
             long noOfDays = ChronoUnit.DAYS.between( startDate,  endDate);
 
@@ -76,7 +76,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 
 
-return result1;
+return result;
     }
         }
 

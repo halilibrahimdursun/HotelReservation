@@ -3,7 +3,7 @@ package com.application.controller;
 import com.application.model.Room;
 import com.application.service.RoomService;
 import com.application.service.RoomServiceImpl;
-import org.slf4j.Logger;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,7 +20,7 @@ import java.util.Optional;
 public class RoomController {
 
 
-    private static final Logger logger = LoggerFactory.getLogger(RoomController.class);
+
     @Autowired
     RoomService roomService;
     @Autowired
@@ -93,30 +93,31 @@ public class RoomController {
 //        return ResponseEntity.ok().body(rooms);
 //    }
 
-    @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<Room>> getAvailableRooms(
-            @RequestBody final Room room,
-            @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkInDate,
-            @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkOutDate
-    ) {
+//    @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
+//    public ResponseEntity<List<Room>> getAvailableRooms(
+//            @RequestBody final Room room,
+//            @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkInDate,
+//            @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkOutDate
+//    ) {
+////
+//        System.out.println("Received data from form:");
+//        System.out.println("Adult Value: " + room.getCapacityOfAdults());
+//        System.out.println("Children Count: " + room.getCapacityOfChildren());
+//        System.out.println("Disabled: " + room.isDisabled());
+//        System.out.println("Smoking: " + room.isSmoking());
+//        System.out.println("Cleaned: " + room.isCleaned());
+//        //logger.info("Inside 'saveReservation'");
 //
-        System.out.println("Received data from form:");
-        System.out.println("Adult Value: " + room.getCapacityOfAdults());
-        System.out.println("Children Count: " + room.getCapacityOfChildren());
-        System.out.println("Disabled: " + room.isDisabled());
-        System.out.println("Smoking: " + room.isSmoking());
-        System.out.println("Cleaned: " + room.isCleaned());
-        logger.info("Inside 'saveReservation'");
-
-        List<Room> rooms = roomService.findAllFiltered(room, checkInDate, checkOutDate);
-        System.out.println("[");
-
-        for (Room availableRoom : rooms) {
-            System.out.println("    " + availableRoom.toString());
-        }
-
-        System.out.println("]");
-        return ResponseEntity.ok(rooms) ;
+//        List<Room> rooms = roomService.findAllFiltered(room, checkInDate, checkOutDate);
+//        System.out.println("[");
+//
+//        for (Room availableRoom : rooms) {
+//            System.out.println("    " + availableRoom.toString());
+//        }
+//
+//        System.out.println("]");
+//        return ResponseEntity.ok(rooms);
+//    };
 
 
 //    @PostMapping(value = "/room/available")
@@ -156,18 +157,18 @@ public class RoomController {
 //    }
 
 
-    @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/room/available", consumes = "application/json")
     public ResponseEntity<List<Room>> getAvailableRooms(
-            @RequestBody final Room room,
-            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate
+    @RequestBody final Room room,
+    @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+    @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate
     ) {
 
-        logger.info("Inside 'saveReservation'");
 
-        List<Room> rooms = roomService.findAllFiltered(room, startDate, endDate);
 
-        return ResponseEntity.ok(rooms) ;
+        List<Room> roomss = roomService.findAllFiltered(room, startDate, endDate);
+
+        return ResponseEntity.ok(roomss) ;}
 
 
         // Endpoint
@@ -189,4 +190,3 @@ public class RoomController {
 //        return ResponseEntity.ok().body(filteredRooms);
     }
 
-}

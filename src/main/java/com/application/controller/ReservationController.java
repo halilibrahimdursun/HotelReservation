@@ -33,7 +33,8 @@ public class ReservationController {
     @PostMapping(value = "reservation", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation){
 
-        return ResponseEntity.ok().body(reservationService.save(reservation));
+        reservationService.save(reservation);
+        return ResponseEntity.ok(reservation) ;
 
     }
     
