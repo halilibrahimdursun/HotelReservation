@@ -32,14 +32,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="reservations : ${listReservations}">
-      <td th:text="${reservations.reservationNumber}"></td>
-      <td th:text="${reservations.roomNumber}"></td>
-      <td th:text="${reservations.telephoneNumber}"></td>
-      <td th:text="${reservations.email}"></td>
-      <td th:text="${reservations.guests}"></td>
-      <td th:text="${reservations.checkInDate}"></td>
-      <td th:text="${reservations.checkOutDate}"></td>
+    <tr th:each="reservation : ${listReservations}">
+      <td th:text="${reservation.reservationNumber}"></td>
+      <td th:text="${reservation.roomNumber}"></td>
+      <td th:text="${reservation.telephoneNumber}"></td>
+      <td th:text="${reservation.email}"></td>
+      <td th:text="${reservation.guests}"></td>
+      <td th:text="${reservation.checkInDate}"></td>
+      <td th:text="${reservation.checkOutDate}"></td>
     </tr>
 
     </tbody>
@@ -47,4 +47,3 @@
 </div>
 
 </body>
-</html>

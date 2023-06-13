@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface ReservationService {
     List<Reservation> getAllReservations();
     void saveReservation(Reservation reservation);
+    Reservation getReservationById(long id);
+    void deleteReservationById(long id);
 
 }
 

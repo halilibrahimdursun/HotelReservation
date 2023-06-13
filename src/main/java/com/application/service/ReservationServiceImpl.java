@@ -14,7 +14,7 @@ import java.util.Optional;
 public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
-    ReservationRepository reservationRepository;
+    private ReservationRepository reservationRepository;
 
     @Override
     public List<Reservation> getAllReservations() {
@@ -25,5 +25,20 @@ public class ReservationServiceImpl implements ReservationService {
         this.reservationRepository.save(reservation);
     }
 
+    @Override
+    public Reservation getReservationById(long id) {
+        Optional < Reservation > optional = reservationRepository.findById(id);
+        Reservation reservation = null;
+        if (optional.isPresent()) {
+            reservation = optional.get();
+        } else {
+            throw new RuntimeException(" reservation not found for id :: " + id);
+        }
+        return reservation;
+    }
 
+    @Override
+    public void deleteReservationById(long id) {
+        this.reservationRepository.deleteById(id);
+    }
 }

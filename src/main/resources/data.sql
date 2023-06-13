@@ -1,6 +1,3 @@
-INSERT INTO reservations VALUES (NEXTVAL('RESERVATIONS_SEQ'),'2023-07-05','2023-07-10','kubranuracikgoz@capgemini.com','kubranur Acikgoz',1001,101,'0684903770')
-INSERT INTO reservations VALUES (NEXTVAL('RESERVATIONS_SEQ'),'2023-07-09','2023-07-10','witt@gmail.com','John de Witt',1002,102,'0684567870')
-
 INSERT INTO room VALUES (NEXTVAL('ROOM_SEQ'),1,0,1, 'mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler', 'img/room/room-1.jpg', TRUE,FALSE,FALSE,220,101, 'Single ', 'Single')
 INSERT INTO room VALUES (NEXTVAL('ROOM_SEQ'),1,0,1, 'mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler', 'img/room/room-1.jpg', TRUE,FALSE,FALSE,220,102, 'Single ', 'Single')
 INSERT INTO room VALUES (NEXTVAL('ROOM_SEQ'),1,0,1, 'mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler', 'img/room/room-1.jpg', TRUE,FALSE,FALSE,220,103, 'Single ', 'Single')
