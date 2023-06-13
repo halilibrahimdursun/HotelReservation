@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Reservation Management System</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+  <h1>Reservation Management System</h1>
+  <hr>
+  <h2>Update Reservation</h2>
+
+  <form action="#" th:action="@{/saveReservation}" th:object="${reservation}" method="POST">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{id}" />
+
+    <input type="text" th:field="*{reservationNumber}" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{roomNumber}" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{telephoneNumber}" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{guests}" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{checkInDate}" class="form-control mb-4 col-4">
+
+
+    <input type="text" th:field="*{checkOutDate}" class="form-control mb-4 col-4">
+
+    <button th:href="@{/receptionist}" class="btn btn-info col-2"> Update Reservation</button>
+
+  </form>
+
+  <hr>
+
+  <a th:href="@{/receptionist}"> Back to Reservation List</a>
+</div>
+</body>
+
+</html>

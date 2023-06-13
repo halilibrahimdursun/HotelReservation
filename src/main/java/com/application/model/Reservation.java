@@ -4,23 +4,28 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "reservations")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;    // This is reservation ID !!!
     //    private int roomNumber;
-
+    @Column(name = "CHECK_IN_DATE")
     private Date checkInDate;
+    @Column(name = "CHECK_OUT_DATE")
     private Date checkOutDate;
-
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "SURNAME")
     private String surName;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "TELEPHONE_NUMBER")
     private String telephoneNumber;
+    @Column(name = "NUMBER_OF_ADULTS")
     private int numberOfAdults;
+    @Column(name = "NUMBER_OF_CHILDREN")
     private int numberOfChildren;
-
-
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;

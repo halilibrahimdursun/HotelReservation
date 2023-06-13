@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface ReservationService {
 
-    Iterable<Reservation> findAll();
+    Iterable<Reservation> getAllReservations();
     Optional<Reservation> findById(long id);
     Reservation save(Reservation reservation);
     void remove( long id);

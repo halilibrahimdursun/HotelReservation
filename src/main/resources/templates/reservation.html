@@ -6,7 +6,7 @@
     <title>Customer page</title>
     <style th:insert="fragments/head :: styles" th:remove="tag"></style>
     <script th:insert="fragments/head :: scripts" th:remove="tag"></script>
-    <script src="/static/js/reservation.js"></script>
+    <script src="js/reservation.js"></script>
     <script>
         $( document ).ready(function() {
             console.log( "initializing" );
@@ -24,26 +24,46 @@
 </div>
 <p/>
 
-<div class="container">
-    <form id="reservation-form" name="reservation-form">
-        <div class="form-group">
-            <input type="text" class="d-none form-control" id="id">
-        </div>
-        <div class="form-group">
-            <label for="checkinDate">Checkin:</label>
-            <input type="text" class="form-control" id="checkinDate" name="checkinDate" required="required" value="2023-05-09T11:20:33.107Z">
-        </div>
-        <div class="form-group">
-            <label for="checkoutDate">Checkout:</label>
-            <input type="text" class="form-control" id="checkoutDate" name="checkoutDate" required="required" value="2023-05-09T11:20:33.107Z">
-        </div>
-        <div class="form-group">
-            <label for="roomNumber">Room:</label>
-            <input type="number" class="form-control" id="roomNumber" name="roomNumber" required="required">
-        </div>
-        <button type="button" class="btn btn-primary" id="create-reservation">Submit</button>
-    </form>
-</div>
+<!--<div class="container">-->
+<!--    <form id="reservation-form" name="reservation-form">-->
+<!--        <div class="form-group">-->
+<!--            <input type="text" class="d-none form-control" id="id">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="checkInDate">Checkin:</label>-->
+<!--            <input type="text" class="form-control" id="checkInDate" name="checkInDate" required="required" value="2023-05-09T11:20:33.107Z">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="checkOutDate">Checkout:</label>-->
+<!--            <input type="text" class="form-control" id="checkOutDate" name="checkOutDate" required="required" value="2023-05-09T11:20:33.107Z">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="name">Name:</label>-->
+<!--            <input type="text" class="form-control" id="name" name="name" required="required">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="surName">Surname:</label>-->
+<!--            <input type="text" class="form-control" id="surName" name="surName" required="required">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="email">Email:</label>-->
+<!--            <input type="text" class="form-control" id="email" name="email" required="required">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="telephoneNumber">Telephone Number:</label>-->
+<!--            <input type="number" class="form-control" id="telephoneNumber" name="telephoneNumber" required="required">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="numberOfAdults">Number of Adults:</label>-->
+<!--            <input type="number" class="form-control" id="numberOfAdults" name="numberOfAdults" required="required">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="numberOfChildren">Number of Children:</label>-->
+<!--            <input type="number" class="form-control" id="numberOfChildren" name="numberOfChildren" required="required">-->
+<!--        </div>-->
+<!--        <button type="button" class="btn btn-primary" id="create-reservation">Submit</button>-->
+<!--    </form>-->
+<!--</div>-->
 
 <div th:insert="/fragments/footer :: footer">
 </div>

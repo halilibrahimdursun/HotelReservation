@@ -1,16 +1,17 @@
 var api = "http://localhost:8080/api/reservation" ;
 var reservationTable;
 
-
 function init(){
 
-    console.log('inside init' );
+//    alert("Versie 1.0.12");
 
-    // Add click event to button
-    $("#create-reservation").click(function (){
-        createReservation();
-    });
 
+//
+//    // Add click event to button
+//    $("#create-reservation").click(function (){
+//        createReservation();
+//    });
+//
     initReservationTable();
     // Get reservations from backend and and update table
     getReservationData();
@@ -25,41 +26,29 @@ function initReservationTable() {
     columns = [
         { "title":  "Reservation ID",
             "data": "id",
-            "visible": false },
-        { "title":  "Date",
-            "data": "date" },  // 2022-06-08T08:09:18.922
-        { "title":  "Room ID",
-            "data": "roomId" },
-        { "title":  "Table ID",
-            "data": "tableId" },
-        { "title": "Seaview",
-            "data": "seaView",
-            "render": function(seaView) {
-                if (seaView == true) {
-                    return "with sea view"
-                } else {
-                    return "without sea view"
-                }
-                return seaViewRenderer(seaView);
-            }},
-//        { "title": "Seaview",
-//            "data": "seaView",
-//            "render": function(seaView) {
-//                return seaViewRenderer(seaView);
-//            }}
+            "visible": true },
+        { "title":  "Check-in Date",
+            "data": "checkInDate" },  // 2022-06-08T08:09:18.922
+        { "title":  "Check-out Date",
+            "data": "checkOutDate" },
+        { "title":  "Name",
+        "data": "name" },
+        { "title":  "Surname",
+        "data": "surName" },
+        { "title":  "Email",
+        "data": "email" },
+        { "title":  "Telephonenumber",
+        "data": "telephoneNumber" },
+        { "title":  "Number of Adults",
+        "data": "numberOfAdults" },
+        { "title":  "Number of Children",
+            "data": "numberOfChildren" },
+        { "title":  "Room",
+        "data": "room.roomNumber" }
     ];
 
-    function seaViewRenderer( seaView){
-        if (seaView == true) {
-            return "with sea view"
-        } else {
-            return "without sea view"
-        }
-    }
-
-
     // Define new table with above columns
-    reservationTable = $("#reservationTable").DataTable( {
+    reservationTable = $("#reservation-table").DataTable( {
         "order": [[ 0, "asc" ]],
 
         "columns": columns
@@ -72,9 +61,8 @@ function initReservationTable() {
 function getReservationData(){
 
     console.log('inside getReservationData' );
-    // http:/localhost:8080/api/reservation
+    // http:/localhost:9090/api/reservation
     // json list of reservations
-  
     $.ajax({
         url: api,
         type: "get",
@@ -88,7 +76,6 @@ function getReservationData(){
                 reservationTable.clear();
                 reservationTable.rows.add(reservations);
                 reservationTable.columns.adjust().draw();
-
             }
         },
 
@@ -107,10 +94,11 @@ function createReservation(){
     // Put reservation data from page in Javascript object --- SIMILAR TO JSON
     var reservationData = {
             id: $("#id").val(),
-            date: $("#date").val(),
-            tableId: $("#tableid").val(),
-            roomId: $("#roomid").val(),
-            seaView: $("#seaview").val()
+            checkinDate: $("#checkinDate").val(),
+            checkoutDate: $("#checkoutDate").val(),
+            room: {
+                    roomNumber: $("#roomNumber").val()
+                  }
     }
 
     // Transform Javascript object to json
@@ -131,10 +119,20 @@ function createReservation(){
 
           // Clear fields in page
           $("#id").val('');
-          $("#date").val('');
-          $("#tableid").val('');
+          $("#checkinDate").val('');
+          $("#checkoutDate").val('');
           $("#roomid").val('');
           $("#seaview").val('');
 
           // Refresh table data
           getReservationData();
+
+        },
+
+        fail: function (error) {
+          console.log('Error: ' + error);
+        }
+
+    });
+
+}

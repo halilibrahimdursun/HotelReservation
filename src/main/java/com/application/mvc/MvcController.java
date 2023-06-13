@@ -53,6 +53,16 @@ public class MvcController {
 
 
 
+
+    @GetMapping("/receptionist")
+    public String receptionistPage() {
+
+        System.out.println("Inside receptionistPage");
+
+        return "receptionist";
+    }
+
+
     // http://localhost:8080/customer
     @GetMapping("/customer")
     public String customerPage() {

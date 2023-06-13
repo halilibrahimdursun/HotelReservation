@@ -18,9 +18,9 @@ public class    SecurityConfig {
             throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("broekhuis").password(passwordEncoder().encode("broekhuis")).roles("USER")
+                .withUser("receptionist").password(passwordEncoder().encode("")).roles("USER")
                 .and()
-                .withUser("admin").password(passwordEncoder().encode("1")).roles("USER","ADMIN");
+                .withUser("manager").password(passwordEncoder().encode("")).roles("USER","ADMIN");
     }
 
     @Bean

@@ -9,5 +9,5 @@ package com.application.repositories;
 
     @Repository
     public interface ReservationRepository extends CrudRepository<Reservation, Long> {
-        Iterable<Reservation> findReservationByCheckOutDateBeforeAndCheckInDateAfter(Date checkInDate, Date checkOutDate);
+        Iterable<Reservation> findReservationByCheckOutDateAfterAndCheckInDateBefore(Date checkInDate, Date checkOutDate);
     }
