@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta th:include="fragments/head :: metas" th:remove="tag"/>
+  <meta th:insert="fragments/head :: metas" th:remove="tag"/>
   <title>Customer page</title>
-  <style th:include="fragments/head :: styles" th:remove="tag"/>
-  <script th:include="fragments/head :: scripts" th:remove="tag"/>
+  <style th:insert="fragments/head :: styles" th:remove="tag"/>
+  <script th:insert="fragments/head :: scripts" th:remove="tag"/>
   <script src="/js/customer.js"></script>
 
   <script>
@@ -21,9 +21,9 @@
 <div th:insert="/fragments/header :: header">
 </div>
 
-
-<p>This is the blog page</p>
-
+<div class="w-50 mx-auto">
+  <p>This is the blog page</p>
+</div>
 <div th:insert="/fragments/footer :: footer">
 </div>
 

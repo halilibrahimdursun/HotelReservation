@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+
   var roomItems = $('#roomItems');
   var storedRooms = localStorage.getItem('rooms');
   var inDate = localStorage.getItem('inDate');
@@ -46,9 +47,41 @@ $(document).ready(function() {
           var amenities = room.facilities;
           var roomNumber = room.roomNumber;
 
-          var roomItem = $('<h2><span>Price: </span>' + roomPrice + '$<span>/Per night</span></h2>\
+//          var formData = {
+//                roomNumber: roomNumber
+//              };
+//          var roomNumber =JSON.stringify(formData);
+//            $.ajax({
+//                      url: '/api/totallyPrice?checkInDate=' + inDate + '&checkOutDate=' + outDate,
+//                      type: 'PUT',
+//                      contentType: 'application/json',
+//                      data: JSON.stringify({roomNumber:roomNumber}),
+//                      success: function(response) {
+//                        console.log(response);
+//                  localStorage.setItem('totalPrice', response);
+//
+//
+//                      },
+//                      error: function(xhr, status, error) {
+//                        console.log(status);
+//                      }
+//                    });
+
+// count totalPrice
+var checkInDate = new Date(inDate);
+var checkOutDate = new Date(outDate);
+var daysBetween = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24)); // Calculate the number of days
+var totalPrice = roomPrice * daysBetween;
+
+
+//          var totalPrice = localStorage.getItem('totalPrice');
+          var roomItem = $('<h2><span>Total price:  </span>' + totalPrice + '$<span></span></h2>\
                               <table>\
                                   <tbody>\
+                                  <tr>\
+                                        <td class="r-o">Room number:</td>\
+                                        <td> ' + roomNumber + ' </td>\
+                                 </tr>\
                                  <tr>\
                                       <td class="r-o">Adult:</td>\
                                       <td> ' + adult + ' </td>\
@@ -112,6 +145,7 @@ $(document).ready(function() {
       telephoneNumber: $('#phone').val(),
       email: $('#email').val(),
       room : {roomNumber: $('[name="roomNumber"]').val()} // Get roomNumber from the hidden input field
+
     };
 
     // Print form data to console
@@ -122,6 +156,7 @@ $(document).ready(function() {
     console.log("Email: " + formData.email);
     console.log("Telephone Number: " + formData.telephoneNumber);
     console.log("Room Number: " + formData.room.roomNumber);
+//    console.log("Id: " + formData.room.Id);
 
     // Validate email
     if (!validateEmail(formData.email)) {
@@ -135,19 +170,8 @@ $(document).ready(function() {
       return;
     }
 
-    // Generate a random booking number
-    var bookingNumber = Math.floor(Math.random() * 100000);
-
-    // Display a popup message
-    var popup = $('#popup');
-    var bookingNumberElement = $('#bookingNumber');
-    bookingNumberElement.text(bookingNumber);
-    popup.show();
-
-    // Close button event handler
-    $('#closeButton').click(function() {
-      popup.hide();
-    });
+//    // Generate a random booking number
+//    var bookingNumber = Math.floor(Math.random() * 100000);
 
     // Additional actions, such as sending data to the server
     $.ajax({
@@ -158,9 +182,18 @@ $(document).ready(function() {
       success: function(response) {
         console.log(response);
 
-
-
-
+//      room : {reservId: $('[Id="Id"]').val()} // Get roomNumber from the hidden input field
+    // Display a popup message
+    var popup = $('#popup');
+    var bookingNumberElement = $('#bookingNumber');
+    bookingNumberElement.text(response.id);
+    popup.show();
+    // Close button event handler
+    $('#closeButton').click(function() {
+      popup.hide();
+//      localStorage.removeItem('rooms');       // clean data
+      window.location.href = 'index.html';       // redirection
+    });
 
       },
       error: function(xhr, status, error) {

@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -48,7 +49,7 @@ public class ReservationController {
     // GET
     @GetMapping(value = "reservation", produces = "application/json")
     public Iterable<Reservation> getAllReservations(){
-        return reservationService.findAll();
+        return reservationService.getAllReservations();
     }
 
     // Endpoint
@@ -68,24 +69,39 @@ public class ReservationController {
         Optional<Reservation> reservation = reservationService.findById(id);
         return reservation.isPresent()?ResponseEntity.ok().body(reservation.get()):ResponseEntity.notFound().build();
     }
-    @PutMapping(value = "/totallyPrice" ,  consumes = "application/json")
-    public ResponseEntity<Double> totally (
-            @RequestBody Room room,
-            @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkInDate,
-            @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOutDate){
-        double totally = reservationService.counter(checkInDate,checkOutDate,room);
+
+
+    @PutMapping(value = "/totally", consumes = "application/json")
+    public ResponseEntity<Double> totally(
+            @RequestBody final Room room,
+            @RequestParam("checkInDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate checkInDate,
+            @RequestParam("checkOutDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate checkOutDate) {
+        Room selectedroom = roomService.findByRoomNumber(room.getRoomNumber());
+        double totally = reservationService.counter(checkInDate, checkOutDate, selectedroom);
         return ResponseEntity.ok(totally);
     }
+
+
+
+//    @PutMapping(value = "/totallyPrice" ,  consumes = "application/json")
+//    public ResponseEntity<Double> totally (
+//            @RequestBody final Room room,
+//            @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkInDate,
+//            @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOutDate){
+//        Room selectedroom = roomService.findByRoomNumber(room.getRoomNumber());
+//        double totally = reservationService.counter(checkInDate,checkOutDate,selectedroom);
+//        return ResponseEntity.ok(totally);
+//    }
 
     @GetMapping(value = "/reservationincluded", produces = "application/json")
     public ResponseEntity<Iterable<Reservation>> getReservationsIncluded(
             @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkInDate,
             @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date checkOutDate) {
-
         try {
             Iterable<Reservation> reservations = reservationService.findReservationByCheckOutDateBeforeAndCheckInDateAfter(checkInDate, checkOutDate);
             return ResponseEntity.ok( reservations);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return ResponseEntity.ok( Collections.emptyList());
         }
     }
@@ -99,4 +115,14 @@ public class ReservationController {
         reservationService.remove(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/receptionist")
+    public String viewReceptionistPage(Model model) {
+        model.addAttribute("listReservations", reservationService.getAllReservations());
+        return "receptionist";
+    }
+
+
+
+
 }

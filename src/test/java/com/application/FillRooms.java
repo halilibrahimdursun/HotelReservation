@@ -17,7 +17,7 @@ public class FillRooms {
                 .build();
         try (CSVReader reader = new CSVReaderBuilder(new FileReader("src/test/resources/RoomsTest.csv"))
                 .withCSVParser(parser)
-                .build();) {
+                .build()) {
             reader.readAll().forEach(x -> write(processArray(x)));
         }
     }

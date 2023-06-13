@@ -79,9 +79,16 @@ $(document).ready(function() {
             </form>\
           </div>');
 
+
+
+
+
+
           roomItems.append(roomItem);
         }
       });
+
+
     } else {
       roomItems.html('<p>No rooms found.</p>');
     }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Reservation Management System</title>
+
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container my-2">
+  <h1>Reservation List</h1>
+
+
+  <a th:href="@{index.html}" class="btn btn-primary btn-sm mb-3"> Add Reservation </a>
+
+  <table border="1" class = "table table-striped table-responsive-md">
+    <thead>
+
+    <tr>
+      <th>Reservation Number</th>
+      <th>Room Number</th>
+      <th>Telephone Number</th>
+      <th> Email</th>
+      <th> Name</th>
+      <th> Surname</th>
+      <th>Check in Date</th>
+      <th>Check Out Date</th>
+      <th>Number of Adults</th>
+      <th>Number of Children</th>
+      <th> Actions </th>
+    </tr>
+
+    </thead>
+        <tbody>
+        <tr th:each="reservation : ${listReservations}">
+          <td th:text="${reservation.reservationNumber}"></td>
+          <td th:text="${reservation.room.roomNumber}"></td>
+          <td th:text="${reservation.telephoneNumber}"></td>
+          <td th:text="${reservation.email}"></td>
+          <td th:text="${reservation.name}"></td>
+          <td th:text="${reservation.surName}"></td>
+          <td th:text="${reservation.checkInDate}"></td>
+          <td th:text="${reservation.checkOutDate}"></td>
+          <td th:text="${reservation.numberOfAdults}"></td>
+          <td th:text="${reservation.numberOfChildren}"></td>
+
+          <td>
+            <a th:href="@{/showFormForUpdate/{id}(id=${reservation.id})}" class="btn btn-primary">Update</a>
+            <a th:href="@{/deleteReservation/{id}(id=${reservation.id})}" class="btn btn-danger">Delete</a>
+          </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+</body>

@@ -25,7 +25,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 
     @Override
-    public Iterable<Reservation> findAll() {
+    public Iterable<Reservation> getAllReservations() {
         return reservationRepository.findAll();
     }
 
@@ -57,16 +57,14 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Iterable<Reservation> findReservationByCheckOutDateBeforeAndCheckInDateAfter(Date checkInDate, Date checkOutDate) {
-        return reservationRepository.findReservationByCheckOutDateBeforeAndCheckInDateAfter(checkInDate, checkOutDate);
+        return reservationRepository.findReservationByCheckOutDateAfterAndCheckInDateBefore(checkInDate, checkOutDate);
     }
 
     /* ================Discount=============*/
     public  double counter (LocalDate checkInDate, LocalDate checkOutDate , Room  room){
-        double discount = 20;
         long noOfDays = ChronoUnit.DAYS.between( checkInDate,  checkOutDate);
         double result = noOfDays * room.getPrice();
-        double result1 = result-((result * discount) / 100);
-        return result1;
+        return result;
     }
 }
 
