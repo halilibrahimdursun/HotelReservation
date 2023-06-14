@@ -1,12 +1,6 @@
-function init(){
-    // Add submit event to form for new and edit
-    $("#booking-form").on('submit', function() {
-        console.log("Submitting");
-    });
-}
-
 
 $(document).ready(function() {
+
   var roomItems = $('#roomItems');
   var storedRooms = localStorage.getItem('rooms');
   var inDate = localStorage.getItem('inDate');
@@ -15,22 +9,23 @@ $(document).ready(function() {
   var children = localStorage.getItem('children');
   var smoking = localStorage.getItem('smoking');
   var disabled = localStorage.getItem('disabled');
-  console.log(inDate, outDate, adult, children, smoking, disabled);
 
-  $('#inDate').val("2023-01-02");
-  $('#outDate').val("2023-02-02");
-  $('#adult').val("2");
-  $('#children').val("1");
-  $('#smoking').val("Smoking");
-  $('#disabled').val("Non Disabled");
+  console.log(inDate, outDate, adult, children, disabled);
 
- var addedRoomTypes = []; // Track the room types that have been added
-  var isFirstRoomAdded = false; // Flag to track if the first room has been added
+  $('#inDate').val(inDate);
+  $('#outDate').val(outDate);
+  $('#adult').val(adult);
+  $('#children').val(children);
+  $('#smoking').val(smoking === "true" ? "Smoking" : "Non smoking");
+  $('#disabled').val(disabled === "true" ? "Disabled" : "Non disabled");
+
+  var addedRoomTypes = []; // Keeping track of added room types
+  var isFirstRoomAdded = false; // Flag to keep track of adding the first room
 
   if (storedRooms) {
     var rooms = JSON.parse(storedRooms);
 
-    // Sort the rooms array by price in ascending order
+    // Sort the array of rooms by price in ascending order
     rooms.sort(function(a, b) {
       return a.price - b.price;
     });
@@ -39,57 +34,188 @@ $(document).ready(function() {
       rooms.forEach(function(room) {
         var roomType = room.typeOfRoom;
 
-        // Check if the room type is 'Single' and the first room has not been added
+        // Check if the room type is 'Single' and the first room has not been added yet
         if (roomType === 'Double' && !isFirstRoomAdded) {
-          addedRoomTypes.push(roomType); // Add the room type to the array
-
-
-          // Rest of the code for creating the room item element
-//          var imagePath = room.imageLink;
-//          var roomName = room.typeOfRoom;
+          addedRoomTypes.push(roomType); // Add room type to array
 
           var roomPrice = room.price;
-          var maxCapacity = room.capacityOfGuests;
+          var adult = room.capacityOfAdults;
+          var children = room.capacityOfChildren;
           var bedType = room.typeOfBed;
-          var special = room.smoking ? "Yes" : "No";
+          var smoking = room.smoking ? "Yes" : "No";
+          var disabled = room.disabled ? "Yes" : "No";
           var amenities = room.facilities;
-//          var roomLink = getRoomLink(roomName);
+          var roomNumber = room.roomNumber;
 
-//          var roomPrice = "500";
-//          var maxCapacity = "33";
-//          var bedType = "room.typeOfBed";
-//          var special = "room.smoking";
-//          var amenities = "room.facilities";
-//          var roomLink = getRoomLink(roomName);
+//          var formData = {
+//                roomNumber: roomNumber
+//              };
+//          var roomNumber =JSON.stringify(formData);
+//            $.ajax({
+//                      url: '/api/totallyPrice?checkInDate=' + inDate + '&checkOutDate=' + outDate,
+//                      type: 'PUT',
+//                      contentType: 'application/json',
+//                      data: JSON.stringify({roomNumber:roomNumber}),
+//                      success: function(response) {
+//                        console.log(response);
+//                  localStorage.setItem('totalPrice', response);
+//
+//
+//                      },
+//                      error: function(xhr, status, error) {
+//                        console.log(status);
+//                      }
+//                    });
 
-  var roomItem = $('<h2><span>from </span>' + roomPrice + '<span>/Per night</span></h2>\
+// count totalPrice
+var checkInDate = new Date(inDate);
+var checkOutDate = new Date(outDate);
+var daysBetween = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24)); // Calculate the number of days
+var totalPrice = roomPrice * daysBetween;
+
+
+//          var totalPrice = localStorage.getItem('totalPrice');
+          var roomItem = $('<h2><span>Total price:  </span>' + totalPrice + '$<span></span></h2>\
                               <table>\
                                   <tbody>\
                                   <tr>\
-                                      <td class="r-o">Capacity:</td>\
-                                      <td>Max persion ' + maxCapacity + '</td>\
+                                        <td class="r-o">Room number:</td>\
+                                        <td> ' + roomNumber + ' </td>\
+                                 </tr>\
+                                 <tr>\
+                                      <td class="r-o">Adult:</td>\
+                                      <td> ' + adult + ' </td>\
+                                  </tr>\
+                                   <tr>\
+                                      <td class="r-o">Children:</td>\
+                                      <td> ' + children + ' </td>\
                                   </tr>\
                                   <tr>\
-                                      <td class="r-o">Bed:</td>\
+                                      <td class="r-o">Bed type:</td>\
                                       <td>' + bedType + '</td>\
                                   </tr>\
                                   <tr>\
-                                      <td class="r-o">Services:</td>\
+                                      <td class="r-o">Smoking:</td>\
+                                      <td>' + smoking + '</td>\
+                                  </tr>\  <tr>\
+                                      <td class="r-o">Disabled:</td>\
+                                      <td>' + disabled + '</td>\
+                                  </tr>\
+                                  <tr>\
+                                      <td class="r-o">Facilities:</td>\
                                       <td>' + amenities + '</td>\
                                   </tr>\
                                   </tbody>\
                               </table>\
                              ');
+
           roomItems.append(roomItem);
-           isFirstRoomAdded = true;
+
+          // Store roomNumber in a hidden input field
+          var roomNumberInput = $('<input type="hidden" name="roomNumber" value="' + roomNumber + '">');
+          roomItem.append(roomNumberInput);
+
+          isFirstRoomAdded = true;
         }
       });
     } else {
       roomItems.html('<p>No rooms found.</p>');
     }
-    localStorage.removeItem('rooms');
   } else {
     roomItems.html('<p>No rooms found.</p>');
   }
 });
 
+
+//--------------------- Обработчик события submit для формы----------------------------//
+/* --------------------The submit event handler for the form---------------------------*/
+$(document).ready(function() {
+  $('#booking-form').submit(function(event) {
+    event.preventDefault(); // Cancel the default form submission
+    var numadults = localStorage.getItem('adult');
+    var numchildren = localStorage.getItem('children');
+    var formData = {
+      // Getting values from input fields
+      checkInDate: $('#inDate').val(),
+      checkOutDate: $('#outDate').val(),
+      name: $('#name').val(),
+      surName: $('#surname').val(),
+      numberOfAdults: numadults,
+      numberOfChildren: numchildren,
+      telephoneNumber: $('#phone').val(),
+      email: $('#email').val(),
+      room : {roomNumber: $('[name="roomNumber"]').val()} // Get roomNumber from the hidden input field
+
+    };
+
+    // Print form data to console
+    console.log("Check-in Date: " + formData.checkInDate);
+    console.log("Check-out Date: " + formData.checkOutDate);
+    console.log("Name: " + formData.name);
+    console.log("Surname: " + formData.surName);
+    console.log("Email: " + formData.email);
+    console.log("Telephone Number: " + formData.telephoneNumber);
+    console.log("Room Number: " + formData.room.roomNumber);
+//    console.log("Id: " + formData.room.Id);
+
+    // Validate email
+    if (!validateEmail(formData.email)) {
+      alert("Please enter a valid email.");
+      return;
+    }
+
+    // Validate phone
+    if (!validatePhone(formData.telephoneNumber)) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
+
+//    // Generate a random booking number
+//    var bookingNumber = Math.floor(Math.random() * 100000);
+
+    // Additional actions, such as sending data to the server
+    $.ajax({
+      url: '/api/reservation',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(formData),
+      success: function(response) {
+        console.log(response);
+
+//      room : {reservId: $('[Id="Id"]').val()} // Get roomNumber from the hidden input field
+    // Display a popup message
+    var popup = $('#popup');
+
+    var bookingNumberElement = $('#bookingNumber');
+    bookingNumberElement.text(response.id);
+
+    popup.show();
+    // Close button event handler
+    $('#closeButton').click(function() {
+      popup.hide();
+      localStorage.removeItem('rooms');       // clean data
+      window.location.href = 'index.html';       // redirection
+    });
+
+      },
+      error: function(xhr, status, error) {
+        console.log(status);
+      }
+    });
+  });
+});
+
+// Email validation function
+function validateEmail(email) {
+  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+// Phone validation function
+function validatePhone(phone) {
+  var regex = /^\d{10}$/;
+  return regex.test(phone);
+}
+
+        //--------------------- Обработчик события submit для формы----------------------------//
+        /* --------------------The submit event handler for the form---------------------------*/

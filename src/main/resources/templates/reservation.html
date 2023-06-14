@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6z">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
-    <meta th:insert="fragments/head :: metas" th:remove="tag"/>
+    <meta th:include="fragments/head :: metas" th:remove="tag"/>
     <title>Customer page</title>
-    <style th:insert="fragments/head :: styles" th:remove="tag"></style>
-    <script th:insert="fragments/head :: scripts" th:remove="tag"></script>
+    <style th:include="fragments/head :: styles" th:remove="tag"></style>
+    <script th:include="fragments/head :: scripts" th:remove="tag"></script>
     <script src="js/reservation.js"></script>
+
     <script>
         $( document ).ready(function() {
             console.log( "initializing" );
@@ -20,9 +21,67 @@
 <div th:insert="/fragments/header :: header"></div>
 <p>
 <div class="container">
-    <table id="reservation-table" class="display mx-auto"></table>
+        <table id="reservationTable" class="display mx-auto"></table>
 </div>
 <p/>
+
+
+<div id="reservationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Reservation</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <input type="text" class="d-none form-control" id="id" value="0">
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="checkInDate">Check-in:</label>-->
+<!--                        <input type="text" class="form-control" id="checkInDate">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="checkOutDate">Check-out:</label>-->
+<!--                        <input type="text" class="form-control" id="checkOutDate">-->
+<!--                    </div>-->
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="roomNumber">roomNumber:</label>-->
+<!--                        <input type="text" class="form-control" id="roomNumber">-->
+<!--                    </div>-->
+                    <div class="form-group">
+                        <label for="surName">Surname:</label>
+                        <input type="text" class="form-control" id="surName">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email"  name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephoneNumber">Telephone number:</label>
+                        <input type="text" class="form-control" id="telephoneNumber"  name="telephoneNumber">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button id="closeButton" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 
 <!--<div class="container">-->
 <!--    <form id="reservation-form" name="reservation-form">-->
@@ -64,6 +123,47 @@
 <!--        <button type="button" class="btn btn-primary" id="create-reservation">Submit</button>-->
 <!--    </form>-->
 <!--</div>-->
+
+
+
+<div class=“row”>
+    <div class="w-50 mx-auto">
+        <button type="button" class="btn btn-primary" id="editReservationButton">Edit Reservation</button>
+
+        <button sec:authorize ="hasAnyRole('ADMIN')"  type="button" class="btn btn-primary" id="deleteReservationButton">Cancel Reservation</button>
+<!--        <button type="button" class="btn btn-primary" id="cancelReservationButton">Cancel Reservation</button>-->
+    </div>
+</div>
+
+<div id="reservationDeleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cancellation of reservation</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                According to our cancellation policy, you will receive the amount:
+                <br>Are you sure?
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" id="deleteReservationConfirmButton" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-secondary room-close-button" data-dismiss="modal">Cancel</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
 
 <div th:insert="/fragments/footer :: footer">
 </div>

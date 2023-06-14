@@ -58,12 +58,13 @@ public class    SecurityConfig {
                         "/swagger-ui/**",
                         "/webjars/**"
                 ).permitAll()
-                .requestMatchers("/customer*", "/room").hasAnyRole("USER", "ADMIN")
-                .requestMatchers("/reservation*").hasAnyRole("ADMIN")
+                .requestMatchers("/reservation*", "/customer*", "/room").hasAnyRole("USER", "ADMIN")
+//                .requestMatchers("/reservation*").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/reservation")
                 .permitAll()
                 .and()
                 .logout()

@@ -115,7 +115,7 @@ var totalPrice = roomPrice * daysBetween;
           var roomNumberInput = $('<input type="hidden" name="roomNumber" value="' + roomNumber + '">');
           roomItem.append(roomNumberInput);
 
-          isFirstRoomAdded = false;
+          isFirstRoomAdded = true;   //false - Show all available rooms
         }
       });
     } else {
@@ -125,6 +125,7 @@ var totalPrice = roomPrice * daysBetween;
     roomItems.html('<p>No rooms found.</p>');
   }
 });
+
 
 
 //--------------------- Обработчик события submit для формы----------------------------//
@@ -191,7 +192,7 @@ $(document).ready(function() {
     // Close button event handler
     $('#closeButton').click(function() {
       popup.hide();
-//      localStorage.removeItem('rooms');       // clean data
+      localStorage.removeItem('rooms');       // clean data
       window.location.href = 'index.html';       // redirection
     });
 

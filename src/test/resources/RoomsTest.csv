@@ -1,78 +1,78 @@
-101,First floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-102,First floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-103,First floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-104,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-105,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-106,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-107,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-108,First floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-109,First floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-110,First floor,Double,2,0,Double bed ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg
-111,First floor,Double,2,0,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg
-112,First floor,Double,2,0,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg
-113,First floor,Double,2,0,2 single bed,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-114,First floor,Double,2,0,2 single bed,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-115,First floor,Double,2,1,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg
-116,First floor,Double,2,1,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg
-117,First floor,Double,2,2,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-118,First floor,Double,2,2,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-119,First floor,2xDouble,4,2,"2 Double bed, 1 single bed, 1 baby bed",FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",550,TRUE,6,img/room/room-3.jpg
-201,Second floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-202,Second floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-203,Second floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-204,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-205,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-206,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-207,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-208,Second floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-209,Second floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-210,Second floor,Double,2,0,Double bed ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg
-211,Second floor,Double,2,0,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg
-212,Second floor,Double,2,0,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg
-213,Second floor,Double,2,0,2 single bed,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-214,Second floor,Double,2,0,2 single bed,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-215,Second floor,Double,2,1,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg
-216,Second floor,Double,2,1,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg
-217,Second floor,Double,2,2,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-218,Second floor,2xDouble,4,2,"2 Double bed, 1 single bed, 1 baby bed",FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",550,TRUE,6,img/room/room-3.jpg
-219,Second floor,Double,2,2,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-301,Third floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-302,Third floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-303,Third floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-304,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-305,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-306,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-307,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-308,Third floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-309,Third floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-310,Third floor,Double,2,0,Double bed ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg
-311,Third floor,Double,2,0,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg
-312,Third floor,Double,2,0,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg
-313,Third floor,Double,2,0,2 single bed,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-314,Third floor,Double,2,0,2 single bed,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-315,Third floor,2xDouble,4,2,"2 Double bed, 1 single bed, 1 baby bed",FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",550,TRUE,6,img/room/room-3.jpg
-316,Third floor,Double,2,1,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg
-317,Third floor,Double,2,2,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-318,Third floor,Double,2,2,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-319,Third floor,Double,2,2,Double bed ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-401,Fourth floor,Single,1,0,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-402,Fourth floor,Single,1,0,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-403,Fourth floor,Single,1,0,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg
-404,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-405,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-406,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-407,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg
-408,Fourth floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-409,Fourth floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg
-410,Fourth floor,Double,2,0,Double bed ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg
-411,Fourth floor,Double,2,0,Double bed ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg
-412,Fourth floor,Double,2,0,Double bed ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg
-413,Fourth floor,Double,2,0,2 single bed,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-414,Fourth floor,Double,2,0,2 single bed,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg
-415,Fourth floor,Double,2,1,Double bed ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg
-416,Fourth floor,Double,2,1,Double bed ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg
-417,Fourth floor,Double,2,2,Double bed ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg
-418,Fourth floor,Penthouse,8,2,"2 x Double bed, 4 single beds, 2 baby beds",TRUE,FALSE,Smoking,"Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool ",800,TRUE,10,img/room/room-5.jpg
-419,Fourth floor,Penthouse,8,2,"2 x Double bed, 4 single beds, 2 baby beds",TRUE,FALSE,Smoking,"Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool ",800,TRUE,10,img/room/room-5.jpg
-501,Fifth floor,Penthouse,10,2,"3 x Double bed, 4 single beds, 2 baby beds",TRUE,FALSE,Smoking,"Kitchen, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, infinity swimming pool, terras, parasols, terras chairs en tables ",3000,TRUE,12,img/room/room-6.jpg
-502,Fifth floor,Penthouse,10,2,"3 x Double bed, 4 single beds, 2 baby beds",TRUE,FALSE,Smoking,"Kitchen, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, infinity swimming pool, terras, parasols, terras chairs en tables ",3000,TRUE,12,img/room/room-6.jpg
+101,First floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+102,First floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+103,First floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+104,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+105,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+106,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+107,First floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+108,First floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+109,First floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+110,First floor,Double,2,0,Double,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg,,,
+111,First floor,Double,2,0,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg,,,
+112,First floor,Double,2,0,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg,,,
+113,First floor,Double,2,0,2 Single,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+114,First floor,Double,2,0,2 Single,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+115,First floor,Double,2,1,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg,,,
+116,First floor,Double,2,1,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg,,,
+117,First floor,Double,2,2,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+118,First floor,Double,2,2,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+119,First floor,2xDouble,4,2,"2 Dbl, 1 Sgl, 1 Baby",FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",550,TRUE,6,img/room/room-3.jpg,,,
+201,Second floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+202,Second floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+203,Second floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+204,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+205,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+206,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+207,Second floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+208,Second floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+209,Second floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+210,Second floor,Double,2,0,Double,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg,,,
+211,Second floor,Double,2,0,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg,,,
+212,Second floor,Double,2,0,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,2,img/room/room-4.jpg,,,
+213,Second floor,Double,2,0,2 Single,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+214,Second floor,Double,2,0,2 Single,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+215,Second floor,Double,2,1,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg,,,
+216,Second floor,Double,2,1,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg,,,
+217,Second floor,Double,2,2,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+218,Second floor,2xDouble,4,2,"2 Dbl, 1 Sgl, 1 Baby",FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",550,TRUE,6,img/room/room-3.jpg,,,
+219,Second floor,Double,2,2,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+301,Third floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+302,Third floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+303,Third floor,Single,1,0,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+304,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+305,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+306,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+307,Third floor,Single,1,1,Single ,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+308,Third floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+309,Third floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+310,Third floor,Double,2,0,Double,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg,,,
+311,Third floor,Double,2,0,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg,,,
+312,Third floor,Double,2,0,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg,,,
+313,Third floor,Double,2,0,2 Single,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+314,Third floor,Double,2,0,2 Single,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+315,Third floor,2xDouble,4,2,"2 Dbl, 1 Sgl, 1 Baby",FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",550,TRUE,6,img/room/room-3.jpg,,,
+316,Third floor,Double,2,1,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg,,,
+317,Third floor,Double,2,2,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+318,Third floor,Double,2,2,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+319,Third floor,Double,2,2,Double,FALSE,FALSE,Non Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+401,Fourth floor,Single,1,0,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+402,Fourth floor,Single,1,0,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+403,Fourth floor,Single,1,0,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,1,img/room/room-1.jpg,,,
+404,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+405,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+406,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+407,Fourth floor,Single,1,1,Single ,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-1.jpg,,,
+408,Fourth floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+409,Fourth floor,Single,1,0,Single ,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,1,img/room/room-1.jpg,,,
+410,Fourth floor,Double,2,0,Double,FALSE,TRUE,Disabled room,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg,,,
+411,Fourth floor,Double,2,0,Double,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg,,,
+412,Fourth floor,Double,2,0,Double,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine",240,TRUE,2,img/room/room-2.jpg,,,
+413,Fourth floor,Double,2,0,2 Single,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+414,Fourth floor,Double,2,0,2 Single,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler",220,TRUE,2,img/room/room-2.jpg,,,
+415,Fourth floor,Double,2,1,Double,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg,,,
+416,Fourth floor,Double,2,1,Double,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,3,img/room/room-4.jpg,,,
+417,Fourth floor,Double,2,2,Double,TRUE,FALSE,Smoking,"mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone, water boiler, coffee machine",380,TRUE,4,img/room/room-4.jpg,,,
+418,Fourth floor,Penthouse,8,2,"2 Dbl, 4 Sgl, 2 Baby",TRUE,FALSE,Smoking,"Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool ",800,TRUE,10,img/room/room-5.jpg,,,
+419,Fourth floor,Penthouse,8,2,"2 Dbl, 4 Sgl, 2 Baby",TRUE,FALSE,Smoking,"Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool ",800,TRUE,10,img/room/room-5.jpg,,,
+501,Fifth floor,Penthouse,10,2,"3 Dbl, 4 Sgl, 2 Baby",TRUE,FALSE,Smoking,"Kitchen, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, infinity swimming pool, terras, parasols, terras chairs en tables ",3000,TRUE,12,img/room/room-6.jpg,,,
+502,Fifth floor,Penthouse,10,2,"3 Dbl, 4 Sgl, 2 Baby",TRUE,FALSE,Smoking,"Kitchen, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, infinity swimming pool, terras, parasols, terras chairs en tables ",3000,TRUE,12,img/room/room-6.jpg,,,
