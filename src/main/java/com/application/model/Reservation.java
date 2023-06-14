@@ -15,16 +15,13 @@ public class Reservation {
     private String email;
     private int guests;
     private Date date;
-
-
     private Date startDate;
     private Date endDate;
-
+    private String cancellationPolicy;  // Added cancellation policy field
 
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
-
 
     public Room getRoom() {
         return room;
@@ -34,13 +31,10 @@ public class Reservation {
         this.room = room;
     }
 
-
     public Reservation() {
     }
 
-
     public Reservation(int roomNumber, String telephoneNumber, String email, int guests, Date date, Date startDate, Date endDate) {
-
         this.roomNumber = roomNumber;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
@@ -98,10 +92,6 @@ public class Reservation {
         this.date = date;
     }
 
-    public Date getCheckInDate() {
-        return startDate;
-    }
-
     public Date getStartDate() {
         return startDate;
     }
@@ -117,5 +107,12 @@ public class Reservation {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-}
 
+    public String getCancellationPolicy() {
+        return cancellationPolicy;
+    }
+
+    public void setCancellationPolicy(String cancellationPolicy) {
+        this.cancellationPolicy = cancellationPolicy;
+    }
+}

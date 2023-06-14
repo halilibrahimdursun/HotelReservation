@@ -18,6 +18,8 @@ public interface ReservationService {
     void remove( long id);
     Iterable<Reservation> filterReservationForVegan(Reservation reservation);
 
+    void calculateCancellationPolicy(Reservation reservation);
+
     double counter (LocalDate startDate, LocalDate endDate , Room room);
 
     Iterable<Reservation> findAllFiltered(Reservation reservation);
