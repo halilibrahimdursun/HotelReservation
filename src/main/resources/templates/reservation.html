@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6z">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta th:include="fragments/head :: metas" th:remove="tag"/>
     <title>Customer page</title>
@@ -41,18 +41,22 @@
                     <div class="form-group">
                         <input type="text" class="d-none form-control" id="id" value="0">
                     </div>
-                    <div class="form-group">
-                        <label for="checkInDate">Check-in:</label>
-                        <input type="text" class="form-control" id="checkInDate">
-                    </div>
-                    <div class="form-group">
-                        <label for="checkOutDate">Check-out:</label>
-                        <input type="text" class="form-control" id="checkOutDate">
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="checkInDate">Check-in:</label>-->
+<!--                        <input type="text" class="form-control" id="checkInDate">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="checkOutDate">Check-out:</label>-->
+<!--                        <input type="text" class="form-control" id="checkOutDate">-->
+<!--                    </div>-->
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name">
                     </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="roomNumber">roomNumber:</label>-->
+<!--                        <input type="text" class="form-control" id="roomNumber">-->
+<!--                    </div>-->
                     <div class="form-group">
                         <label for="surName">Surname:</label>
                         <input type="text" class="form-control" id="surName">
@@ -125,8 +129,9 @@
 <div class=“row”>
     <div class="w-50 mx-auto">
         <button type="button" class="btn btn-primary" id="editReservationButton">Edit Reservation</button>
-        <button type="button" class="btn btn-primary" id="deleteReservationButton">Delete Reservation</button>
-        <button type="button" class="btn btn-primary" id="cancelReservationButton">Cancel Reservation</button>
+
+        <button sec:authorize ="hasAnyRole('ADMIN')"  type="button" class="btn btn-primary" id="deleteReservationButton">Cancel Reservation</button>
+<!--        <button type="button" class="btn btn-primary" id="cancelReservationButton">Cancel Reservation</button>-->
     </div>
 </div>
 
@@ -136,12 +141,13 @@
         <!-- Content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">New Reservation</h4>
+                <h4 class="modal-title">Cancellation of reservation</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <div class="modal-body">
-                Are you sure?
+                According to our cancellation policy, you will receive the amount:
+                <br>Are you sure?
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" id="deleteReservationConfirmButton" class="btn btn-danger" data-dismiss="modal">Delete</button>

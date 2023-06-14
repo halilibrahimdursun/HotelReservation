@@ -31,7 +31,7 @@ function init(){
             alert("Select reservation first");
         }else{
             var reservation = reservationTable.row($('.selected')).data();
-            alert(reservation.id);
+//            alert(reservation.id);
             $("#id").val(reservation.id);
             $("#checkInDate").val(reservation.checkInDate);
             $("#checkOutDate").val(reservation.checkOutDate);
@@ -39,9 +39,11 @@ function init(){
             $("#surName").val(reservation.surName);
             $("#email").val(reservation.email);
             $("#telephoneNumber").val(reservation.telephoneNumber);
-
+            $("#roomNumber").val(reservation.room.roomNumber);
+            localStorage.setItem('roomNumber', reservation.room.roomNumber);
             $('#reservationModal').modal('show');
         }
+
 
     });
 
@@ -68,7 +70,6 @@ function init(){
         console.log("Submitting");
         createReservation();
         $('#reservationModal').modal('hide');
-//        $('#reservationModal').modal('hide');
     });
 
     initReservationTable();
@@ -165,15 +166,25 @@ function createReservation(){
 
     console.log('inside createReservation' );
 
+        var inDate = localStorage.getItem('inDate');
+        var outDate = localStorage.getItem('outDate');
+        var adult = localStorage.getItem('adult');
+        var children = localStorage.getItem('children');
+        var roomNumber = localStorage.getItem('roomNumber');
+
     // Put reservation data from page in Javascript object --- SIMILAR TO JSON
     var reservationData = {
             id: $("#id").val(),
-            checkInDate: $("#checkInDate").val(),
-            checkOutDate: $("#checkOutDate").val(),
+            checkInDate: inDate,
+            checkOutDate: outDate,
             name: $("#name").val(),
             surName: $("#surName").val(),
+            numberOfAdults: adult,
+            numberOfChildren: children,
             email: $("#email").val(),
-            telephoneNumber: $("#telephoneNumber").val()
+            telephoneNumber: $("#telephoneNumber").val(),
+//            roomNumber: $("#roomNumber").val(),
+            room : {roomNumber:roomNumber}
     }
 
     // Transform Javascript object to json
@@ -182,11 +193,11 @@ function createReservation(){
     console.log(reservationJson);
 
     $.ajax({
-        url: api,
-        type: "post",
+        url: '/api/reservation',
+        type: 'POST',
         data: reservationJson,    // json for request body
-        contentType:"application/json; charset=utf-8",   // What we send to frontend
-        dataType: "json",  // get back from frontend
+        contentType:"application/json", //; charset=utf-8",   // What we send to frontend
+//        dataType: "json",  // get back from frontend
         // success: function(reservation, textStatus, jqXHR){
         success: function(reservation){
 

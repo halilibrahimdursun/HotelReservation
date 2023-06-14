@@ -127,6 +127,7 @@ var totalPrice = roomPrice * daysBetween;
 });
 
 
+
 //--------------------- Обработчик события submit для формы----------------------------//
 /* --------------------The submit event handler for the form---------------------------*/
 $(document).ready(function() {
