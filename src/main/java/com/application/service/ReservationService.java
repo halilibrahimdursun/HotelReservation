@@ -2,12 +2,10 @@ package com.application.service;
 
 import com.application.model.Reservation;
 import com.application.model.Room;
-import com.fasterxml.jackson.annotation.OptBoolean;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 public interface ReservationService {
@@ -18,7 +16,7 @@ public interface ReservationService {
     void remove( long id);
     Iterable<Reservation> filterReservationForVegan(Reservation reservation);
 
-    void calculateCancellationPolicy(Reservation reservation);
+    ResponseEntity<Reservation> calculateCancellationPolicy(Reservation reservation);
 
     double counter (LocalDate startDate, LocalDate endDate , Room room);
 

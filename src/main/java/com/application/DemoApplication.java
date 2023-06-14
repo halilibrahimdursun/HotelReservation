@@ -37,6 +37,7 @@ package com.application;
 //
 //
 
+import com.application.model.Reservation;
 import com.application.model.Room;
 import com.application.repositories.ReservationRepository;
 import com.application.repositories.RoomRepository;
@@ -45,6 +46,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
@@ -68,6 +72,13 @@ public class DemoApplication implements CommandLineRunner {
 
 		room.setCleaned(true); // Пример: установите свойство cleaned на основе данных из формы
 		room.setDisabled(false); // Пример: установите свойство disabled на основе данных из формы
+roomService.save(room);
+
+//		Reservation reservation = new Reservation(3, "0349283847", "String email", 33, new Date(), java.util.Date
+//		startDate, java.util.Date 02-02-2023);
+//		reservation.setRoom(room );
+//		reservationRepository.save( reservation);
+
 
 
 		// Установите остальные свойства объекта Room на основе данных из формы

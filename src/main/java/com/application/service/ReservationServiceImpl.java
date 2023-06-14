@@ -5,6 +5,7 @@ import com.application.model.Room;
 import com.application.repositories.ReservationRepository;
 import com.application.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -34,7 +35,6 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Reservation save(Reservation reservation) {
-        calculateCancellationPolicy(reservation);
         return reservationRepository.save(reservation);
     }
 
@@ -58,7 +58,7 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationRepository.findReservationByEndDateAfterAndStartDateBefore(startDate, endDate);
     }
     @Override
-    public void calculateCancellationPolicy(Reservation reservation) {
+    public ResponseEntity<Reservation> calculateCancellationPolicy(Reservation reservation) {
         LocalDate currentDate = LocalDate.now();
         LocalDate startDate = reservation.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         long daysBeforeCheckIn = ChronoUnit.DAYS.between(currentDate, startDate);
@@ -73,6 +73,7 @@ public class ReservationServiceImpl implements ReservationService {
             // Less than one week: charge 100% of the total amount
             applyCancellationPolicy(reservation, 1.0);
         }
+        return null;
     }
 
     private void applyCancellationPolicy(Reservation reservation, double cancellationRate) {
