@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+<body>
+<div id="google_translate_element"></div>
+
+<button id="translate_button" onclick="toggleTranslation()">Переключить язык</button>
+
+Some text for translation
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+
+<script>
+function toggleTranslation() {
+    var translateElement = document.getElementById("google_translate_element");
+
+    // Спрятать виджет, если он отображается
+    if (translateElement.style.display !== "none") {
+        translateElement.style.display = "none";
+    }
+
+    // Проверить наличие экземпляра TranslateElement
+    var instance = google.translate.TranslateElement.getInstance();
+    if (instance) {
+        // Получить текущий выбранный язык
+        var currentLanguage = instance.getTargetLanguage();
+
+        // Определить новый язык для перевода
+        var targetLanguage = (currentLanguage === "en") ? "zh-CN" : "en";
+
+        // Установить новый язык перевода
+        instance.setTargetLanguage(targetLanguage);
+    } else {
+        console.log("TranslateElement instance not found.");
+    }
+}
+</script>
+</body>
+</html>

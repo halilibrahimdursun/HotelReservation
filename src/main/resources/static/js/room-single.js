@@ -47,25 +47,7 @@ $(document).ready(function() {
           var amenities = room.facilities;
           var roomNumber = room.roomNumber;
 
-//          var formData = {
-//                roomNumber: roomNumber
-//              };
-//          var roomNumber =JSON.stringify(formData);
-//            $.ajax({
-//                      url: '/api/totallyPrice?checkInDate=' + inDate + '&checkOutDate=' + outDate,
-//                      type: 'PUT',
-//                      contentType: 'application/json',
-//                      data: JSON.stringify({roomNumber:roomNumber}),
-//                      success: function(response) {
-//                        console.log(response);
-//                  localStorage.setItem('totalPrice', response);
-//
-//
-//                      },
-//                      error: function(xhr, status, error) {
-//                        console.log(status);
-//                      }
-//                    });
+
 
 // count totalPrice
 var checkInDate = new Date(inDate);
@@ -111,6 +93,10 @@ var totalPrice = roomPrice * daysBetween;
 
           roomItems.append(roomItem);
 
+          // Применить язык к новой форме. Запускаем перевод после создания каждой формы
+                    applyLanguage(selectedLanguage);
+
+
           // Store roomNumber in a hidden input field
           var roomNumberInput = $('<input type="hidden" name="roomNumber" value="' + roomNumber + '">');
           roomItem.append(roomNumberInput);
@@ -124,6 +110,7 @@ var totalPrice = roomPrice * daysBetween;
   } else {
     roomItems.html('<p>No rooms found.</p>');
   }
+
 });
 
 

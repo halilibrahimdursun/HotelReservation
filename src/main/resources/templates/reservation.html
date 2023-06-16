@@ -86,8 +86,8 @@
     <div class="w-50 mx-auto">
         <button type="button" class="btn btn-primary" id="editReservationButton">Edit Reservation</button>
 
-        <button sec:authorize ="hasAnyRole('ADMIN')"  type="button" class="btn btn-primary" id="deleteReservationButton">Cancel Reservation</button>
-<!--        <button type="button" class="btn btn-primary" id="cancelReservationButton">Cancel Reservation</button>-->
+        <button sec:authorize ="hasAnyRole('ADMIN')" type="button" class="btn btn-primary" id="deleteReservationButton">Cancel Reservation</button>
+        <button sec:authorize ="hasAnyRole('USER')" type="button" class="btn btn-primary" id="newReservationButton">Create Reservation</button>
     </div>
 </div>
 
@@ -117,12 +117,9 @@
 </div>
 
 
-
-
-
-
 <div th:insert="/fragments/footer :: footer">
 </div>
 
+<script src="js/translate.js"></script>
 </body>
 </html>

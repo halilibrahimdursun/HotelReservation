@@ -105,3 +105,21 @@ window.location.href = 'rooms.html';
 
 ///-----------------------END script for getting information from booking form ------------
 
+//
+//function toggleTranslation() {
+//    var translateElement = document.getElementById("google_translate_element");
+//
+//    // Спрятать виджет, если он отображается
+//    if (translateElement.style.display !== "none") {
+//        translateElement.style.display = "none";
+//    }
+//
+//    // Получить текущий выбранный язык
+//    var currentLanguage = google.translate.TranslateElement.getInstance().getLanguage();
+//
+//    // Определить новый язык для перевода
+//    var targetLanguage = (currentLanguage === "en") ? "zh-CN" : "en";
+//
+//    // Установить новый язык перевода
+//    google.translate.TranslateElement.getInstance().changeLanguage(targetLanguage);
+//}

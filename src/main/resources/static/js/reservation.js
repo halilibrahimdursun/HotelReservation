@@ -6,32 +6,20 @@ function init(){
     console.log('inside init' );
 
     $("#radio_1").attr('checked', true);
-
-//    $(function () {
-//        $("#gfg").datepicker(
-//            { firstDay: 1 }
-//        );
-//    });
-
-
-    $("#newReservationButton").click( function () {
+    $("#newReservationButton").click(function() {
         console.log("Inside click of newReservationButton");
-        $('#reservationModal').modal('show');
+        window.location.href = "index.html";
     });
 
     $("#editReservationButton").click( function () {
         console.log("Inside click of editReservationButton");
         // Get the data from selected row and fill fields in modal
 
-//        $("#name").val('XXXXX');
-//        $("#address").val('ZZZZZZZZ');
-//        $("#age").val(23);
-
         if (reservationTable.row($('.selected')).data() == undefined) {
             alert("Select reservation first");
         }else{
             var reservation = reservationTable.row($('.selected')).data();
-//            alert(reservation.id);
+            alert(reservation.id);
             $("#id").val(reservation.id);
             $("#checkInDate").val(reservation.checkInDate);
             $("#checkOutDate").val(reservation.checkOutDate);
@@ -43,8 +31,6 @@ function init(){
             localStorage.setItem('roomNumber', reservation.room.roomNumber);
             $('#reservationModal').modal('show');
         }
-
-
     });
 
     $("#deleteReservationButton").click( function () {
@@ -55,7 +41,6 @@ function init(){
         }else{
             $('#reservationDeleteModal').modal('show');
         }
-
     });
 
     // Button in modal
@@ -75,9 +60,6 @@ function init(){
     initReservationTable();
     // Get reservations from backend and and update table
     getReservationData();
-
-
-
 }
 
 function initReservationTable() {
@@ -128,7 +110,6 @@ function initReservationTable() {
             $(this).addClass('selected');
         }
     });
-
 }
 
 function getReservationData(){
@@ -142,24 +123,18 @@ function getReservationData(){
         dataType: "json",
         // success: function(reservations, textStatus, jqXHR){
         success: function(reservations){
-
  //           console.log('Data: ' + reservations );
-
             if (reservations) {
                 reservationTable.clear();
                 reservationTable.rows.add(reservations);
                 reservationTable.columns.adjust().draw();
             }
         },
-
         fail: function (error) {
             console.log('Error: ' + error);
         }
-
     });
-
 }
-
 
 //=========== createReservation DOESNT WORK============
 function createReservation(){
@@ -200,7 +175,6 @@ function createReservation(){
 //        dataType: "json",  // get back from frontend
         // success: function(reservation, textStatus, jqXHR){
         success: function(reservation){
-
           console.log(reservation);
 
           // Clear fields in page
@@ -212,17 +186,17 @@ function createReservation(){
           // Refresh table data
           getReservationData();
 
-        },
+          // Применить язык к новой форме. Запускаем перевод после создания каждой формы
+                    applyLanguage(selectedLanguage);
 
+
+        },
         fail: function (error) {
           console.log('Error: ' + error);
         }
-
     });
-
 }
 //=======================================================================================
-
 
 function deleteReservation(){
 
@@ -240,23 +214,14 @@ function deleteReservation(){
                 dataType: "text",  // get back from frontend
                 // success: function(reservation, textStatus, jqXHR){
                 success: function(message){
-
                   console.log(message);
 
                   // Refresh table data
                   getReservationData();
-
                 },
-
                 fail: function (error) {
                   console.log('Error: ' + error);
                 }
-
             });
-
-
-
     }
-
-
 }

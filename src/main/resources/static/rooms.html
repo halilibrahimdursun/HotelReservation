@@ -58,12 +58,13 @@
 <!--                        <a href="#" class="bk-btn">Booking Now</a>-->
                         <div class="language-option">
                             <img src="img/flag.jpg" alt="">
-                            <span>EN <i class="fa fa-angle-down"></i></span>
-                            <div class="flag-dropdown">
-                                <ul>
-                                    <li><a href="#">Cn</a></li>
-                                </ul>
-                            </div>
+                            <button id="language-toggle">EN</button>
+<!--                            <span>EN <i class="fa fa-angle-down"></i></span>-->
+<!--                            <div class="flag-dropdown">-->
+<!--                                <ul>-->
+<!--                                    <li><a href="#">Cn</a></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -85,24 +86,12 @@
                         <nav class="mainmenu">
                             <ul>
                                 <li><a href="./index.html">Home</a></li>
-                                <!--                                    <li class="active"><a href="./rooms.html">Rooms</a></li>-->
                                 <li><a href="./about-us.html">About Us</a></li>
-<!--                                <li><a href="#">Room details</a>-->
-<!--                                    <ul class="dropdown">-->
-<!--                                        <li><a href="./room-single.html">Single Room</a></li>-->
-<!--                                        <li><a href="./room-double.html">Double Room</a></li>-->
-<!--                                        <li><a href="./room-family.html">Family Room</a></li>-->
-<!--                                        <li><a href="./room-penthouse.html">Penthouse</a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-
-                                <li><a href="./contact.html">Contact</a></li>
+<                               <li><a href="./contact.html">Contact</a></li>
+<
                             </ul>
                         </nav>
-                        <!--                            <div class="nav-right search-switch">-->
-                        <!--                                <i class="icon_search"></i>-->
-                        <!--                            </div>-->
-                    </div>
+                   </div>
                 </div>
             </div>
         </div>
@@ -185,8 +174,19 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/rooms.js"></script>
-<!--<script src="js/index.js"></script>-->
+<script src="js/translate.js"></script>
 
+
+
+<script>
+<!--    // Восстанавливаем выбранный язык из localStorage (если сохранен)-->
+<!--const selectedLanguage = localStorage.getItem('selectedLanguage');-->
+<!--if (selectedLanguage) {-->
+<!--  const languageToggle = document.getElementById('language-toggle');-->
+<!--  languageToggle.textContent = selectedLanguage;-->
+<!--  toggleLanguage(); // Применяем перевод на загруженной странице-->
+<!--}-->
+</script>
 
 
 </body>

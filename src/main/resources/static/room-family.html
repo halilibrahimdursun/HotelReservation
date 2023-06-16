@@ -51,12 +51,13 @@
                     <div class="tn-right">
                         <div class="language-option">
                             <img src="img/flag.jpg" alt="">
-                            <span>EN <i class="fa fa-angle-down"></i></span>
-                            <div class="flag-dropdown">
-                                <ul>
-                                    <li><a href="#">CN</a></li>
-                                </ul>
-                            </div>
+                            <button id="language-toggle">EN</button>
+<!--                            <span>EN <i class="fa fa-angle-down"></i></span>-->
+<!--                            <div class="flag-dropdown">-->
+<!--                                <ul>-->
+<!--                                    <li><a href="#">CN</a></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -78,17 +79,7 @@
                         <nav class="mainmenu">
                             <ul>
                                 <li><a href="./index.html">Home</a></li>
-                                <!--                                    <li class="active"><a href="./rooms.html">Rooms</a></li>-->
-                                <!--                                    <li><a href="#">Room details</a>-->
-                                <!--                                        <ul class="dropdown">-->
-                                <!--                                            <li><a href="./room-single.html">Single Room</a></li>-->
-                                <!--                                            <li><a href="./room-double.html">Double Room</a></li>-->
-                                <!--                                            <li><a href="./room-family.html">Family Room</a></li>-->
-                                <!--                                            <li><a href="./room-penthouse.html">Single room</a></li>-->
-                                <!--                                        </ul>-->
-                                <!--                                    </li>-->
                                 <li><a href="./about-us.html">About Us</a></li>
-
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
                         </nav>
@@ -100,25 +91,6 @@
 </header>
 <!-- Header End -->
 
-
-<!-- Breadcrumb Section Begin -->
-<!--    <div class="breadcrumb-section">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-12">-->
-<!--                    <div class="breadcrumb-text">-->
-<!--                        <h2>Single Rooms</h2>-->
-<!--                        <div class="bt-option">-->
-<!--                            <a href="./index.html">Home</a>-->
-<!--                            <a href="./rooms.html">Rooms</a>-->
-<!--                            <span>Single Room</span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!-- Breadcrumb Section End -->
 
 
 
@@ -133,29 +105,9 @@
                     <div class="rd-text">
                         <div class="rd-title">
                             <h3>2xDouble room</h3>
-                            <!--                                    <div class="rdt-right">-->
-                            <!--                                        <a href="./index.html">Booking Now</a>-->
-                            <!--                                    </div>-->
-                        </div>
+                         </div>
 
                         <div id="roomItems">
-                            <!--                                <h2><span>from </span>220$<span>/Per night</span></h2>-->
-                            <!--                                <table>-->
-                            <!--                                    <tbody>-->
-                            <!--                                        <tr>-->
-                            <!--                                          <td class="r-o">Capacity:</td>-->
-                            <!--                                         <td>Max persion 2</td>-->
-                            <!--                                      </tr>-->
-                            <!--                                      <tr>-->
-                            <!--                                         <td class="r-o">Bed:</td>-->
-                            <!--                                           <td>Single</td>-->
-                            <!--                                      </tr>-->
-                            <!--                                      <tr>-->
-                            <!--                                        <td class="r-o">Services:</td>-->
-                            <!--                                        <td>mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler</td>-->
-                            <!--                                      </tr>-->
-                            <!--                                    </tbody>-->
-                            <!--                                </table>-->
                         </div>
 
                     </div>
@@ -180,22 +132,7 @@
                             <input type="text" class="date-out" id="outDate" readonly>
                             <i class="icon_calendar"></i>
                         </div>
-                        <!--                            <div class="check-date">-->
-                        <!--                                <label for="adult">Adult:</label>-->
-                        <!--                                <input type="text" id="adult" readonly>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="check-date">-->
-                        <!--                                <label for="children">Children: (aged 0-12)</label>-->
-                        <!--                                <input type="text" id="children" readonly>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="check-date">-->
-                        <!--                                <label for="smoking">Smoking:</label>-->
-                        <!--                                <input type="text" id="smoking" readonly>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="check-date">-->
-                        <!--                                <label for="disabled">Disabled:</label>-->
-                        <!--                                <input type="text" id="disabled" readonly>-->
-                        <!--                            </div>-->
+
                         <div class="check-date">
                             <label for="name">Name:</label>
                             <h2><input type="text" id="name" ></h2>
@@ -228,6 +165,7 @@
 <div id="popup" class="popup">
     <h4>Thanks for booking!</h4>
     <p><h4>Your booking number: <span id="bookingNumber"></span></h4></p>
+    <p><h4>Booking information will be sent to your email</h4></p>
     <!--    <p><h4>Your room number: <span id="roomNumber"></span></h4></p>-->
     <button id="closeButton">Close</button>
 </div>
@@ -273,9 +211,8 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-<!--    <script src="js/rooms.js"></script>-->
 <script src="js/room-family.js"></script>
-<!--    <script src="js/index.js"></script>-->
+    <script src="js/translate.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
