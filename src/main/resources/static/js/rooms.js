@@ -79,12 +79,10 @@ $(document).ready(function() {
             </form>\
           </div>');
 
-
-
-
-
-
           roomItems.append(roomItem);
+
+// Применить язык к новой форме. Запускаем перевод после создания каждой формы
+          applyLanguage(selectedLanguage);
         }
       });
 
@@ -96,6 +94,8 @@ $(document).ready(function() {
   } else {
     roomItems.html('<p>No rooms found.</p>');
   }
+
+
 
   function getRoomLink(roomType) {
     switch (roomType) {

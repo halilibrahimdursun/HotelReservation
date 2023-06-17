@@ -111,6 +111,10 @@ var totalPrice = roomPrice * daysBetween;
 
           roomItems.append(roomItem);
 
+
+          // Применить язык к новой форме. Запускаем перевод после создания каждой формы
+                    applyLanguage(selectedLanguage);
+
           // Store roomNumber in a hidden input field
           var roomNumberInput = $('<input type="hidden" name="roomNumber" value="' + roomNumber + '">');
           roomItem.append(roomNumberInput);
