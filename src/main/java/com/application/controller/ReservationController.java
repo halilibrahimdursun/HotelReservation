@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -40,8 +41,6 @@ public class ReservationController {
         reservation.setRoom(room);
         reservationService.save(reservation);
         return ResponseEntity.ok(reservation) ;
-
-//        return ResponseEntity.ok().body(reservationService.save(reservation));
     }
 
     // Endpoint
@@ -122,6 +121,12 @@ public class ReservationController {
         return "receptionist";
     }
 
+    @GetMapping("/amountofpayback/{id}")
+    public ResponseEntity<String> calculateCancellationPolicy(@PathVariable long id) {
+        Optional<Reservation> reservation = reservationService.findById(id);
+        reservationService.calculateCancellationPolicy(reservation);
+        return new ResponseEntity<>(reservation.get().getCancellationPolicy(), HttpStatus.OK);
+    }
 
 
 

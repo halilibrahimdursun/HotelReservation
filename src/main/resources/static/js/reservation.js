@@ -1,5 +1,6 @@
 var api = "http://localhost:8080/api/reservation" ;
 var reservationTable;
+const name = "John"; // Input value
 
 function init(){
 
@@ -39,6 +40,17 @@ function init(){
         if (reservationTable.row($('.selected')).data() == undefined) {
             alert("Select reservation first");
         }else{
+            var reservation = reservationTable.row($('.selected')).data();
+        fetch("http://localhost:8080/api/amountofpayback/"+reservation.id)
+          .then(response => response.text())
+          .then(data => {
+            const amountPayBack = data;
+            console.log(amountPayBack);
+            $('#amountPayBack').text(amountPayBack);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
             $('#reservationDeleteModal').modal('show');
         }
     });
@@ -215,7 +227,6 @@ function deleteReservation(){
                 // success: function(reservation, textStatus, jqXHR){
                 success: function(message){
                   console.log(message);
-
                   // Refresh table data
                   getReservationData();
                 },
@@ -223,5 +234,7 @@ function deleteReservation(){
                   console.log('Error: ' + error);
                 }
             });
+
+
     }
 }
