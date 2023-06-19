@@ -70,7 +70,7 @@ function init(){
     });
 
     initReservationTable();
-    // Get reservations from backend and and update table
+    // Get reservations from backend and update table
     getReservationData();
 }
 

@@ -18,9 +18,11 @@ public class    SecurityConfig {
             throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("receptionist").password(passwordEncoder().encode("1")).roles("USER")
+                .withUser("receptionist").password(passwordEncoder().encode("")).roles("USER")
                 .and()
-                .withUser("manager").password(passwordEncoder().encode("1")).roles("USER","ADMIN");
+                .withUser("manager").password(passwordEncoder().encode("")).roles("USER","ADMIN","CLEAN")
+                .and()
+                .withUser("cleaner").password(passwordEncoder().encode("")).roles("CLEAN");
     }
 
     @Bean
@@ -58,13 +60,13 @@ public class    SecurityConfig {
                         "/swagger-ui/**",
                         "/webjars/**"
                 ).permitAll()
-                .requestMatchers("/reservation*", "/customer*", "/room").hasAnyRole("USER", "ADMIN")
-//                .requestMatchers("/reservation*").hasAnyRole("ADMIN")
+                .requestMatchers("/reservation*", "/customer*").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/room*").hasAnyRole("CLEAN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/reservation")
+                .defaultSuccessUrl("/home")
                 .permitAll()
                 .and()
                 .logout()

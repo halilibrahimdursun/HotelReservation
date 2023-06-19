@@ -1,8 +1,29 @@
 // Восстанавливаем выбранный язык из local Storage (если сохранен)
+
 const selectedLanguage = localStorage.getItem('selectedLanguage');
+if (selectedLanguage) {
+  const languageToggle = document.getElementById('language-toggle');
+  languageToggle.textContent = selectedLanguage;
+
+  // Применяем выбранный язык при загрузке страницы
+  applyLanguage(selectedLanguage);
+}
+
+
+function toggleLanguage() {
+  const languageToggle = document.getElementById('language-toggle');
+  const currentLanguage = languageToggle.textContent.trim();
+  const targetLanguage = currentLanguage === 'EN' ? 'CN' : 'EN';
+  console.log(targetLanguage);
+
+  languageToggle.textContent = targetLanguage;
+    localStorage.setItem('selectedLanguage', targetLanguage);
+  applyLanguage(targetLanguage);
+}
 
 function applyLanguage(language) {
-  const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h6, label, option, span, button, td, a, p, br');
+
+const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h6, label, option, span, button, td,a,p,br');
   const translations = {
     EN: {
       'Home': '首页',
@@ -38,77 +59,84 @@ function applyLanguage(language) {
     }
   };
 
-  function translate(title) {
-    if (translations[language] && translations[language][title]) {
-      return translations[language][title];
-    }
-    return title;
-  }
+  //------------------------------START-------------------------
 
-  elements.forEach(function (element) {
-    let elementText = element.textContent.trim();
+    elements.forEach(function (element) {
+       let elementText = element.textContent.trim();
+       if (element.nodeName === 'LABEL' && element.hasAttribute('for')) {
+         const forAttr = element.getAttribute('for');
+         const labelText = element.childNodes[0].textContent.trim();
+         elementText = `${labelText}`;
+       }
 
-    if (element.nodeName === 'LABEL' && element.hasAttribute('for')) {
-      const forAttr = element.getAttribute('for');
-      const labelText = element.childNodes[0].textContent.trim();
-      elementText = `${labelText}`;
-    }
+       const translation = translations[language][elementText];
+       console.log(elementText);
 
-    const translation = translate(elementText);
+       if (translation) {
+         if (element.nodeName === 'LABEL' && element.hasAttribute('for')) {
+           const labelText = element.childNodes[0];
+           labelText.textContent = translation;
+         } else {
+           element.textContent = translation;
+         }
+       }
+     });
+  //------------------------------END------------------
 
-    if (translation) {
-      if (element.nodeName === 'LABEL' && element.hasAttribute('for')) {
-        const labelText = element.childNodes[0];
-        labelText.textContent = translation;
-      } else {
-        element.textContent = translation;
+
+  //-------------------- for About Us text with "check icons"-----------
+  const serviceList = document.querySelectorAll('.ap-services li');
+
+  serviceList.forEach(function (li) {
+    const iconElement = li.querySelector('.icon_check');
+    if (iconElement) {
+      const listItemText = iconElement.nextSibling.textContent.trim(); // Get text after icon//Получить текст после иконки
+      const translatedText = translations[language][listItemText]; // Translate a text//Перевести текст
+
+      if (translatedText) {
+        iconElement.nextSibling.textContent = translatedText; // Replace text after icon with translated text//Заменить текст после иконки на переведенный текст
       }
     }
   });
+
 }
 
-function toggleLanguage() {
-  const languageToggle = document.getElementById('language-toggle');
-  const currentLanguage = languageToggle.textContent.trim();
-  const targetLanguage = currentLanguage === 'EN' ? 'CN' : 'EN';
-  console.log(targetLanguage);
-
-  languageToggle.textContent = targetLanguage;
-  localStorage.setItem('selectedLanguage', targetLanguage);
-  applyLanguage(targetLanguage);
-}
+//------------------------------------------------
 
 document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
 
 // Событие DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Все формы загружены
   // Применить перевод страницы
   applyLanguage(selectedLanguage);
 });
 
-function initReservationTable() {
-  console.log('inside initReservationTable');
 
-  // Create columns (with titles) for datatable: id, name, address, age
-  columns = [
-    { "title": translate("Reservation ID"), "data": "id", "visible": true },
-    { "title": translate("Check-in"), "data": "checkInDate" },
-    { "title": translate("Check-out"), "data": "checkOutDate" },
-    { "title": translate("Name"), "data": "name" },
-    { "title": translate("Surname"), "data": "surName" },
-    { "title": translate("Email"), "data": "email" },
-    { "title": translate("Telephone number"), "data": "telephoneNumber" },
-    { "title": translate("Adults"), "data": "numberOfAdults" },
-    { "title": translate("Children"), "data": "numberOfChildren" },
-    { "title": translate("Room"), "data": "room.roomNumber" }
-  ];
 
-  // Define new table with above columns
-  reservationTable = $("#reservationTable").DataTable({
-    "order": [[0, "asc"]],
-    "columns": columns
-  });
-}
-
-initReservationTable();
+//
+//function initReservationTable() {
+//  console.log('inside initReservationTable');
+//
+//  // Create columns (with titles) for datatable: id, name, address, age
+//  columns = [
+//    { "title": translate("Reservation ID"), "data": "id", "visible": true },
+//    { "title": translate("Check-in"), "data": "checkInDate" },
+//    { "title": translate("Check-out"), "data": "checkOutDate" },
+//    { "title": translate("Name"), "data": "name" },
+//    { "title": translate("Surname"), "data": "surName" },
+//    { "title": translate("Email"), "data": "email" },
+//    { "title": translate("Telephone number"), "data": "telephoneNumber" },
+//    { "title": translate("Adults"), "data": "numberOfAdults" },
+//    { "title": translate("Children"), "data": "numberOfChildren" },
+//    { "title": translate("Room"), "data": "room.roomNumber" }
+//  ];
+//
+//  // Define new table with above columns
+//  reservationTable = $("#reservationTable").DataTable({
+//    "order": [[0, "asc"]],
+//    "columns": columns
+//  });
+//}
+//
+//initReservationTable();
