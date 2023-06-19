@@ -196,7 +196,9 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
             '電話號碼': 'Telephone number',
             '成人': 'Adults',
             '兒童': 'Children',
-            '房間': 'Room'
+            '房間': 'Room',
+            '迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池':'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool',
+            '2 雙人房、4 單人房、2 嬰兒房':'2 Double, 4 Single, 2 Baby'
 
 
 
@@ -217,7 +219,6 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
             'Smoking:': '吸烟:',
             'Smoking' :'吸烟',
             'Non Smoking':'禁止吸煙',
-
             'Disabled:': '残疾人设施:',
             'Disabled': '残疾人设施',
             'Non Disabled': '非殘疾人',
@@ -369,13 +370,16 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
             'Telephone number': '電話號碼',
             'Adults': '成人',
             'Children': '兒童',
-            'Room': '房間'
-
-
+            'Room': '房間',
+            'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool':'迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池',
+            '2 Double, 4 Single, 2 Baby':'2 雙人房、4 單人房、2 嬰兒房'
 
     }
   };
 
+//------------------------------
+
+//------------------------------
 
   elements.forEach(function (element) {
      let elementText = element.textContent.trim();
@@ -384,15 +388,6 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
        const labelText = element.childNodes[0].textContent.trim();
        elementText = `${labelText}`;
      }
-
-//     if (element.classList.contains('icon_check')) {
-//        const listItemText = element.nextSibling.textContent.trim(); // Получить текст после иконки
-//        const iconElement = document.createElement('i');
-//        iconElement.classList.add('icon_check');
-//        element.parentNode.insertBefore(iconElement, element.nextSibling);
-//        element.nextSibling.textContent = listItemText;
-//        return; // Пропустить перевод текста
-//      }
 
      const translation = translations[language][elementText];
      console.log(elementText);
@@ -405,10 +400,34 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
          element.textContent = translation;
        }
      }
-
    });
 
+
+const serviceList = document.querySelectorAll('.ap-services li');
+
+serviceList.forEach(function (li) {
+  const iconElement = li.querySelector('.icon_check');
+  if (iconElement) {
+    const listItemText = iconElement.nextSibling.textContent.trim(); // Получить текст после иконки
+    const translatedText = translations[language][listItemText]; // Перевести текст
+
+    if (translatedText) {
+      iconElement.nextSibling.textContent = translatedText; // Заменить текст после иконки на переведенный текст
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
 }
+
+
 
 
 document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
