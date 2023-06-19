@@ -17,19 +17,13 @@ function toggleLanguage() {
   console.log(targetLanguage);
 
   languageToggle.textContent = targetLanguage;
-
-
     localStorage.setItem('selectedLanguage', targetLanguage);
-
   applyLanguage(targetLanguage);
 }
 
-
 function applyLanguage(language) {
 
-
-//  const links = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h6, label');
-const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h6, label, option, span, button, td,a,p,br');
+const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h6, label, option, span, button, td,a,p,br');
   const translations = {
     EN: {
       '首页': 'Home',
@@ -113,14 +107,14 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
             '這包括一系列配備豪華設施的客房、套房和別墅，例如舒適的床上用品、高速互聯網接入、純平電視和迷你吧':'This includes a range of guest rooms, suites, and villas with luxurious amenities such as comfortable bedding, high-speed internet access, flat-screen TVs, and minibars',
             '酒店可能有多種用餐選擇，包括高級餐廳、休閒咖啡廳、酒吧和 24 小時客房服務。':'The hotel may have several dining options, including a fine dining restaurant, a casual cafe, a bar, and 24-hour room service.',
             '這包括設備齊全的健身中心、水療中心以及瑜伽和冥想等健康項目':'This includes a fully-equipped fitness center, spa, and wellness programs such as yoga and meditation',
-            '酒店可能提供机场接送、班车服务和租车服务，以方便客人出行。':'The hotel may offer airport transfers, shuttle services, and car rentals to make it easy for guests to get around.',
-            '酒店礼宾团队可以帮助客人安排旅行、观光、餐厅预订和其他活动，使客人的住宿更加愉快。':'The concierge team can help guests with arranging tours, sightseeing, restaurant reservations, and other activities to make their stay more enjoyable.',
-            '酒店提供每日客房服务，包括晚间整理服务和洗衣服务。':'The hotel provides daily housekeeping services, including turndown service and laundry service.',
-            '酒店配有24小时安保和监控系统，以确保客人和其财物的安全。':'The hotel has 24-hour security and surveillance systems to ensure the safety of guests and their belongings.',
-            '这包括配备高速互联网、视听设备和秘书服务的会议室、会议设施和商务中心。':'This includes meeting rooms, conference facilities, and business centers with access to high-speed internet, audiovisual equipment, and secretarial services.',
-            '酒店可能提供各种休闲活动，包括游泳池、高尔夫球场、网球场和其他户外活动。':'The hotel may offer a range of leisure activities, including a swimming pool, golf course, tennis court, and other outdoor activities.',
-            '酒店可能采取环保措施，如减少废物、使用可再生能源并在整个酒店实施可持续性实践。':'The hotel may have eco-friendly practices such as reducing waste, using renewable energy sources, and implementing sustainable practices throughout the property.',
-            '酒店可能提供各种水上活动，如皮划艇、划艇、划板和机动水上运动。酒店还可能为想要探索附近湖泊或河流的客人提供船只和划艇租赁服务。':'The hotel may offer a range of water-based activities such as kayaking, canoeing, paddleboarding, and motorized water sports. The hotel may also provide boat and canoe rentals for guests who want to explore the nearby lake or river.',
+            '酒店可能提供机场接送、班车服务和租车服务，以方便客人出行。':'The hotel may offer airport transfers, shuttle services, and car rentals to make it easy for guests to get around',
+            '酒店礼宾团队可以帮助客人安排旅行、观光、餐厅预订和其他活动，使客人的住宿更加愉快。':'The concierge team can help guests with arranging tours, sightseeing, restaurant reservations, and other activities to make their stay more enjoyable',
+            '酒店提供每日客房服务，包括晚间整理服务和洗衣服务。':'The hotel provides daily housekeeping services, including turndown service and laundry service',
+            '酒店配有24小时安保和监控系统，以确保客人和其财物的安全。':'The hotel has 24-hour security and surveillance systems to ensure the safety of guests and their belongings',
+            '这包括配备高速互联网、视听设备和秘书服务的会议室、会议设施和商务中心。':'This includes meeting rooms, conference facilities, and business centers with access to high-speed internet, audiovisual equipment, and secretarial services',
+            '酒店可能提供各种休闲活动，包括游泳池、高尔夫球场、网球场和其他户外活动。':'The hotel may offer a range of leisure activities, including a swimming pool, golf course, tennis court, and other outdoor activities',
+            '酒店可能采取环保措施，如减少废物、使用可再生能源并在整个酒店实施可持续性实践。':'The hotel may have eco-friendly practices such as reducing waste, using renewable energy sources, and implementing sustainable practices throughout the property',
+            '酒店可能提供各种水上活动，如皮划艇、划艇、划板和机动水上运动。酒店还可能为想要探索附近湖泊或河流的客人提供船只和划艇租赁服务。':'The hotel may offer a range of water-based activities such as kayaking, canoeing, paddleboarding, and motorized water sports. The hotel may also provide boat and canoe rentals for guests who want to explore the nearby lake or river',
             '可持续性':'Sustainability',
             '娱乐和休闲':'Entertainment and Leisure',
             '商务':'Business',
@@ -200,11 +194,8 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
             '迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池':'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool',
             '2 雙人房、4 單人房、2 嬰兒房':'2 Double, 4 Single, 2 Baby'
 
-
-
-
-
     },
+
     CN: {
       'Home': '首页',
       'About Us': '关于我们',
@@ -291,7 +282,7 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
             'The concierge team can help guests with arranging tours, sightseeing, restaurant reservations, and other activities to make their stay more enjoyable': '酒店礼宾团队可以帮助客人安排旅行、观光、餐厅预订和其他活动，使客人的住宿更加愉快。',
             'The hotel provides daily housekeeping services, including turndown service and laundry service': '酒店提供每日客房服务，包括晚间整理服务和洗衣服务。',
             'The hotel has 24-hour security and surveillance systems to ensure the safety of guests and their belongings': '酒店配有24小时安保和监控系统，以确保客人和其财物的安全。',
-            'This includes meeting rooms, conference facilities, and business centers with access to high-speed internet, audiovisual equipment, and secretarial services.': '这包括配备高速互联网、视听设备和秘书服务的会议室、会议设施和商务中心。',
+            'This includes meeting rooms, conference facilities, and business centers with access to high-speed internet, audiovisual equipment, and secretarial services': '这包括配备高速互联网、视听设备和秘书服务的会议室、会议设施和商务中心。',
             'The hotel may offer a range of leisure activities, including a swimming pool, golf course, tennis court, and other outdoor activities': '酒店可能提供各种休闲活动，包括游泳池、高尔夫球场、网球场和其他户外活动。',
             'The hotel may have eco-friendly practices such as reducing waste, using renewable energy sources, and implementing sustainable practices throughout the property': '酒店可能采取环保措施，如减少废物、使用可再生能源并在整个酒店实施可持续性实践。',
             'The hotel may offer a range of water-based activities such as kayaking, canoeing, paddleboarding, and motorized water sports. The hotel may also provide boat and canoe rentals for guests who want to explore the nearby lake or river': '酒店可能提供各种水上活动，如皮划艇、划艇、划板和机动水上运动。酒店还可能为想要探索附近湖泊或河流的客人提供船只和划艇租赁服务。',
@@ -373,13 +364,10 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
             'Room': '房間',
             'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool':'迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池',
             '2 Double, 4 Single, 2 Baby':'2 雙人房、4 單人房、2 嬰兒房'
-
     }
   };
 
-//------------------------------
-
-//------------------------------
+//------------------------------START-------------------------
 
   elements.forEach(function (element) {
      let elementText = element.textContent.trim();
@@ -401,40 +389,36 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h
        }
      }
    });
+//------------------------------END------------------
 
 
+//-------------------- for About Us text with "check icons"-----------
 const serviceList = document.querySelectorAll('.ap-services li');
 
 serviceList.forEach(function (li) {
   const iconElement = li.querySelector('.icon_check');
   if (iconElement) {
-    const listItemText = iconElement.nextSibling.textContent.trim(); // Получить текст после иконки
-    const translatedText = translations[language][listItemText]; // Перевести текст
+    const listItemText = iconElement.nextSibling.textContent.trim(); // Get text after icon//Получить текст после иконки
+    const translatedText = translations[language][listItemText]; // Translate a text//Перевести текст
 
     if (translatedText) {
-      iconElement.nextSibling.textContent = translatedText; // Заменить текст после иконки на переведенный текст
+      iconElement.nextSibling.textContent = translatedText; // Replace text after icon with translated text//Заменить текст после иконки на переведенный текст
     }
   }
 });
 
-
-
-
-
-
-
-
-
 }
 
+//------------------------------------------------
 
 
-
-document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
 
 // Событие DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
   // Все формы загружены
   // Применить перевод страницы
   applyLanguage(selectedLanguage);
+//  location.reload();
 });
+
+document.getElementById('language-toggle').addEventListener('click', toggleLanguage);

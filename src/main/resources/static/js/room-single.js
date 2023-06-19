@@ -171,6 +171,7 @@ $(document).ready(function() {
         console.log(response);
 
 //      room : {reservId: $('[Id="Id"]').val()} // Get roomNumber from the hidden input field
+
     // Display a popup message
     var popup = $('#popup');
     var bookingNumberElement = $('#bookingNumber');
