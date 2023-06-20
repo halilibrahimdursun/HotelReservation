@@ -62,7 +62,10 @@ public class ReservationServiceImpl implements ReservationService {
         long daysBeforeCheckIn = ChronoUnit.DAYS.between(currentDate, startDate);
 
         if (daysBeforeCheckIn >= 15) {
-            // Two weeks before check-in: charge 50% of the total amount
+            // Two weeks before check-in: charge 100% of the total amount
+            applyCancellationPolicy(reservation, 0.0);
+        } else if (daysBeforeCheckIn == 14) {
+            // One week before check-in: charge 50% of the total amount
             applyCancellationPolicy(reservation, 0.5);
         } else if (daysBeforeCheckIn >= 7 && daysBeforeCheckIn < 14) {
             // One week before check-in: charge 75% of the total amount
@@ -85,7 +88,8 @@ public class ReservationServiceImpl implements ReservationService {
 //        reservation.get().setCancellationPolicy("Cancellations made within [" +daysBeforeCheckIn+ "] days will receive a "+ (100 -(int)(cancellationRate * 100)) + "% refund.\n" +
 //                "Total Amount: $" + totalAmount + "\n" +
 //                "Refund: $" + (totalAmount - cancellationAmount));
-        reservation.get().setCancellationPolicy(daysBeforeCheckIn+","+ (100 -(int)(cancellationRate * 100)) +","+ totalAmount +","+ (totalAmount - cancellationAmount));
+        reservation.get().setCancellationPolicy(daysBeforeCheckIn+","+ (100 -(int)(cancellationRate * 100)) +","
+                + totalAmount +","+ (totalAmount - cancellationAmount));
     }
     /* ================Discount=============*/
     public  double counter (LocalDate checkInDate, LocalDate checkOutDate , Room  room){

@@ -52,7 +52,7 @@ fetch("http://localhost:8080/api/amountofpayback/" + reservation.id)
   .then(response => response.text())
   .then(data => {
     const amountPayBackArray = data.split(","); // split string into array                         // Разделить строку на массив
-    const elementIds = ["amountPayBack1", "amountPayBack2", "amountPayBack3", "amountPayBack4"]; // Статические идентификаторы элементов
+    const elementIds = ["id1", "id2", "id3", "id4"]; // Статические идентификаторы элементов
 
     for (let i = 0; i < elementIds.length; i++) {
       const elementId = elementIds[i]; // Get static id from array                               //  Получить статический идентификатор из массива

@@ -101,7 +101,7 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '2 雙人間、1 間單人間、1 間嬰兒':'2 Double, 1 Single, 1 Baby',
             '3 雙人間、4 間單人間、2 間嬰兒':'3 Double, 4 Single, 2 Baby',
             '迷你冰箱、電視、空調、無線上網、廁所、淋浴、電話、開水器':'mini fridge, TV, Airco, WIFI, toilet, shower, phone, water boiler',
-            '廚房、電視、空調、WIFI、廁所、淋浴、電話、開水器...':'Kitchen, TV, Airco, WIFI, toilet, shower, phone, water boiler...',
+            '廚房、電視、空調、無線上網、廁所、淋浴、電話、開水器...':'Kitchen, TV, Airco, WIFI, toilet, shower, phone, water boiler...',
             '迷你冰箱、電視、空調、無線網絡、衛生間、淋浴 + 浴缸、電話...':'mini fridge, TV, Airco, WIFI, toilet, shower + bathtub, phone...',
             '迷你冰箱、電視、空調、無線網絡、衛生間、淋浴 + 浴缸、咖啡機...':'mini fridge, TV, Airco, WIFI, toilet, shower + bathtub, coffee machine...',
             '這包括一系列配備豪華設施的客房、套房和別墅，例如舒適的床上用品、高速互聯網接入、純平電視和迷你吧':'This includes a range of guest rooms, suites, and villas with luxurious amenities such as comfortable bedding, high-speed internet access, flat-screen TVs, and minibars',
@@ -191,7 +191,7 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '成人': 'Adults',
             '兒童': 'Children',
             '房間': 'Room',
-            '迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池':'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool',
+            '迷你冰箱、電視、空調、無線上網、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池':'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool',
             '2 雙人房、4 單人房、2 嬰兒房':'2 Double, 4 Single, 2 Baby',
             '2x雙人間':'2xDouble room',
             '取消預訂':'Cancellation of reservation',
@@ -203,7 +203,10 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '] 天會收到一個':'] days will receive a',
             '％ 退款。':'% refund.',
             '總金額：$':'Total Amount: $',
-            '退款：$':'Refund: $'
+            '退款：$':'Refund: $',
+            '接待員':'receptionist',
+            '清潔工':'cleaner',
+            '這是主頁':'This is the home page'
     },
 
     CN: {
@@ -282,7 +285,7 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '2 Double, 1 Single, 1 Baby':'2 雙人間、1 間單人間、1 間嬰兒',
             '3 Double, 4 Single, 2 Baby':'3 雙人間、4 間單人間、2 間嬰兒',
             'mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler':'迷你冰箱、電視、空調、無線上網、廁所、淋浴、電話、開水器',
-            'Kitchen, TV, Airco,WIFI, toilet, shower, phone, water boiler...':'廚房、電視、空調、WIFI、廁所、淋浴、電話、開水器...',
+            'Kitchen, TV, Airco,WIFI, toilet, shower, phone, water boiler...':'廚房、電視、空調、無線上網、廁所、淋浴、電話、開水器...',
             'mini fridge, TV, Airco,WIFI, toilet, shower + bathtub, phone...':'迷你冰箱、電視、空調、無線網絡、衛生間、淋浴 + 浴缸、電話...',
             'mini fridge, TV, Airco,WIFI, toilet, shower + bathtub,coffee machine...':'迷你冰箱、電視、空調、無線網絡、衛生間、淋浴 + 浴缸、咖啡機...',
             'This includes a range of guest rooms, suites, and villas with luxurious amenities such as comfortable bedding, high-speed internet access, flat-screen TVs, and minibars':'這包括一系列配備豪華設施的客房、套房和別墅，例如舒適的床上用品、高速互聯網接入、純平電視和迷你吧',
@@ -372,7 +375,7 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             'Adults': '成人',
             'Children': '兒童',
             'Room': '房間',
-            'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool':'迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池',
+            'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool':'迷你冰箱、電視、空調、無線上網、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池',
             '2 Double, 4 Single, 2 Baby':'2 雙人房、4 單人房、2 嬰兒房',
             '2xDouble room':'2x雙人間',
             'Cancellation of reservation':'取消預訂',
@@ -384,7 +387,10 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '] days will receive a':'] 天會收到一個',
             '% refund.':'％ 退款。',
             'Total Amount: $':'總金額：$',
-            'Refund: $':'退款：$'
+            'Refund: $':'退款：$',
+            'receptionist':'接待員',
+            'cleaner':'清潔工',
+            'This is the home page':'這是主頁'
 
 
     }
