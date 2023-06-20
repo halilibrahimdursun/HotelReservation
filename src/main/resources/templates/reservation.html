@@ -6,7 +6,9 @@
     <title>Reservation page</title>
     <style th:include="fragments/head :: styles" th:remove="tag"></style>
     <script th:include="fragments/head :: scripts" th:remove="tag"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
     <script src="js/reservation.js"></script>
+
 
     <script>
         $( document ).ready(function() {
@@ -102,8 +104,8 @@
             </div>
 
             <div class="modal-body">
-                According to our cancellation policy, you will receive the amount:
-                <br>Are you sure?
+                <span>According to our cancellation policy, you will receive the amount:</span><span id="bookingNumber"></span>
+                                    <br><span>Are you sure?</span>
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" id="deleteReservationConfirmButton" class="btn btn-danger" data-dismiss="modal">Delete</button>
@@ -121,5 +123,9 @@
 </div>
 
 <script src="js/translate.js"></script>
+<script src="js/room-single.js"></script>
+
+
+
 </body>
 </html>

@@ -126,6 +126,7 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '酒店於 2021 年開工建設，將於今年 8 月開業。 從一開始，酒店就被設計成將現代設施與中國傳統建築相結合的豪華且可持續發展的度假勝地。 酒店擁有多種客房、套房和頂層公寓，所有客房均經過精心佈置，可欣賞到周圍群山和水道的壯麗景色。 儘管是該地區的新成員，該酒店已經在旅客和行業專業人士中引起了轟動。 其對可持續發展和環保倡議的承諾贏得了各種環保組織的認可。': 'Construction of the hotel began in 2021, and it is set to open its doors in August of this year. From the outset, the hotel was designed to be a luxurious and sustainable retreat that combined modern amenities with traditional Chinese architecture. The property features a mix of guest rooms, suites, and penthouses, all carefully positioned to offer breathtaking views of the surrounding mountains and waterways. Despite being a new addition to the region, the hotel is already generating excitement among travelers and industry professionals alike. Its commitment to sustainability and eco-friendly initiatives have earned it recognition from various environmental organizations.',
             '工作人員致力於為客人提供卓越的服務，確保每次入住都令人難忘。 隨著開業在即，酒店有望成為尋求豪華和可持續度假的旅客在中國的首選目的地之一。': 'The staff is dedicated to providing exceptional service to guests, ensuring that every stay is unforgettable. With its opening just around the corner, the hotel is poised to become one of the premier destinations in China for travelers seeking a luxurious and sustainable retreat.',
             '免費每日早餐': 'Complimentary Daily Breakfast',
+
             '每天提供3件洗衣服务': '3 Pcs Laundry Per Day',
             '免费无线网络': 'Free Wifi',
             '平板电视': 'Flat-screen TVs',
@@ -167,17 +168,16 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '登出':'Logout',
             '預訂 |':'Reservations |',
             '| 主頁 |':'| Homepage |',
-            '房間 |':'Rooms |',
             '經理':'manager',
             '你好':'Hello',
             '顯示': 'Show',
             '項目': 'entries',
-//            '搜索': 'Search:',
+            '搜索': 'Search:',
             '顯示中': 'Showing',
             '至': 'to',
             '的': 'of',
-//            '上一頁': 'Previous',
-//            '下一頁': 'Next',
+            '上一頁': 'Previous',
+            '下一頁': 'Next',
             '編輯預訂': 'Edit Reservation',
             '取消預訂': 'Cancel Reservation',
             '創建預訂': 'Create Reservation',
@@ -192,13 +192,8 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '兒童': 'Children',
             '房間': 'Room',
             '迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池':'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool',
-            '2 雙人房、4 單人房、2 嬰兒房':'2 Double, 4 Single, 2 Baby',
-            '2x雙人間':'2xDouble room',
-            '取消預訂':'Cancellation of reservation',
-            '根據我們的取消政策，您將收到金額:':'According to our cancellation policy, you will receive the amount:',
-            '你確定嗎？':'Are you sure?',
-            '刪除':'Delete',
-            '取消':'Cancel'
+            '2 雙人房、4 單人房、2 嬰兒房':'2 Double, 4 Single, 2 Baby'
+
     },
 
     CN: {
@@ -343,17 +338,16 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             'Logout': '登出',
             'Reservations |': '預訂 |',
             '| Homepage |': '| 主頁 |',
-            'Rooms |':'房間 |',
             'manager': '經理',
             'Hello': '你好',
             'Show': '顯示',
             'entries': '項目',
-//            'Search:': '搜索',
+            'Search:': '搜索',
             'Showing': '顯示中',
             'to': '至',
             'of': '的',
-//            'Previous': '上一頁',
-//            'Next': '下一頁',
+            'Previous': '上一頁',
+            'Next': '下一頁',
             'Edit Reservation': '編輯預訂',
             'Cancel Reservation': '取消預訂',
             'Create Reservation': '創建預訂',
@@ -368,13 +362,7 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             'Children': '兒童',
             'Room': '房間',
             'Mini fridge, TV, Airco,WIFI, toilet, shower, phone, water boiler, coffee machine, Sauna, Bathtub, swimming pool':'迷你冰箱、電視、空調、WIFI、衛生間、淋浴、電話、開水器、咖啡機、桑拿、浴缸、游泳池',
-            '2 Double, 4 Single, 2 Baby':'2 雙人房、4 單人房、2 嬰兒房',
-            '2xDouble room':'2x雙人間',
-            'Cancellation of reservation':'取消預訂',
-            'According to our cancellation policy, you will receive the amount:':'根據我們的取消政策，您將收到金額:',
-            'Are you sure?':'你確定嗎？',
-            'Delete':'刪除',
-            'Cancel':'取消'
+            '2 Double, 4 Single, 2 Baby':'2 雙人房、4 單人房、2 嬰兒房'
     }
   };
 
@@ -417,6 +405,93 @@ serviceList.forEach(function (li) {
     }
   }
 });
+
+
+function initReservationTable() {
+  console.log('inside initReservationTable');
+
+  // Create columns (with titles) for datatable: id, name, address, age
+  columns = [
+    { "title":  "Reservation ID", "data": "id", "visible": true },
+    { "title":  "Check-in", "data": "checkInDate" },
+    { "title":  "Check-out", "data": "checkOutDate" },
+    { "title":  "Name", "data": "name" },
+    { "title":  "Surname", "data": "surName" },
+    { "title":  "Email", "data": "email" },
+    { "title":  "Telephone number", "data": "telephoneNumber" },
+    { "title":  "Adults", "data": "numberOfAdults" },
+    { "title":  "Children", "data": "numberOfChildren" },
+    { "title":  "Room", "data": "room.roomNumber" }
+  ];
+
+  // Define new table with above columns
+  reservationTable = $("#reservationTable").DataTable({
+    "order": [[ 0, "asc" ]],
+    "columns": columns
+  });
+
+  $("#reservationTable tbody").on('click', 'tr', function () {
+    console.log("Clicking on row");
+    if ($(this).hasClass('selected')) {
+      $(this).removeClass('selected');
+      // emptyRoomModals();
+    }
+    else {
+      reservationTable.$('tr.selected').removeClass('selected');
+      // emptyRoomModals();
+      $(this).addClass('selected');
+    }
+  });
+
+  // Apply language to table headers
+  applyTableHeadersLanguage();
+}
+
+function applyTableHeadersLanguage() {
+  const language = localStorage.getItem('selectedLanguage') || 'EN';
+
+  const translations = {
+    EN: {
+      'Reservation ID': 'Reservation ID',
+      'Check-in': 'Check-in',
+      'Check-out': 'Check-out',
+      'Name': 'Name',
+      'Surname': 'Surname',
+      'Email': 'Email',
+      'Telephone number': 'Telephone number',
+      'Adults': 'Adults',
+      'Children': 'Children',
+      'Room': 'Room'
+    },
+    CN: {
+      'Reservation ID': '预订编号',
+      'Check-in': '入住日期',
+      'Check-out': '退房日期',
+      'Name': '姓名',
+      'Surname': '姓氏',
+      'Email': '电子邮件',
+      'Telephone number': '电话号码',
+      'Adults': '成人',
+      'Children': '儿童',
+      'Room': '房间'
+    }
+  };
+
+  const headers = document.querySelectorAll('#reservationTable thead th');
+
+headers.forEach((header) => {
+  const translation = translations[language][header.textContent.trim()];
+  if (translation) {
+    $(header).text(translation); // Обновляем текст заголовка с помощью jQuery
+  }
+});
+
+  console.log('Table headers updated');
+}
+
+
+
+
 }
 
 //------------------------------------------------

@@ -1,7 +1,9 @@
 package com.application.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.Locale;
 
 @Entity
 @Table(name = "reservations")
@@ -11,8 +13,10 @@ public class Reservation {
     private long id;    // This is reservation ID !!!
     //    private int roomNumber;
     @Column(name = "CHECK_IN_DATE")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date checkInDate;
     @Column(name = "CHECK_OUT_DATE")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date checkOutDate;
     @Column(name = "NAME")
     private String name;

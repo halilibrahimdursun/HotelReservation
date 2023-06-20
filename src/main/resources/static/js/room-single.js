@@ -158,9 +158,6 @@ $(document).ready(function() {
       return;
     }
 
-//    // Generate a random booking number
-//    var bookingNumber = Math.floor(Math.random() * 100000);
-
     // Additional actions, such as sending data to the server
     $.ajax({
       url: '/api/reservation',
