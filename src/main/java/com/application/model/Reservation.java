@@ -3,6 +3,7 @@ package com.application.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.Locale;
 
 @Entity
 @Table(name = "reservations")

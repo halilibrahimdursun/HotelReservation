@@ -1,142 +1,117 @@
-// Восстанавливаем выбранный язык из local Storage (если сохранен)
+function initReservationTable() {
+  console.log('inside initReservationTable');
 
+  // Create columns (with titles) for datatable: id, name, address, age
+  columns = [
+    { "title":  "Reservation ID", "data": "id", "visible": true },
+    { "title":  "Check-in", "data": "checkInDate" },
+    { "title":  "Check-out", "data": "checkOutDate" },
+    { "title":  "Name", "data": "name" },
+    { "title":  "Surname", "data": "surName" },
+    { "title":  "Email", "data": "email" },
+    { "title":  "Telephone number", "data": "telephoneNumber" },
+    { "title":  "Adults", "data": "numberOfAdults" },
+    { "title":  "Children", "data": "numberOfChildren" },
+    { "title":  "Room", "data": "room.roomNumber" }
+  ];
+
+  // Define new table with above columns
+  reservationTable = $("#reservationTable").DataTable({
+    "order": [[ 0, "asc" ]],
+    "columns": columns
+  });
+
+  $("#reservationTable tbody").on('click', 'tr', function () {
+    console.log("Clicking on row");
+    if ($(this).hasClass('selected')) {
+      $(this).removeClass('selected');
+      // emptyRoomModals();
+    }
+    else {
+      reservationTable.$('tr.selected').removeClass('selected');
+      // emptyRoomModals();
+      $(this).addClass('selected');
+    }
+  });
+
+  // Apply language to table headers
+  applyTableHeadersLanguage();
+}
+
+
+//---------------------------------------------
+
+
+
+function applyTableHeadersLanguage() {
+  const language = localStorage.getItem('selectedLanguage') || 'EN';
+
+  const translations = {
+    EN: {
+      'Reservation ID': 'Reservation ID',
+      'Check-in': 'Check-in',
+      'Check-out': 'Check-out',
+      'Name': 'Name',
+      'Surname': 'Surname',
+      'Email': 'Email',
+      'Telephone number': 'Telephone number',
+      'Adults': 'Adults',
+      'Children': 'Children',
+      'Room': 'Room'
+    },
+    CN: {
+      'Reservation ID': '预订编号',
+      'Check-in': '入住日期',
+      'Check-out': '退房日期',
+      'Name': '姓名',
+      'Surname': '姓氏',
+      'Email': '电子邮件',
+      'Telephone number': '电话号码',
+      'Adults': '成人',
+      'Children': '儿童',
+      'Room': '房间'
+    }
+  };
+
+  const headers = document.querySelectorAll('#reservationTable thead th');
+
+headers.forEach((header) => {
+  const translation = translations[language][header.textContent.trim()];
+  if (translation) {
+    $(header).text(translation); // Обновляем текст заголовка с помощью jQuery
+  }
+});
+
+  console.log('Table headers updated');
+}
+
+
+
+
+// Восстанавливаем выбранный язык из Local Storage (если сохранен)
 const selectedLanguage = localStorage.getItem('selectedLanguage');
 if (selectedLanguage) {
   const languageToggle = document.getElementById('language-toggle');
   languageToggle.textContent = selectedLanguage;
 
   // Применяем выбранный язык при загрузке страницы
-  applyLanguage(selectedLanguage);
+  applyTableHeadersLanguage();
 }
-
 
 function toggleLanguage() {
   const languageToggle = document.getElementById('language-toggle');
-  const currentLanguage = languageToggle.textContent.trim();
-  const targetLanguage = currentLanguage === 'EN' ? 'CN' : 'EN';
-  console.log(targetLanguage);
+  const currentLanguage = languageToggle.textContent;
+  const newLanguage = currentLanguage === 'EN' ? 'CN' : 'EN';
+  languageToggle.textContent = newLanguage;
 
-  languageToggle.textContent = targetLanguage;
-    localStorage.setItem('selectedLanguage', targetLanguage);
-  applyLanguage(targetLanguage);
+  // Сохраняем выбранный язык в Local Storage
+  localStorage.setItem('selectedLanguage', newLanguage);
+
+  // Обновляем страницу
+  location.reload();
+
+  console.log('Language toggled');
 }
 
-function applyLanguage(language) {
-
-const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h3, h4, h6, label, option, span, button, td,a,p,br');
-  const translations = {
-    EN: {
-      'Home': '首页',
-      'About Us': '关于我们',
-      'Contact': '联系我们',
-      'Login': '登录',
-      'Reservation ID': 'Идентификатор брони',
-      'Check-in': 'Дата заезда',
-      'Check-out': 'Дата выезда',
-      'Name': 'Имя',
-      'Surname': 'Фамилия',
-      'Email': 'Эл. почта',
-      'Telephone number': 'Номер телефона',
-      'Adults': 'Взрослые',
-      'Children': 'Дети',
-      'Room': 'Номер комнаты'
-    },
-    CN: {
-      '首页': 'Home',
-      '关于我们': 'About Us',
-      '联系我们': 'Contact',
-      '登录': 'Login',
-      'Идентификатор брони': 'Reservation ID',
-      'Дата заезда': 'Check-in',
-      'Дата выезда': 'Check-out',
-      'Имя': 'Name',
-      'Фамилия': 'Surname',
-      'Эл. почта': 'Email',
-      'Номер телефона': 'Telephone number',
-      'Взрослые': 'Adults',
-      'Дети': 'Children',
-      'Номер комнаты': 'Room'
-    }
-  };
-
-  //------------------------------START-------------------------
-
-    elements.forEach(function (element) {
-       let elementText = element.textContent.trim();
-       if (element.nodeName === 'LABEL' && element.hasAttribute('for')) {
-         const forAttr = element.getAttribute('for');
-         const labelText = element.childNodes[0].textContent.trim();
-         elementText = `${labelText}`;
-       }
-
-       const translation = translations[language][elementText];
-       console.log(elementText);
-
-       if (translation) {
-         if (element.nodeName === 'LABEL' && element.hasAttribute('for')) {
-           const labelText = element.childNodes[0];
-           labelText.textContent = translation;
-         } else {
-           element.textContent = translation;
-         }
-       }
-     });
-  //------------------------------END------------------
-
-
-  //-------------------- for About Us text with "check icons"-----------
-  const serviceList = document.querySelectorAll('.ap-services li');
-
-  serviceList.forEach(function (li) {
-    const iconElement = li.querySelector('.icon_check');
-    if (iconElement) {
-      const listItemText = iconElement.nextSibling.textContent.trim(); // Get text after icon//Получить текст после иконки
-      const translatedText = translations[language][listItemText]; // Translate a text//Перевести текст
-
-      if (translatedText) {
-        iconElement.nextSibling.textContent = translatedText; // Replace text after icon with translated text//Заменить текст после иконки на переведенный текст
-      }
-    }
-  });
-
-}
-
-//------------------------------------------------
-
+// Добавляем обработчик события click для кнопки переключения языка
 document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
-
-// Событие DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Все формы загружены
-  // Применить перевод страницы
-  applyLanguage(selectedLanguage);
-});
-
-
-
-//
-//function initReservationTable() {
-//  console.log('inside initReservationTable');
-//
-//  // Create columns (with titles) for datatable: id, name, address, age
-//  columns = [
-//    { "title": translate("Reservation ID"), "data": "id", "visible": true },
-//    { "title": translate("Check-in"), "data": "checkInDate" },
-//    { "title": translate("Check-out"), "data": "checkOutDate" },
-//    { "title": translate("Name"), "data": "name" },
-//    { "title": translate("Surname"), "data": "surName" },
-//    { "title": translate("Email"), "data": "email" },
-//    { "title": translate("Telephone number"), "data": "telephoneNumber" },
-//    { "title": translate("Adults"), "data": "numberOfAdults" },
-//    { "title": translate("Children"), "data": "numberOfChildren" },
-//    { "title": translate("Room"), "data": "room.roomNumber" }
-//  ];
-//
-//  // Define new table with above columns
-//  reservationTable = $("#reservationTable").DataTable({
-//    "order": [[0, "asc"]],
-//    "columns": columns
-//  });
-//}
-//
-//initReservationTable();

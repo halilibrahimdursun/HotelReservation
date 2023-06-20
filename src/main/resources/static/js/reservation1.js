@@ -1,6 +1,5 @@
 var api = "http://localhost:8080/api/reservation" ;
 var reservationTable;
-const name = "John"; // Input value
 
 function init(){
 
@@ -40,17 +39,6 @@ function init(){
         if (reservationTable.row($('.selected')).data() == undefined) {
             alert("Select reservation first");
         }else{
-            var reservation = reservationTable.row($('.selected')).data();
-        fetch("http://localhost:8080/api/amountofpayback/"+reservation.id)
-          .then(response => response.text())
-          .then(data => {
-            const amountPayBack = data;
-            console.log(amountPayBack);
-            $('#amountPayBack').text(amountPayBack);
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
             $('#reservationDeleteModal').modal('show');
         }
     });
@@ -74,47 +62,6 @@ function init(){
     getReservationData();
 }
 
-
-//function initReservationTable() {
-//    console.log('inside initReservationTable');
-//
-//    var columns;
-//    var selectedLanguage = getSelectedLanguage(); // Assuming you have a function to get the selected language
-//
-//    if (selectedLanguage === 'EN') {
-//        columns = [
-//            { "title":  "Reservation ID", "data": "id", "visible": true },
-//            { "title":  "Check-in", "data": "checkInDate" },
-//            { "title":  "Check-out", "data": "checkOutDate" },
-//            { "title":  "Name", "data": "name" },
-//            { "title":  "Surname", "data": "surName" },
-//            { "title":  "Email", "data": "email" },
-//            { "title":  "Telephone number", "data": "telephoneNumber" },
-//            { "title":  "Adults", "data": "numberOfAdults" },
-//            { "title":  "Children", "data": "numberOfChildren" },
-//            { "title":  "Room", "data": "room.roomNumber" }
-//        ];
-//    } else if (selectedLanguage === 'CN') {
-//        columns = [
-//            { "title":  "預訂編號", "data": "id", "visible": true },
-//            { "title":  "報到", "data": "checkInDate" },
-//            { "title":  "查看", "data": "checkOutDate" },
-//            { "title":  "姓名", "data": "name" },
-//            { "title":  "姓", "data": "surName" },
-//            { "title":  "電子郵件", "data": "email" },
-//            { "title":  "電話號碼", "data": "telephoneNumber" },
-//            { "title":  "成年人", "data": "numberOfAdults" },
-//            { "title":  "孩子們", "data": "numberOfChildren" },
-//            { "title":  "房間", "data": "room.roomNumber" }
-//        ];
-//    }
-//
-//    // Define new table with the specified columns
-//    reservationTable = $("#reservationTable").DataTable({
-//        "order": [[ 0, "asc" ]],
-//        "columns": columns
-//    });
-
 function initReservationTable() {
 
     console.log('inside initReservationTable' );
@@ -124,8 +71,10 @@ function initReservationTable() {
             { "title":  "Reservation ID",
                 "data": "id",
                 "visible": true },
-            { "title":  "Check-in", "data": "checkInDate" },  // 2022-06-08
-            { "title":  "Check-out", "data": "checkOutDate" },
+            { "title":  "Check-in",
+                "data": "checkInDate" },  // 2022-06-08T08:09:18.922
+            { "title":  "Check-out",
+                "data": "checkOutDate" },
             { "title":  "Name",
             "data": "name" },
             { "title":  "Surname",
@@ -266,6 +215,7 @@ function deleteReservation(){
                 // success: function(reservation, textStatus, jqXHR){
                 success: function(message){
                   console.log(message);
+
                   // Refresh table data
                   getReservationData();
                 },
@@ -273,7 +223,5 @@ function deleteReservation(){
                   console.log('Error: ' + error);
                 }
             });
-
-
     }
 }
