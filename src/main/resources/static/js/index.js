@@ -28,11 +28,7 @@ $(document).ready(function() {
      var disabled = (disabledValue === "0") ? false : true;
      var cleaned = true;
 
-
-
     // Create an object with form data / Создание объекта с данными формы
-
-//
     var formData = {
 //      checkInDate: checkInDate,
 //      checkOutDate: checkOutDate,
@@ -44,7 +40,6 @@ $(document).ready(function() {
 //      // Add the rest of the formData object properties based on the form fields
 //      //Добавьте остальные свойства объекта formData на основе полей формы
     };
-
 // Performing More Actions on Form Data
     console.log("Form submitted");
     console.log("Check-in date: " + checkInDate);
@@ -56,8 +51,6 @@ $(document).ready(function() {
     console.log("Cleaned: " + cleaned);
 
     var criteria =JSON.stringify(formData);
-
-
     // Sending an AJAX request to the server // Отправка AJAX-запроса на сервер
  $.ajax({
    url: '/api/room/available?checkInDate=' + checkInDate + '&checkOutDate=' + checkOutDate,
@@ -65,8 +58,7 @@ $(document).ready(function() {
    contentType: 'application/json', // Add this line // Добавьте эту строку
     data: criteria, // Convert formData object to JSON format // Преобразуйте объект formData в формат JSON
    success: function(response) {
-console.log(response);
-
+    console.log(response);
 
  // Очищаем предыдущие значения roomNumber в локальном хранилище
     localStorage.removeItem('roomNumber');
@@ -92,7 +84,6 @@ localStorage.setItem('disabled', disabled);
 
 window.location.href = 'rooms.html';
 //window.location.href = 'room-single.html';
-
    },
    error: function(xhr, status, error) {
      console.log(status);

@@ -30,6 +30,10 @@ public class Reservation {
     private int numberOfAdults;
     @Column(name = "NUMBER_OF_CHILDREN")
     private int numberOfChildren;
+    private String cancellationPolicy;  // Added cancellation policy field
+
+
+
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
@@ -56,7 +60,13 @@ public class Reservation {
         this.numberOfChildren = numberOfChildren;
         this.room = room;
     }
+    public String getCancellationPolicy() {
+        return cancellationPolicy;
+    }
 
+    public void setCancellationPolicy(String cancellationPolicy) {
+        this.cancellationPolicy = cancellationPolicy;
+    }
     public long getId() {
         return id;
     }
