@@ -195,10 +195,15 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '2 雙人房、4 單人房、2 嬰兒房':'2 Double, 4 Single, 2 Baby',
             '2x雙人間':'2xDouble room',
             '取消預訂':'Cancellation of reservation',
-            '根據我們的取消政策，您將收到金額:':'According to our cancellation policy, you will receive the amount:',
+            '根據我們的取消政策 =>':'According to our cancellation policy =>',
             '你確定嗎？':'Are you sure?',
             '刪除':'Delete',
-            '取消':'Cancel'
+            '取消':'Cancel',
+            '內取消 [':'Cancellations made within [',
+            '] 天會收到一個':'] days will receive a',
+            '％ 退款。':'% refund.',
+            '總金額：$':'Total Amount: $',
+            '退款：$':'Refund: $'
     },
 
     CN: {
@@ -371,10 +376,17 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '2 Double, 4 Single, 2 Baby':'2 雙人房、4 單人房、2 嬰兒房',
             '2xDouble room':'2x雙人間',
             'Cancellation of reservation':'取消預訂',
-            'According to our cancellation policy, you will receive the amount:':'根據我們的取消政策，您將收到金額:',
+            'According to our cancellation policy =>':'根據我們的取消政策 =>',
             'Are you sure?':'你確定嗎？',
             'Delete':'刪除',
-            'Cancel':'取消'
+            'Cancel':'取消',
+            'Cancellations made within [':'內取消 [',
+            '] days will receive a':'] 天會收到一個',
+            '% refund.':'％ 退款。',
+            'Total Amount: $':'總金額：$',
+            'Refund: $':'退款：$'
+
+
     }
   };
 

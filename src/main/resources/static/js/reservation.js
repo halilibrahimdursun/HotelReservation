@@ -1,5 +1,6 @@
 var api = "http://localhost:8080/api/reservation" ;
 var reservationTable;
+const name = "John"; // Input value
 
 function init(){
 
@@ -39,6 +40,31 @@ function init(){
         if (reservationTable.row($('.selected')).data() == undefined) {
             alert("Select reservation first");
         }else{
+            var reservation = reservationTable.row($('.selected')).data();
+//        fetch("http://localhost:8080/api/amountofpayback/"+reservation.id)
+//          .then(response => response.text())
+//          .then(data => {
+//            const amountPayBack = data;
+//            console.log(amountPayBack);
+//            $('#amountPayBack').text(amountPayBack);
+//       })
+fetch("http://localhost:8080/api/amountofpayback/" + reservation.id)
+  .then(response => response.text())
+  .then(data => {
+    const amountPayBackArray = data.split(","); // split string into array                         // Разделить строку на массив
+    const elementIds = ["amountPayBack1", "amountPayBack2", "amountPayBack3", "amountPayBack4"]; // Статические идентификаторы элементов
+
+    for (let i = 0; i < elementIds.length; i++) {
+      const elementId = elementIds[i]; // Get static id from array                               //  Получить статический идентификатор из массива
+      const value = amountPayBackArray[i]; // Get the corresponding value from the array            // Получить соответствующее значение из массива
+
+      $(`#${elementId}`).text(value); // Assign a value to an element                               //Присвоить значение элементу
+    }
+  })
+
+          .catch(error => {
+            console.error('Error:', error);
+          });
             $('#reservationDeleteModal').modal('show');
         }
     });
@@ -254,7 +280,6 @@ function deleteReservation(){
                 // success: function(reservation, textStatus, jqXHR){
                 success: function(message){
                   console.log(message);
-
                   // Refresh table data
                   getReservationData();
                 },
@@ -262,5 +287,7 @@ function deleteReservation(){
                   console.log('Error: ' + error);
                 }
             });
+
+
     }
 }

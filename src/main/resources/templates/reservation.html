@@ -6,7 +6,7 @@
     <title>Reservation page</title>
     <style th:include="fragments/head :: styles" th:remove="tag"></style>
     <script th:include="fragments/head :: scripts" th:remove="tag"></script>
-<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+    <!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
     <script src="js/reservation.js"></script>
 
 
@@ -23,7 +23,7 @@
 <div th:insert="/fragments/header :: header"></div>
 <p>
 <div class="container">
-        <table id="reservationTable" class="display mx-auto"></table>
+    <table id="reservationTable" class="display mx-auto"></table>
 </div>
 <p/>
 
@@ -43,22 +43,22 @@
                     <div class="form-group">
                         <input type="text" class="d-none form-control" id="id" value="0">
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <label for="checkInDate">Check-in:</label>-->
-<!--                        <input type="text" class="form-control" id="checkInDate">-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="checkOutDate">Check-out:</label>-->
-<!--                        <input type="text" class="form-control" id="checkOutDate">-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="checkInDate">Check-in:</label>-->
+                    <!--                        <input type="text" class="form-control" id="checkInDate">-->
+                    <!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="checkOutDate">Check-out:</label>-->
+                    <!--                        <input type="text" class="form-control" id="checkOutDate">-->
+                    <!--                    </div>-->
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name">
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <label for="roomNumber">roomNumber:</label>-->
-<!--                        <input type="text" class="form-control" id="roomNumber">-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="roomNumber">roomNumber:</label>-->
+                    <!--                        <input type="text" class="form-control" id="roomNumber">-->
+                    <!--                    </div>-->
                     <div class="form-group">
                         <label for="surName">Surname:</label>
                         <input type="text" class="form-control" id="surName">
@@ -103,9 +103,8 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
-            <div class="modal-body">
-                <span>According to our cancellation policy, you will receive the amount:</span><span id="bookingNumber"></span>
-                                    <br><span>Are you sure?</span>
+            <div class="modal-body"><span>According to our cancellation policy =></span><br><span>Cancellations made within [</span><span id="amountPayBack1"></span><span>] days will receive a</span><span id="amountPayBack2"></span><span>% refund.</span><br><span>Total Amount: $</span><span id="amountPayBack3"></span><br><span>Refund: $</span><span id="amountPayBack4"></span>
+                <br><span>Are you sure?</span>
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" id="deleteReservationConfirmButton" class="btn btn-danger" data-dismiss="modal">Delete</button>
