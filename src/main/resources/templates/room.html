@@ -6,7 +6,7 @@
   <title>Customer page</title>
   <style th:insert="fragments/head :: styles" th:remove="tag"/>
   <script th:insert="fragments/head :: scripts" th:remove="tag"/>
-  <script src="/js/room.js"></script>
+  <script src="js/roomstobecleaned.js"></script>
 
   <script>
         $( document ).ready(function() {
@@ -22,45 +22,48 @@
 <div th:insert="/fragments/header :: header">
 </div>
 
-<div class="container">
-  <form id="room-form" name="reservation-form">
-    <div class="form-group">
-      <label for="checkInDate">Check in date:</label>
-      <input type="text" class="form-control" id="checkInDate" name="checkInDate" required="required" value="2023-05-09">
-    </div>
-    <div class="form-group">
-      <label for="checkOutDate">Check out date:</label>
-      <input type="text" class="form-control" id="checkOutDate" name="checkOutDate" value="2023-05-09">
-    </div>
-    <div class="form-group">
-      <label for="persons">Persons:</label>
-      <input type="number" class="form-control" id="persons" name="persons" min="1" max="8">
-    </div>
-    <div class="form-group">
-      <label for="disabled">Disabled:</label>
-      <input type="checkbox" class="form-control" id="disabled" name="disabled" value="false">
-    </div>
-    <div class="form-group">
-      <label for="smoking">Smoking:</label>
-      <input type="checkbox" class="form-control" id="smoking" name="smoking" value="false">
-    </div>
+<!--<div class="container">-->
+<!--  <form id="room-form" name="reservation-form">-->
 <!--    <div class="form-group">-->
-<!--      <label for="seaView">Seaview:</label>-->
-<!--      <input type="checkbox" class="form-control" id="seaView" name="seaView" value="false">-->
+<!--      <label for="checkInDate">Check in date:</label>-->
+<!--      <input type="text" class="form-control" id="checkInDate" name="checkInDate" required="required" value="2023-05-09">-->
 <!--    </div>-->
-    <button type="button" class="btn btn-primary" id="check-availability">Check availability</button>
+<!--    <div class="form-group">-->
+<!--      <label for="checkOutDate">Check out date:</label>-->
+<!--      <input type="text" class="form-control" id="checkOutDate" name="checkOutDate" value="2023-05-09">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="persons">Persons:</label>-->
+<!--      <input type="number" class="form-control" id="persons" name="persons" min="1" max="8">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="disabled">Disabled:</label>-->
+<!--      <input type="checkbox" class="form-control" id="disabled" name="disabled" value="false">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="smoking">Smoking:</label>-->
+<!--      <input type="checkbox" class="form-control" id="smoking" name="smoking" value="false">-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;      <label for="seaView">Seaview:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input type="checkbox" class="form-control" id="seaView" name="seaView" value="false">&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    <button type="button" class="btn btn-primary" id="check-availability">Check availability</button>-->
 
-  </form>
-</div>
-<p/>
+<!--  </form>-->
+<!--</div>-->
 
-<p/>
+
 <div class="container">
-  <table id="room-table" class="display mx-auto">
+  <table id="roomsToBeCleaned" class="display mx-auto">
   </table>
 </div>
-<p/>
+<div class=“row”>
+  <div class="w-50 mx-auto">
+    <button type="button" class="btn btn-primary" id="saveCleanedRooms">Save</button>
 
+  </div>
+</div>
 <div th:insert="/fragments/footer :: footer">
 </div>
 
