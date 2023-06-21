@@ -93,17 +93,3 @@ public class ReservationServiceImpl implements ReservationService {
         return result;
     }
 }
-
-
-
-
-
-   /* public static Room roomCheck(long id){
-        List<Room> rooms = new ArrayList<>();
-        for (Room room : rooms);
-        if()
-
-
-
-    }
-*/
