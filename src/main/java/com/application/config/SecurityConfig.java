@@ -18,11 +18,11 @@ public class    SecurityConfig {
             throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("receptionist").password(passwordEncoder().encode("")).roles("USER")
+                .withUser("receptionist").password(passwordEncoder().encode("8xECEZS6mR")).roles("USER")
                 .and()
-                .withUser("manager").password(passwordEncoder().encode("")).roles("USER","ADMIN","CLEAN")
+                .withUser("manager").password(passwordEncoder().encode("TBpR3bVpyW")).roles("USER","ADMIN","CLEAN")
                 .and()
-                .withUser("cleaner").password(passwordEncoder().encode("")).roles("CLEAN");
+                .withUser("cleaner").password(passwordEncoder().encode("3ZFPoXCbZ4")).roles("CLEAN");
     }
 
     @Bean
@@ -61,7 +61,7 @@ public class    SecurityConfig {
                         "/webjars/**"
                 ).permitAll()
                 .requestMatchers("/reservation*", "/customer*").hasAnyRole("USER", "ADMIN")
-                .requestMatchers("/room*").hasAnyRole("CLEAN")
+                .requestMatchers("/room*").hasAnyRole("CLEAN","USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

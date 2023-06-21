@@ -206,7 +206,12 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             '退款：$':'Refund: $',
             '接待員':'receptionist',
             '清潔工':'cleaner',
-            '這是主頁':'This is the home page'
+            '這是主頁':'This is the home page',
+            '節省':'Save',
+            '用戶名':'Username',
+            '密碼':'Password',
+            '登錄':'Login'
+
     },
 
     CN: {
@@ -390,7 +395,11 @@ const elements = document.querySelectorAll('.nav-menu ul li a, h1, h2, h4, h3, h
             'Refund: $':'退款：$',
             'receptionist':'接待員',
             'cleaner':'清潔工',
-            'This is the home page':'這是主頁'
+            'This is the home page':'這是主頁',
+            'Save':'節省',
+             'Username':'用戶名',
+                        'Password':'密碼',
+                        'Login':'登錄'
 
 
     }

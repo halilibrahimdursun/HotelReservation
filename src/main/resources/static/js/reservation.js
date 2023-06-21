@@ -161,8 +161,8 @@ function initReservationTable() {
         "order": [[ 0, "asc" ]],
         "columns": columns,
          "columnDefs": [
-            { "width": "200px", "targets": 1 },
-            { "width": "200px", "targets": 2 },
+            { "width": "550px", "targets": 1 },
+            { "width": "550px", "targets": 2 }
           ]
     });
 
