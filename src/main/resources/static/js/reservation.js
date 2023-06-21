@@ -41,13 +41,27 @@ function init(){
             alert("Select reservation first");
         }else{
             var reservation = reservationTable.row($('.selected')).data();
-        fetch("http://localhost:8080/api/amountofpayback/"+reservation.id)
-          .then(response => response.text())
-          .then(data => {
-            const amountPayBack = data;
-            console.log(amountPayBack);
-            $('#amountPayBack').text(amountPayBack);
-          })
+//        fetch("http://localhost:8080/api/amountofpayback/"+reservation.id)
+//          .then(response => response.text())
+//          .then(data => {
+//            const amountPayBack = data;
+//            console.log(amountPayBack);
+//            $('#amountPayBack').text(amountPayBack);
+//       })
+fetch("http://localhost:8080/api/amountofpayback/" + reservation.id)
+  .then(response => response.text())
+  .then(data => {
+    const amountPayBackArray = data.split(","); // split string into array                         // Разделить строку на массив
+    const elementIds = ["id1", "id2", "id3", "id4"]; // Статические идентификаторы элементов
+
+    for (let i = 0; i < elementIds.length; i++) {
+      const elementId = elementIds[i]; // Get static id from array                               //  Получить статический идентификатор из массива
+      const value = amountPayBackArray[i]; // Get the corresponding value from the array            // Получить соответствующее значение из массива
+
+      $(`#${elementId}`).text(value); // Assign a value to an element                               //Присвоить значение элементу
+    }
+  })
+
           .catch(error => {
             console.error('Error:', error);
           });
