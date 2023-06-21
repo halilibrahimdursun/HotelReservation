@@ -38,6 +38,7 @@ public class ReservationController {
         logger.info("Inside 'saveReservation'");
 
         Room room = roomService.findByRoomNumber( reservation.getRoom().getRoomNumber());
+        room.setCleaned(false);
         reservation.setRoom(room);
         reservationService.save(reservation);
         return ResponseEntity.ok(reservation) ;
@@ -50,15 +51,6 @@ public class ReservationController {
     public Iterable<Reservation> getAllReservations(){
         return reservationService.getAllReservations();
     }
-
-    // Endpoint
-    // http://localhost:8080/api/reservation/filter/true
-    // GET
-//    @PostMapping(value = "reservation/filter", consumes = "application/json", produces = "application/json")
-//    public ResponseEntity<Iterable<Reservation>> getAllReservationsOnDate(@RequestBody Reservation reservation){
-//        return ResponseEntity.ok().body(
-//                reservationService.filterReservationForVegan( reservation));
-//    }
 
     // Endpoint
     // http://localhost:8080/api/reservation/2
@@ -79,18 +71,6 @@ public class ReservationController {
         double totally = reservationService.counter(checkInDate, checkOutDate, selectedroom);
         return ResponseEntity.ok(totally);
     }
-
-
-
-//    @PutMapping(value = "/totallyPrice" ,  consumes = "application/json")
-//    public ResponseEntity<Double> totally (
-//            @RequestBody final Room room,
-//            @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkInDate,
-//            @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOutDate){
-//        Room selectedroom = roomService.findByRoomNumber(room.getRoomNumber());
-//        double totally = reservationService.counter(checkInDate,checkOutDate,selectedroom);
-//        return ResponseEntity.ok(totally);
-//    }
 
     @GetMapping(value = "/reservationincluded", produces = "application/json")
     public ResponseEntity<Iterable<Reservation>> getReservationsIncluded(
@@ -127,7 +107,4 @@ public class ReservationController {
         reservationService.calculateCancellationPolicy(reservation);
         return new ResponseEntity<>(reservation.get().getCancellationPolicy(), HttpStatus.OK);
     }
-
-
-
 }

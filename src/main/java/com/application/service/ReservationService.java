@@ -15,7 +15,6 @@ public interface ReservationService {
     Reservation save(Reservation reservation);
     void remove( long id);
     ResponseEntity<Reservation> calculateCancellationPolicy(Optional<Reservation> reservation);
-
     double counter (LocalDate checkInDate, LocalDate checkOutDate , Room room);
 
     Iterable<Reservation> findAllFiltered(Reservation reservation);

@@ -1,4 +1,4 @@
-var api = "http://localhost:8080/api/room" ;
+var api = "http://localhost:8080/api/rooms" ;
 var api2 = "http://localhost:8080/api/reservation" ;
 var reservationTable;
 var roomsToBeCleaned;
@@ -7,10 +7,7 @@ function init(){
 
     console.log('inside init' );
 
-    $("#radio_1").attr('checked', true);
-    $("#saveCleanedRooms").click(function() {
-        console.log("Inside click of saveCleanedRooms");
-    });
+
 
 
     // Add submit event to form for new and edit
@@ -21,7 +18,15 @@ function init(){
     });
 
     initRoomsToBeCleaned();
-    getReservedRooms();
+    getUncleanedRooms();
+
+        $("#radio_1").attr('checked', true);
+        $("#saveCleanedRooms").click(function() {
+            console.log("Inside click of saveCleanedRooms");
+            deleteSelectedRows();
+            window.location.href = "./room";
+            console.log(roomsToBeCleaned);
+        });
 }
 function initRoomsToBeCleaned() {
 
@@ -33,7 +38,7 @@ function initRoomsToBeCleaned() {
 //                "data": "id",
 //                "visible": true },
             { "title":  "Room Number",
-                "data": "roomNumber" },  // 2022-06-08T08:09:18.922
+                "data": null },
             { "title":  "Cleaned",
                 "data": null,
                 "render": function (data, type, row) {
@@ -47,39 +52,85 @@ function initRoomsToBeCleaned() {
     // Define new table with above columns
     roomsToBeCleaned = $("#roomsToBeCleaned").DataTable( {
         "order": [[ 0, "asc" ]],
-        "columns": columns
+        "columns": columns,
     });
 }
-function getReservedRooms(){
+function getUncleanedRooms(){
 
-    console.log('inside getReservedRooms' );
+    console.log('inside getUncleanedRooms' );
     // http:/localhost:8080/api/reservation
     // json list of reservations
-    $.ajax({
-        url: api2,
-        type: "get",
-        dataType: "json",
-        // success: function(reservations, textStatus, jqXHR){
-        success: function(reservations){
- //           console.log('Data: ' + reservations );
-            if (reservations.length > 0) {
-            reservations.forEach(function(reservation) {
-                console.log(reservation.room.roomNumber)
-                    var rowData = [
-                        reservation.room.roomNumber, // Add room number to the "Room Number" column
-                        false // Set cleanedStatus to empty by default
-                    ];
-
-                    // Add the new row data to the specific columns of the DataTable
-                    roomsToBeCleaned.row.add(rowData);
-                });
-
-                // Redraw the table to reflect the changes
-                roomsToBeCleaned.draw();
+       $.ajax({
+            url: api,
+            type: "get",
+            dataType: "json",
+            success: function(rooms){
+                if (rooms.length > 0) {
+                rooms.forEach(function(room) {
+                if (room.cleaned == false){
+    //console.log(reservation.checkOutDate)
+                        roomsToBeCleaned.row.add(room.roomNumber);
+                        }
+                    });
+                    // Redraw the table to reflect the changes
+                    roomsToBeCleaned.draw();
+                }
+            },
+            fail: function (error) {
+                console.log('Error: ' + error);
             }
-        },
-        fail: function (error) {
-            console.log('Error: ' + error);
+        });
+//    $.ajax({
+//        url: api2,
+//        type: "get",
+//        dataType: "json",
+//        success: function(reservations){
+//            if (reservations.length > 0) {
+//            reservations.forEach(function(reservation) {
+//            var today = new Date(); // Get the current local date
+//            var todayDate = today.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+//            if (reservation.checkOutDate == todayDate){
+////console.log(reservation.checkOutDate)
+//                console.log(reservation.room.roomNumber);
+//                    roomsToBeCleaned.row.add(reservation.room.roomNumber);
+//                    }
+//                });
+//                // Redraw the table to reflect the changes
+//                roomsToBeCleaned.draw();
+//            }
+//        },
+//        fail: function (error) {
+//            console.log('Error: ' + error);
+//        }
+//    });
+}
+function deleteSelectedRows() {
+
+    roomsToBeCleaned.rows().every(function() {
+        var checkbox = $(this.node()).find('input[type="checkbox"]');
+        var roomNumber = this.data(); // Assuming the room number column is at index 0
+        console.log(roomNumber);
+
+        if (checkbox.is(":checked")) {
+        var criteria = {
+                  roomNumber: roomNumber,
+                  cleaned: true
+            }
+            console.log(criteria);
+                   $.ajax({
+                        url: api,
+                        type: "post",
+                        contentType: 'application/json', // Add this line // Добавьте эту строку
+                        data: JSON.stringify(criteria),
+                        success: function(rooms){
+                        },
+                        fail: function (error) {
+                            console.log('Error: ' + error);
+                        }
+                    });
         }
     });
+
+
+
 }
