@@ -51,6 +51,15 @@ public class RoomController {
             return ResponseEntity.notFound().build();
         }
     }
+    @PostMapping (value = "rooms", consumes = "application/json", produces = "application/json")
+
+    public ResponseEntity<?> setCleaned(@RequestBody final Room room) {
+//        List<Room> rooms = roomService.findAllCleanedFalse();
+        Room foundRoom = roomService.findByRoomNumber(room.getRoomNumber());
+        foundRoom.setCleaned(true);
+        roomService.save(foundRoom);
+        return null;
+    }
     @PostMapping(value = "/room/available", consumes = "application/json", produces = "application/json")
     public ResponseEntity<List<Room>> getAvailableRooms(
             @RequestBody final Room room,
