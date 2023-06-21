@@ -1,11 +1,8 @@
 package com.application.service;
 
-import com.application.model.Reservation;
 import com.application.model.Room;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-import com.application.model.Room;
 import java.util.Optional;
 
 public interface RoomService {
