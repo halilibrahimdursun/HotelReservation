@@ -38,6 +38,7 @@ public class ReservationController {
         logger.info("Inside 'saveReservation'");
 
         Room room = roomService.findByRoomNumber( reservation.getRoom().getRoomNumber());
+        room.setCleaned(false);
         reservation.setRoom(room);
         reservationService.save(reservation);
         return ResponseEntity.ok(reservation) ;

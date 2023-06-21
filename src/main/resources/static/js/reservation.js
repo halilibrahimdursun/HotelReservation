@@ -20,7 +20,7 @@ function init(){
             alert("Select reservation first");
         }else{
             var reservation = reservationTable.row($('.selected')).data();
-            alert(reservation.id);
+//            alert(reservation.id);
             $("#id").val(reservation.id);
             $("#checkInDate").val(reservation.checkInDate);
             $("#checkOutDate").val(reservation.checkOutDate);
@@ -121,7 +121,7 @@ function initReservationTable() {
 
      // Create columns (with titles) for datatable: id, name, address, age
         columns = [
-            { "title":  "Reservation ID",
+            { "title":  "ID",
                 "data": "id",
                 "visible": true },
             { "title":  "Check-in", "data": "checkInDate" },  // 2022-06-08
@@ -145,7 +145,11 @@ function initReservationTable() {
     // Define new table with above columns
     reservationTable = $("#reservationTable").DataTable( {
         "order": [[ 0, "asc" ]],
-        "columns": columns
+        "columns": columns,
+         "columnDefs": [
+            { "width": "200px", "targets": 1 },
+            { "width": "200px", "targets": 2 },
+          ]
     });
 
 

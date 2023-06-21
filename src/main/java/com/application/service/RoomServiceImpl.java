@@ -80,5 +80,19 @@ public class RoomServiceImpl implements RoomService {
     public Room findByRoomNumber(int roomNumber) {
         return roomRepository.findByRoomNumber( roomNumber);
     }
+    @Override
+    public List<Room> findAllCleanedFalse() {
+        Iterable<Room> allRooms = roomRepository.findAll();
+
+        List<Room> notCleanedRooms = new ArrayList<>();
+        for( Room room: allRooms){
+
+            if(!room.isCleaned()) {
+                notCleanedRooms.add(room);
+            }
+        }
+
+        return notCleanedRooms;
+    }
 }
 
