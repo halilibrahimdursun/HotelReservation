@@ -12,7 +12,7 @@
                     <span sec:authorize ="isAuthenticated()"><span>Hello</span> <span sec:authentication="name"/>!</span>
 
                     <a th:href="index.html">| Homepage |</a>
-                    <a sec:authorize ="hasAnyRole('ADMIN', 'CLEAN')" th:href="@{/room}">Rooms |</a>
+                    <a sec:authorize ="hasAnyRole('ADMIN', 'CLEAN', 'USER')" th:href="@{/room}">Rooms |</a>
 <!--                    <a sec:authorize ="hasAnyRole('ADMIN', 'USER')" th:href="@{/customer}">Customers |</a>-->
                     <a sec:authorize ="hasAnyRole('ADMIN', 'USER')" th:href="@{/reservation}">Reservations |</a>
 

@@ -6,9 +6,7 @@
     <title>Reservation page</title>
     <style th:include="fragments/head :: styles" th:remove="tag"></style>
     <script th:include="fragments/head :: scripts" th:remove="tag"></script>
-    <!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
     <script src="js/reservation.js"></script>
-
 
     <script>
         $( document ).ready(function() {
@@ -19,8 +17,12 @@
 
 </head>
 <body>
-<div th:insert="/fragments/menu :: menu"></div>
 <div th:insert="/fragments/header :: header"></div>
+<li></li>
+<div th:insert="/fragments/menu :: menu"></div>
+<li></li>
+<li></li>
+
 <p>
 <div class="container">
     <table id="reservationTable" class="display mx-auto"></table>
@@ -109,17 +111,16 @@
             <div class="modal-footer justify-content-center">
                 <button type="button" id="deleteReservationConfirmButton" class="btn btn-danger" data-dismiss="modal">Delete</button>
                 <button type="button" class="btn btn-secondary room-close-button" data-dismiss="modal">Cancel</button>
-
             </div>
-
         </div>
-
     </div>
 </div>
 
+<li></li>
+<li></li>
 
-<div th:insert="/fragments/footer :: footer">
-</div>
+
+<div th:insert="/fragments/footer :: footer"></div>
 
 <script src="js/translate.js"></script>
 <script src="js/room-single.js"></script>

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta th:insert="fragments/head :: metas" th:remove="tag"/>
-  <title>Login page</title>
-  <style th:insert="fragments/head :: styles" th:remove="tag"/>
-  <script th:insert="fragments/head :: scripts" th:remove="tag"/>
+  <meta th:include="fragments/head :: metas" th:remove="tag"/>
+<!--  <title>Login page</title>-->
+  <style th:include="fragments/head :: styles" th:remove="tag"></style>
+  <script th:include="fragments/head :: scripts" th:remove="tag"></script>
 
 </head>
 <body>
 
+<div th:insert="/fragments/header :: header"></div>
+
+<li></li>
+<li></li>
+
+
 <div class="container">
-  <h1>Login page</h1>
+<!--  <h1>Login page</h1>-->
   <p th:if="${loginError}" class="error">Wrong user or password</p>
   <form th:action="@{/login}" method="post">
     <div class="form-outline mb-4">
@@ -21,9 +27,22 @@
       <label class="form-label" for="password">Password</label>:
       <input type="password" class="form-control" id="password" name="password" /> <br />
     </div>
-    <input type="submit" value="Log in" />
+    <input type="submit" value="Login" />
 <!--    <a href="/forgot-password">Forgot password?</a>-->
   </form>
 </div>
+
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+
+
+
+
+
+<div th:insert="/fragments/footer :: footer"></div>
+<script src="js/translate.js"></script>
 </body>
 </html>
