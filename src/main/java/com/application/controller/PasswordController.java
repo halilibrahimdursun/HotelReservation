@@ -33,13 +33,13 @@ public class PasswordController {
 
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("dsms@ukr.net", "mRFQxonSbAAPl3Zg");
+                return new PasswordAuthentication("name", "pass");
             }
         });
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("dsms@ukr.net"));
+            message.setFrom(new InternetAddress("name"));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
             message.setSubject("Reset password");
 
